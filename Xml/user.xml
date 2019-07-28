@@ -48,4 +48,20 @@
     <role>Admin</role>
     <ic>t</ic>
   </user>
+  <user>
+    <userid>8</userid>
+    <username>zx</username>
+    <password>zx</password>
+    <email>zx</email>
+    <role>Admin</role>
+    <ic>zx</ic>
+  </user>
+  <user>
+    <userid>9</userid>
+    <username>xc</username>
+    <password>xc</password>
+    <email>xc</email>
+    <role>Admin</role>
+    <ic>xc</ic>
+  </user>
 </users>
