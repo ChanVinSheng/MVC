@@ -32,4 +32,20 @@
     <role>Admin</role>
     <ic>1233</ic>
   </user>
+  <user>
+    <userid>6</userid>
+    <username>z</username>
+    <password>z</password>
+    <email>wy</email>
+    <role>Admin</role>
+    <ic>z</ic>
+  </user>
+  <user>
+    <userid>7</userid>
+    <username>t</username>
+    <password>t</password>
+    <email>t</email>
+    <role>Admin</role>
+    <ic>t</ic>
+  </user>
 </users>

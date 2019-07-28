@@ -1,6 +1,9 @@
 <?php
 
 require 'Models/StaffModel.php';
+require_once 'StrategyValidation/Validator.php';
+require_once 'StrategyValidation/ValidationEmail.php';
+require_once 'StrategyValidation/ValidationIc.php';
 
 class AdminAddController extends Controller {
 
@@ -41,7 +44,7 @@ class AdminAddController extends Controller {
 
             $ic = $_POST["ic"];
             if (!empty($ic)) {
-                $contextIc = new Validator(new ValidationEmail());
+                $contextIc = new Validator(new ValidationIc());
                 $icExist = $contextIc->executeExistStrategy($ic);
                 if (!$icExist) {
                     $errorMessage .= "IC already exist \\n";
@@ -65,8 +68,10 @@ class AdminAddController extends Controller {
 
 
                 $this->model->insert($username, $password, $email, $ic, $role);
-             } else {
-                  }
+                echo "<script>alert(\"Successfully Added\"); window.location.href=\"AdminAddController\";</script>";
+            } else {
+                echo "<script>alert(\"$errorMessage\"); window.location.href=\"AdminAddController\";</script>";
+            }
         }
         $this->view->render('AdminAddView');
     }

@@ -1,5 +1,5 @@
 <div class="container h-100">
-            <form action="adminhomecontroller" method="post" >
+            <form action="adminaddcontroller" method="post" >
                 <table class="form">
                     <tr>
                         <th><label for="email"><strong>Email:</strong></label></th>

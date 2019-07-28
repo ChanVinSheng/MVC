@@ -22,13 +22,13 @@
                             <?php if ($_SESSION['role'] == 'Admin') { ?>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../View/AdminHome.php">Home</a>
+                                    <a class="nav-link" href="<?php echo URL; ?>adminhomecontroller">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../View/AdminAddUser.php">Add user</a>
+                                    <a class="nav-link" href="<?php echo URL; ?>adminaddcontroller">Add user</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../View/AdminAddUser.php">Modify user</a>
+                                    <a class="nav-link" href="<?php echo URL; ?>adminmodifycontroller">Modify user</a>
                                 </li>
 
 

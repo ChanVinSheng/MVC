@@ -1,6 +1,6 @@
 <?php
 
-class ValidationEmail implements Strategy {
+class ValidationEmail extends Model implements Strategy {
 
     public function doValidation($input) {
 
@@ -26,8 +26,7 @@ class ValidationEmail implements Strategy {
 
     public function checkExist($input) {
 
-        $dbemail = Database::get();
-        $rows = $dbemail->select("email FROM user WHERE email = :email", [':email' => $input]);
+        $rows = $this->db->select("email FROM user WHERE email = :email", [':email' => $input]);
         foreach ($rows as $row) {
             $Exist = $row->email;
         }

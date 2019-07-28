@@ -14,7 +14,7 @@
 class StaffModel extends Model {
 
     function __construct() {
-        
+         parent::__construct();
     }
 
     function insert($username,$password,$email,$ic,$role) {

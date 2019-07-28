@@ -1,7 +1,7 @@
 <?php
 
 
-class ValidationIc implements Strategy {
+class ValidationIc extends Model implements Strategy {
 
     public function doValidation($input) {
         
@@ -15,8 +15,8 @@ class ValidationIc implements Strategy {
 
      public function checkExist($input) {
 
-        $dbic = Database::get();
-        $rows = $dbic->select("ic FROM user WHERE ic = :ic", [':ic' => $input]);
+
+        $rows = $this->db->select("ic FROM user WHERE ic = :ic", [':ic' => $input]);
         foreach ($rows as $row) {
             $Exist = $row->ic;
         }
