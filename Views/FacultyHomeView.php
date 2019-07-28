@@ -2,6 +2,6 @@
 <div class="container">
 
     <form  action = "FacultyHomeController" method = "POST">
-        <input type="submit" name="Faculty" value="Faculty" />
+        <p>hello</p>
     </form>
 </div>
