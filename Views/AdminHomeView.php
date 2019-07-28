@@ -1,7 +1,7 @@
 
 <div class="container">
 
-    <form  action = "adminhome" method = "POST">
+    <form  action = "adminhomecontroller" method = "POST">
         <input type="submit" name="All" value="All" />
         <input type="submit" name="Admin" value="Admin" />
     </form>

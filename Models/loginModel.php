@@ -37,7 +37,7 @@ class loginModel extends Model {
                 session_start();
                 $_SESSION['role'] = $rows->role;
                 if ($rows->role == "Admin") {
-                    echo "<script>alert(\"Login successful.\"); window.location.href=\"../adminhome\";</script>";
+                    echo "<script>alert(\"Login successful.\"); window.location.href=\"../adminhomecontroller\";</script>";
                     // echo "<script>alert(\"Login successful.\");</script>";
                 } elseif ($rows->role == "Faculty") {
                     echo "<script>alert(\"Login successful.\")</script>";

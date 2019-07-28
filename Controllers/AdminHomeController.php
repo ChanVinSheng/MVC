@@ -3,7 +3,7 @@
 require_once 'Models/XmlGenerate.php';
 require_once 'Models/userSAXParser.php';
 
-class AdminHome extends Controller {
+class AdminHomeController extends Controller {
 
     function __construct() {
         parent::__construct();
@@ -52,7 +52,7 @@ class AdminHome extends Controller {
         }
 
 
-        $this->view->render('AdminHome');
+        $this->view->render('AdminHomeView');
     }
 
 }
