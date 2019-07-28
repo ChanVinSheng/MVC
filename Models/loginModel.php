@@ -38,19 +38,10 @@ class loginModel extends Model {
                 $_SESSION['role'] = $rows->role;
                 if ($rows->role == "Admin") {
                     echo "<script>alert(\"Login successful.\"); window.location.href=\"../adminhomecontroller\";</script>";
-                    // echo "<script>alert(\"Login successful.\");</script>";
                 } elseif ($rows->role == "Faculty") {
-                    echo "<script>alert(\"Login successful.\")</script>";
-                    header('location: ../index');
-
-
-                    echo "<script>alert(\"Login successful.\")</script>";
-                    header('location: ../index');
+                    echo "<script>alert(\"Login successful.\"); window.location.href=\"../FacultyHomeController\";</script>";
                 } elseif ($rows->role == "Depertmant") {
-
-
-                    echo "<script>alert(\"Login successful.\")</script>";
-                    header('location: ../index');
+                    echo "<script>alert(\"Login successful.\"); window.location.href=\"../DepartmentHomeController\";</script>";
                 }
             } else {
                 echo "<script>alert(\"Email Or Password is wrong\")</script>";
