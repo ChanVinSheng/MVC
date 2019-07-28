@@ -34,13 +34,19 @@ class loginModel extends Model {
 
         if (empty($errorMessage)) {
             if (!empty($rows->role)) {
+                session_start();
                 $_SESSION['role'] = $rows->role;
                 if ($rows->role == "Admin") {
-                    session_start();
-                    $_SESSION['role'] = $rows->role;
                     echo "<script>alert(\"Login successful.\"); window.location.href=\"../adminhome\";</script>";
                     // echo "<script>alert(\"Login successful.\");</script>";
-                } elseif ($rows->role == "Staff") {
+                } elseif ($rows->role == "Faculty") {
+                    echo "<script>alert(\"Login successful.\")</script>";
+                    header('location: ../index');
+
+
+                    echo "<script>alert(\"Login successful.\")</script>";
+                    header('location: ../index');
+                } elseif ($rows->role == "Depertmant") {
 
 
                     echo "<script>alert(\"Login successful.\")</script>";

@@ -7,7 +7,6 @@ class login extends Controller {
     private $model;
 
     function __construct() {
-
         $this->model = new loginModel();
         parent::__construct();
     }
