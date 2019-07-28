@@ -1,9 +1,7 @@
 <?php
 
-require_once 'Models/XmlGenerate.php';
-require_once 'Models/userSAXParser.php';
 
-class AdminHomeController extends Controller {
+class FacultyHomeController extends Controller {
 
     function __construct() {
         parent::__construct();
@@ -15,9 +13,9 @@ class AdminHomeController extends Controller {
 
     function index() {
 
-        echo "hello";
+        
 
-        $this->view->render('AdminHomeView');
+        $this->view->render('FacultyHomeView');
     }
 
 }
