@@ -18,15 +18,36 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">                    
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo URL; ?>AdminHome">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo URL; ?>index">Add User</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo URL; ?>errorpage">Modify User</a>
-                        </li>
+                        <?php if (isset($_SESSION['role'])) { ?>
+                            <?php if ($_SESSION['role'] == 'Admin') { ?>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../View/AdminHome.php">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../View/AdminAddUser.php">Add user</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../View/AdminAddUser.php">Modify user</a>
+                                </li>
+
+
+                            <?php } elseif ($_SESSION['role'] == 'Faculty') { ?>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../View/AdminHome.php">WY</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../View/AdminAddUser.php">WY2 user</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../View/AdminAddUser.php">WY3 user</a>
+                                </li>
+
+                            <?php } ?>
+                        <?php } else { ?>
+                            <p>Invalid</p>
+                        <?php } ?>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <a class="btn btn-outline-success my-2 my-sm-0" href="<?php echo URL; ?>login/logout" type="submit" onclick="return confirm('Confirm Logout?');">Log out</a>                      
@@ -34,3 +55,4 @@
                 </div>
             </nav>
         </header>
+
