@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <user>
+    <userid>1</userid>
+    <username>bob</username>
+    <password>123</password>
+    <email>123@gmail.com</email>
+    <role>Admin</role>
+    <ic>123</ic>
+  </user>
+  <user>
+    <userid>2</userid>
+    <username>sam</username>
+    <password>123</password>
+    <email>sam@gmail.com</email>
+    <role>Staff</role>
+    <ic>123</ic>
+  </user>
+  <user>
+    <userid>4</userid>
+    <username>c</username>
+    <password>c</password>
+    <email>123</email>
+    <role>Admin</role>
+    <ic/>
+  </user>
+  <user>
+    <userid>5</userid>
+    <username>123</username>
+    <password>123</password>
+    <email>tanjh-wa14@student.tarc.edu.my</email>
+    <role>Admin</role>
+    <ic>1233</ic>
+  </user>
+</users>
