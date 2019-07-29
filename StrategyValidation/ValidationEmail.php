@@ -7,7 +7,7 @@ class ValidationEmail extends Model implements Strategy {
         $count = 1;
         $message = "";
         if (!filter_var($input, FILTER_VALIDATE_EMAIL)) {
-            $message .= "invalid email \\n";
+            $message = "invalid email \\n";
             $count = 0;
         }
 
@@ -17,7 +17,7 @@ class ValidationEmail extends Model implements Strategy {
             $email = explode('@', $input);
 
             if (!in_array(end($email), $whitelistDomains)) {
-                $message .= "invalid domain \\n";
+                $message = "invalid domain \\n";
             }
         }
 

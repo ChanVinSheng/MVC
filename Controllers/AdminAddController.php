@@ -56,9 +56,14 @@ class AdminAddController extends Controller {
             $email = $_POST["email"];
             if (!empty($email)) {
                 $contextEmail = new Validator(new ValidationEmail());
-                $emailExist = $contextEmail->executeExistStrategy($email);
-                if (!$emailExist) {
-                    $errorMessage .= "Email already exist \\n";
+                $emailinvalid = $contextEmail->executeValidatorStrategy($email);
+                if (!empty($emailinvalid)) {
+                    $errorMessage .= $emailinvalid;
+                } else {
+                    $emailExist = $contextEmail->executeExistStrategy($email);
+                    if (!$emailExist) {
+                        $errorMessage .= "Email already exist \\n";
+                    }
                 }
             } else {
                 $errorMessage .= "email is required \\n";
