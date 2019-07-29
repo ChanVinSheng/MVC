@@ -1,5 +1,5 @@
 <?php
-class FacultyAddProgrammeModel extends Model {
+class FacultyProgrammeModel extends Model {
 
     function __construct() {
          parent::__construct();

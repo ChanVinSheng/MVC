@@ -1,13 +1,13 @@
 <?php
 
-require 'Models/FacultyAddCourseModel.php';
+require 'Models/FacultyCourseModel.php';
 
 class FacultyAddCourseController extends Controller {
 
     private $model;
 
     function __construct() {
-        $this->model = new FacultyAddCourseModel();
+        $this->model = new FacultyCourseModel();
         parent::__construct();
         session_start();
         if (!isset($_SESSION['role'])) {
