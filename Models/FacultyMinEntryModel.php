@@ -1,5 +1,5 @@
 <?php
-class FacultyAddMinEntryModel extends Model {
+class FacultyMinEntryModel extends Model {
 
     function __construct() {
          parent::__construct();

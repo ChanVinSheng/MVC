@@ -1,13 +1,13 @@
 <?php
 
-require 'Models/FacultyAddMinEntryModel.php';
+require 'Models/FacultyMinEntryModel.php';
 
 class FacultyAddMinEntryController extends Controller {
 
     private $model;
 
     function __construct() {
-        $this->model = new FacultyAddMinEntryModel();
+        $this->model = new FacultyMinEntryModel();
         parent::__construct();
         session_start();
         if (!isset($_SESSION['role'])) {
