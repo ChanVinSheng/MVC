@@ -39,4 +39,21 @@ class StaffModel extends Model {
         $this->db->delete('user', $where);
     }
 
+    function retrieveSpecficStaffbyId($userid) {
+        $rows = $this->db->select("* FROM user WHERE userid = :userid ", [':userid' => $userid]);
+        return $rows;
+    }
+
+    function update($userid , $username, $password, $email, $ic, $role) {
+         $data = array(
+            'username' => $username,
+            'password' => $password,
+            'email' => $email,
+            'ic' => $ic,
+            'role' => $role
+        );
+        $where = array('userid' => $userid);
+        $this->db->update('user', $data, $where);
+    }
+
 }

@@ -77,8 +77,9 @@ class AdminAddController extends Controller {
             } else {
                 echo "<script>alert(\"$errorMessage\"); window.location.href=\"AdminAddController\";</script>";
             }
+        } else {
+            $this->view->render('AdminAddView');
         }
-        $this->view->render('AdminAddView');
     }
 
 }

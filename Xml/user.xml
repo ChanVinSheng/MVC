@@ -9,11 +9,27 @@
     <ic>123</ic>
   </user>
   <user>
-    <userid>2</userid>
-    <username>sam</username>
-    <password>123</password>
-    <email>sam@gmail.com</email>
-    <role>Staff</role>
-    <ic>123</ic>
+    <userid>5</userid>
+    <username>asd</username>
+    <password>xcv</password>
+    <email>xcv</email>
+    <role>xcv</role>
+    <ic>xcv</ic>
+  </user>
+  <user>
+    <userid>6</userid>
+    <username>fsd</username>
+    <password>fds</password>
+    <email>fsd</email>
+    <role>sdf</role>
+    <ic>sdf</ic>
+  </user>
+  <user>
+    <userid>7</userid>
+    <username>7865</username>
+    <password>578</password>
+    <email>758</email>
+    <role>758</role>
+    <ic>578</ic>
   </user>
 </users>
