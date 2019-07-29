@@ -44,8 +44,8 @@
                                         <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="<?php echo URL; ?>Faculty">View All Programmes</a>
-                                            <a class="dropdown-item" href="<?php echo URL; ?>Faculty">Add Programme</a>
+                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyViewProgrammeController">View All Programmes</a>
+                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddProgrammeController">Add Programme</a>
                                         </div>
                                     </div>
 
@@ -54,8 +54,8 @@
                                         <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="<?php echo URL; ?>Faculty">View All Courses</a>
-                                            <a class="dropdown-item" href="<?php echo URL; ?>Faculty">Add Course</a>
+                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyViewCourseController">View All Courses</a>
+                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddCourseController">Add Course</a>
                                         </div>
                                     </div>
                                     
@@ -64,8 +64,8 @@
                                         <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="<?php echo URL; ?>Faculty">View All Minimum Entries</a>
-                                            <a class="dropdown-item" href="<?php echo URL; ?>Faculty">Add Minimum Entry</a>
+                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyViewMinEntryController">View All Minimum Entries</a>
+                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddMinEntryController">Add Minimum Entry</a>
                                         </div>
                                     </div>
 
@@ -74,8 +74,8 @@
                                         <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="<?php echo URL; ?>Faculty">View All Professional Curriculum</a>
-                                            <a class="dropdown-item" href="<?php echo URL; ?>Faculty">Add Professional Curriculum</a>
+                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyViewCurriculumController">View All Professional Curriculum</a>
+                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddCurriculumController">Add Professional Curriculum</a>
                                         </div>
                                     </div>
 
@@ -84,8 +84,8 @@
                                         <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="<?php echo URL; ?>Faculty">View All Campuses</a>
-                                            <a class="dropdown-item" href="<?php echo URL; ?>Faculty">Add Campus</a>
+                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyViewCampusController">View All Campuses</a>
+                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddCampusController">Add Campus</a>
                                         </div>
                                     </div>
 
