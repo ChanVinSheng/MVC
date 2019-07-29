@@ -32,7 +32,11 @@ class StaffModel extends Model {
         $rows = $this->db->select("* FROM user");
 
         return $rows;
+    }
 
+    function delete($data) {
+        $where = array('userid' => $data);
+        $this->db->delete('user', $where);
     }
 
 }

@@ -28,7 +28,9 @@ class AdminModifyController extends Controller {
                 echo "EDIT";
             }
             if (isset($_POST["delete"])) {
-                echo "DELETE";
+                $userid = $_POST["delete"];
+                $this->model->delete($userid);
+                echo "<script>alert(\"Successfully Delete\"); window.location.href=\"http://localhost/MVC/AdminModifyController\";</script>";
             }
         }
     }
