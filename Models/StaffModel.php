@@ -14,10 +14,10 @@
 class StaffModel extends Model {
 
     function __construct() {
-         parent::__construct();
+        parent::__construct();
     }
 
-    function insert($username,$password,$email,$ic,$role) {
+    function insert($username, $password, $email, $ic, $role) {
         $data = array(
             'username' => $username,
             'password' => $password,
@@ -26,6 +26,13 @@ class StaffModel extends Model {
             'role' => $role
         );
         $this->db->insert('user', $data);
+    }
+
+    function retrieveAllStaff() {
+        $rows = $this->db->select("* FROM user");
+
+        return $rows;
+
     }
 
 }

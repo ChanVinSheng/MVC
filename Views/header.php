@@ -93,7 +93,7 @@
                                 </div>
                             <?php } ?>
                         <?php } else { ?>
-                            <p>Invalid</p>
+                            <p>NO HEADER</p>
                         <?php } ?>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
