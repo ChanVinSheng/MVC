@@ -11,5 +11,12 @@ class FacultyCampusModel extends Model {
         );
         $this->db->insert('campus', $data);
     }
+    
+    function retrieveAllCampus() {
+        $rows = $this->db->select("* FROM campus");
+
+        return $rows;
+
+    }
 
 }

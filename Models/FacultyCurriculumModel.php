@@ -12,5 +12,12 @@ class FacultyCurriculumModel extends Model {
         );
         $this->db->insert('professionalcurriculum', $data);
     }
+    
+    function retrieveAllCurriculum() {
+        $rows = $this->db->select("* FROM professionalcurriculum");
+
+        return $rows;
+
+    }
 
 }

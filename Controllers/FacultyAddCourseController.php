@@ -25,7 +25,8 @@ class FacultyAddCourseController extends Controller {
             $this->model->insert($coursecode, $cousename, $courseinfo, $credithour);
             echo "<script>alert(\"Successfully Added\"); window.location.href=\"FacultyAddCourseController\";</script>";
         }
-        $this->view->render('FacultyAddCourseView');
+        else
+            $this->view->render('FacultyAddCourseView');
     }
 
 }

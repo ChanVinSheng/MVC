@@ -22,7 +22,8 @@ class FacultyAddMinEntryController extends Controller {
             $this->model->insert($minentryname);
             echo "<script>alert(\"Successfully Added\"); window.location.href=\"FacultyAddMinEntryController\";</script>";
         }
-        $this->view->render('FacultyAddMinEntryView');
+        else
+            $this->view->render('FacultyAddMinEntryView');
     }
 
 }

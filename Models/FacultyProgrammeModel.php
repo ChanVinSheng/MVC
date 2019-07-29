@@ -5,16 +5,21 @@ class FacultyProgrammeModel extends Model {
          parent::__construct();
     }
 
-    function insert($programmecode,$description,$duration,$fees,$levelofstudy,$facultyid) {
+    function insert($programmecode,$description,$duration,$levelofstudy,$facultyid) {
         $data = array(
             '$programmecode' => $programmecode,
             '$description' => $description,
             '$duration' => $duration,
-            '$fees' => $fees,
             '$levelofstudy' => $levelofstudy,
             '$facultyid' => $facultyid
         );
         $this->db->insert('programme', $data);
+    }
+    
+    function retrieveAllProgramme() {
+        $rows = $this->db->select("* FROM programme");
+
+        return $rows;
     }
 
 }
