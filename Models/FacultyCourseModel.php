@@ -14,5 +14,12 @@ class FacultyCourseModel extends Model {
         );
         $this->db->insert('courses', $data);
     }
+    
+    function retrieveAllCourse() {
+        $rows = $this->db->select("* FROM courses");
+
+        return $rows;
+
+    }
 
 }

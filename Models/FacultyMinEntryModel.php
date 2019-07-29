@@ -11,5 +11,12 @@ class FacultyMinEntryModel extends Model {
         );
         $this->db->insert('minentry', $data);
     }
+    
+    function retrieveAllMinEntry() {
+        $rows = $this->db->select("* FROM minentry");
+
+        return $rows;
+
+    }
 
 }

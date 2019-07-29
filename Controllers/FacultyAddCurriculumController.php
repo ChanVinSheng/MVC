@@ -23,7 +23,8 @@ class FacultyAddCurriculumController extends Controller {
             $this->model->insert($curriculumname,$curriculumdesc);
             echo "<script>alert(\"Successfully Added\"); window.location.href=\"FacultyAddCurriculumController\";</script>";
         }
-        $this->view->render('FacultyAddCurriculumView');
+        else
+            $this->view->render('FacultyAddCurriculumView');
     }
 
 }
