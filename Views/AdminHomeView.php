@@ -2,8 +2,6 @@
 <div class="container">
     <h1>Staff Information</h1>
     <hr>
-    <?php echo $this->xml; ?>
-    <hr>
     <form  action = "adminhomecontroller" method = "POST">  
         <p>
             <button type="submit" name="All" value="All" class = "btn btn-info">
@@ -11,8 +9,20 @@
             </button>
 
             <button type="submit" name="Admin" value="Admin" class = "btn btn-info">
-                Admin
+                Admin 
+            </button>
+
+            <button type="submit" name="Faculty" value="Faculty" class = "btn btn-info">
+                Faculty 
+            </button>
+            <button type="submit" name="Department" value="Department" class = "btn btn-info">
+                Department 
             </button>
         </p>
     </form>
+    <hr>
+
+    <?php echo $this->xml; ?>
+    <hr>
+
 </div>

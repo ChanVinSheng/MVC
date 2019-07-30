@@ -23,6 +23,18 @@ class AdminHomeController extends Controller {
             $proc->importStylesheet(DOMDocument::load("Xls/userAdmin.xsl")); //load XSL script
             $proc->transformToXML(DOMDocument::load("Xml/user.xml"));
             $this->view->xml = $proc->transformToXML(DOMDocument::load("Xml/user.xml"));
+        } elseif (isset($_POST["Faculty"])) {
+            $xml->databaseToXmlWithSlt("user", "user.xml", "userFaculty");
+            $proc = new XsltProcessor;
+            $proc->importStylesheet(DOMDocument::load("Xls/userFaculty.xsl")); //load XSL script
+            $proc->transformToXML(DOMDocument::load("Xml/user.xml"));
+            $this->view->xml = $proc->transformToXML(DOMDocument::load("Xml/user.xml"));
+        } elseif (isset($_POST["Department"])) {
+            $xml->databaseToXmlWithSlt("user", "user.xml", "userDepartment");
+            $proc = new XsltProcessor;
+            $proc->importStylesheet(DOMDocument::load("Xls/userDepartment.xsl")); //load XSL script
+            $proc->transformToXML(DOMDocument::load("Xml/user.xml"));
+            $this->view->xml = $proc->transformToXML(DOMDocument::load("Xml/user.xml"));
         } else {
             $xml->databaseToXml("user", "user.xml");
             $sax = new userSAXParser("user");
@@ -30,7 +42,8 @@ class AdminHomeController extends Controller {
 
             $output = "<h3>All Staff</h3>";
             $output .= "<hr />";
-            $output .= '<table border="1">';
+            $output .= '<table class="table">';
+            $output .= '<thead>';
             $output .= '<tr bgcolor="#9acd32">';
             $output .= "<th>User ID</th>";
             $output .= "<th>User Name</th>";
@@ -38,6 +51,7 @@ class AdminHomeController extends Controller {
             $output .= "<th>Email</th>";
             $output .= "<th>Role</th>";
             $output .= "</tr>";
+            $output .= '</thead>';
             foreach ($userdata as $user) {
                 $output .= "<tr>";
                 $output .= "<td>" . $user['USERID'] . "</td>";
