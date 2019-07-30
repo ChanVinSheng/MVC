@@ -6,11 +6,11 @@
         <table class="form" align="center" cellpadding="7" cellspacing="7">
             <tr>
                 <th><label for="curriculumname"><strong>Professional Curriculum Name: </strong></label></th>
-                <td><input name="curriculumname" type="text" class="form-control" placeholder="Enter Curriculum Name" required  /></td>
+                <td><input name="curriculumname" type="text" class="form-control" placeholder="Enter Curriculum Name" style="width: 350px;" required  /></td>
             </tr>
             <tr>
                 <th><label for="curriculumdesc"><strong>Professional Curriculum Description: </strong></label></th>
-                <td><input name="curriculumdesc" type="text" class="form-control" placeholder="Enter Curriculum Description" required  /></td>
+                <td><input name="curriculumdesc" type="text" class="form-control" placeholder="Enter Curriculum Description" style="width: 350px;" required  /></td>
             </tr>
             <tr>
                 <td></td>
