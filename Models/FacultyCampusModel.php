@@ -23,7 +23,7 @@ class FacultyCampusModel extends Model {
         return $rows;
     }
     
-    function update($id, $value, $column) {
+    function updateOne($id, $value, $column) {
          $data = array(
             $column => $value
         );

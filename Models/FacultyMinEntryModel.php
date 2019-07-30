@@ -18,5 +18,18 @@ class FacultyMinEntryModel extends Model {
         return $rows;
 
     }
+    
+    function retrievedByID($id) {
+        $rows = $this->db->select("* FROM minentry WHERE minentryid = :minentryid ", [':minentryid' => $id]);
+        return $rows;
+    }
+    
+    function updateOne($id, $value, $column) {
+         $data = array(
+            $column => $value
+        );
+        $where = array('minentryid' => $id);
+        $this->db->update('minentry', $data, $where);
+    }
 
 }

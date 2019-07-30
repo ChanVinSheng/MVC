@@ -6,7 +6,7 @@
         <table class="form" align="center" cellpadding="7" cellspacing="7">
             <tr>
                 <th><label for="minentryname"><strong>Minimum Entry Requirement: </strong></label></th>
-                <td><input name="minentryname" type="text" class="form-control" placeholder="e.g. Enter Minimum Entry" required  /></td>
+                <td><input name="minentryname" type="text" class="form-control" placeholder="Enter Minimum Entry" style="width: 350px;" required  /></td>
             </tr>
             <tr>
                 <td></td>

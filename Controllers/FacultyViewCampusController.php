@@ -8,8 +8,11 @@ class FacultyViewCampusController extends Controller {
 
     function __construct() {
         $this->model = new FacultyCampusModel();
-        session_start();
         parent::__construct();
+        session_start();
+        if (!isset($_SESSION['role'])) {
+            echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
+        }
     }
 
     function index() {
@@ -29,13 +32,13 @@ class FacultyViewCampusController extends Controller {
                 $campusid = $_POST["activate"];
                 $status = "active";
                 $column = "status";
-                $this->model->update($campusid, $status, $column);
+                $this->model->updateOne($campusid, $status, $column);
                 echo "<script>alert(\"Successfully Activate\"); window.location.href=\"http://localhost/MVC/FacultyViewCampusController\";</script>";    
             } elseif (isset($_POST["deactivate"])) {
                 $campusid = $_POST["deactivate"];
                 $status = "inactive";
                 $column = "status";
-                $this->model->update($campusid, $status, $column);
+                $this->model->updateOne($campusid, $status, $column);
                 echo "<script>alert(\"Successfully Deactivate\"); window.location.href=\"http://localhost/MVC/FacultyViewCampusController\";</script>";
             } else {
                 echo "<script>alert(\"Error returning\"); window.location.href=\"http://localhost/MVC/FacultyViewCampusController\";</script>";
@@ -49,9 +52,13 @@ class FacultyViewCampusController extends Controller {
                 $campusid = $_POST["done"];
                 $campusname = $_POST["campusname"];
                 $column = "campusname";
-                $this->model->update($campusid, $campusname, $column);
+                $this->model->updateOne($campusid, $campusname, $column);
                 echo "<script>alert(\"Successfully Modify\"); window.location.href=\"http://localhost/MVC/FacultyViewCampusController\";</script>";
-            } else {
+            }
+            elseif (isset($_POST["cancel"])) {
+                echo "<script>window.location.href=\"http://localhost/MVC/FacultyViewCampusController\";</script>";
+            } 
+            else {
                 echo "<script>alert(\"Unsuccessfully Modify\"); window.location.href=\"http://localhost/MVC/FacultyViewCampusController\";</script>";
             }
         } else {

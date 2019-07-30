@@ -9,24 +9,25 @@
         </thead>
         <tbody>
             <?php foreach ($this->row as $key): ?>
-            <tr>
-                <td><?php echo $key->campusid; ?></td>
-                <td><?php echo $key->campusname; ?></td>
+                <tr>
+                    <td><?php echo $key->campusid; ?></td>
+                    <td><?php echo $key->campusname; ?></td>
+            <form action="FacultyViewCampusController/modify" method="post" >
+                <td><button class="btn btn-info" type="submit" value="<?php echo $key->campusid; ?>" name="edit">Edit</button></td>
                 <td>
-                    <form action="FacultyViewCampusController/modify" method="post" >
-                        <button class="btn btn-info" type="submit" value="<?php echo $key->campusid; ?>" name="edit">Edit</button>
-                        <?php if($key->status == "active"){
+                    <?php if ($key->status == "active") {
                         ?>
                         <button class="btn btn-danger" type="submit" value="<?php echo $key->campusid; ?>" name="deactivate">Deactivate</button>
-                        <?php }else{
+                    <?php } else {
                         ?>
                         <button class="btn btn-success" type="submit" value="<?php echo $key->campusid; ?>" name="activate">Activate</button>
-                        <?php }
-                            ?>
-                        </form>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
+                    <?php }
+                    ?>
+                </td>
+            </form>
+            </td>
+            </tr>
+        <?php endforeach; ?>
         </tbody>
     </table>
 </div>

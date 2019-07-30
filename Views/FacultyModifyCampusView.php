@@ -14,8 +14,10 @@
                 <td><label><?php echo $key->campusid; ?></label></td>
                 <td><input name="campusname" type="text" value="<?php echo $key->campusname; ?>" style="width: 500px;" /></td>
                 <td>
-                    <button class="btn btn-info" type="submit" value="<?php echo $key->campusid; ?>" name="done" >Done</button>                             
-
+                    <button class="btn btn-info" type="submit" value="<?php echo $key->campusid; ?>" name="done" >Done</button>    
+                </td>
+                <td>
+                    <button class="btn btn-warning" type="submit" value="<?php echo $key->campusid; ?>" name="cancel" >Cancel</button>
                 </td>
             </form>
             </tr>

@@ -6,15 +6,15 @@
         <table class="form" align="center" cellpadding="7" cellspacing="7">
             <tr>
                 <th><label for="coursecode"><strong>Course Code: </strong></label></th>
-                <td><input name="coursecode" type="text" class="form-control" placeholder="e.g. BAIT3173..." required  /></td>
+                <td><input name="coursecode" type="text" class="form-control" placeholder="e.g. BAIT3173..." style="width: 350px;" required  /></td>
             </tr>
             <tr>
                 <th><label for="coursename"><strong>Course Name: </strong></label></th>
-                <td><input name="coursename" type="text" class="form-control" placeholder="e.g. Integrative Programming" required  /></td>
+                <td><input name="coursename" type="text" class="form-control" placeholder="e.g. Integrative Programming" style="width: 350px;" required  /></td>
             </tr>
             <tr>
                 <th><label for="courseinfo"><strong>Course Information: </strong></label></th>
-                <td><input name="courseinfo" type="text" class="form-control" placeholder="Enter Course Info" required  /></td>
+                <td><input name="courseinfo" type="text" class="form-control" placeholder="Enter Course Info" style="width: 350px;" required  /></td>
             </tr>
             <tr>
                 <th><label for="credithour"><strong>Credit Hour(s): </strong></label></th>
