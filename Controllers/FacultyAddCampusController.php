@@ -21,8 +21,7 @@ class FacultyAddCampusController extends Controller {
 
             $this->model->insert($campusname);
             echo "<script>alert(\"Successfully Added\"); window.location.href=\"FacultyAddCampusController\";</script>";
-        }
-        else
+        } else
             $this->view->render('FacultyAddCampusView');
     }
 

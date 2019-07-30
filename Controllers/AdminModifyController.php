@@ -10,6 +10,9 @@ class AdminModifyController extends Controller {
         $this->model = new StaffModel();
         session_start();
         parent::__construct();
+        if (!isset($_SESSION['role'])) {
+            echo "<script>alert(\"Access Denie.\"); window.location.href=\"login\";</script>";
+        }
     }
 
     function index() {
