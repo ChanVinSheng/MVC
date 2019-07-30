@@ -25,16 +25,24 @@
                         <?php if (isset($_SESSION['role'])) { ?>
                             <?php if ($_SESSION['role'] == 'Admin') { ?>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo URL; ?>adminhomecontroller">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo URL; ?>adminaddcontroller">Add user</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo URL; ?>adminmodifycontroller">Modify user</a>
-                                </li>
 
+
+                                <div class="container">
+                                    <div class="btn-group"><h2 style="color: white">--Admin Staff--</h2></div>
+                                    <div class="btn-group">
+                                        <a class="btn btn-warning" href="<?php echo URL; ?>adminhomecontroller">Home</a>
+                                    </div>
+                                    <div class="btn-group">
+                                        <a class="btn btn-warning" href="<?php echo URL; ?>adminaddcontroller">Add user</a>
+                                    </div>
+                                    <div class="btn-group">
+                                        <a class="btn btn-warning" href="<?php echo URL; ?>adminmodifycontroller">Modify user</a>
+                                    </div>
+
+
+
+
+                                </div>
 
                             <?php } elseif ($_SESSION['role'] == 'Faculty') { ?>
                                 <div class="container">
@@ -58,7 +66,7 @@
                                             <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddCourseController">Add Course</a>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-warning">Minimum Entry Requirement</button>
                                         <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">

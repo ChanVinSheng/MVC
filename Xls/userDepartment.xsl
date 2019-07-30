@@ -9,17 +9,17 @@
     <xsl:template match="/">
         <html>
             <head>
-                <title>Admin</title>
+                <title>Department</title>
                 <meta charset="utf-8"/>
                 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link href="http://localhost/MVC/public/css/bootstrap.min.css" rel="stylesheet"/>
             </head>
             <body>
-                <h3>Admin</h3>
+                <h3>Department</h3>
                 <hr />
                 <table class="table" >
-                    <tr bgcolor="33C7FF">
+                    <tr bgcolor="FF9333">
                         <th>Uesr id</th>
                         <th>User Name</th>
                         <th>Password</th>
@@ -27,7 +27,7 @@
                         <th>Role</th>
                     </tr>
                     <xsl:for-each select="users/user" >
-                        <xsl:if test="role='Admin'">   
+                        <xsl:if test="role='Department'">   
                             <tr>
                                 <td>
                                     <xsl:value-of select="userid"/>

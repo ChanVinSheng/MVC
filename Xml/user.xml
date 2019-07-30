@@ -32,4 +32,28 @@
     <role>758</role>
     <ic>578</ic>
   </user>
+  <user>
+    <userid>8</userid>
+    <username>jhg</username>
+    <password>oi</password>
+    <email>fsd?@gmail.com</email>
+    <role>Admin</role>
+    <ic>oi</ic>
+  </user>
+  <user>
+    <userid>9</userid>
+    <username>321</username>
+    <password>123</password>
+    <email>zxc@gmail.com</email>
+    <role>Faculty</role>
+    <ic>lk</ic>
+  </user>
+  <user>
+    <userid>10</userid>
+    <username>adf</username>
+    <password>123</password>
+    <email>qwe@gmail.com</email>
+    <role>Department</role>
+    <ic>453</ic>
+  </user>
 </users>

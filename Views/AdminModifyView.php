@@ -17,6 +17,7 @@
                     <td><?php echo $key->email; ?></td>
                     <td><?php echo $key->ic; ?></td>
                     <td><?php echo $key->role; ?></td>
+                    
                     <td>
                         <form action="adminmodifycontroller/modify" method="post" >
                             <button class="btn btn-info" type="submit" value="<?php echo $key->userid; ?>" name="edit">Edit</button>  
