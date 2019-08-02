@@ -4,6 +4,8 @@ require 'Models/StaffModel.php';
 require_once 'StrategyValidation/Validator.php';
 require_once 'StrategyValidation/ValidationEmail.php';
 require_once 'StrategyValidation/ValidationIc.php';
+require_once 'StrategyValidation/ValidationInput.php';
+require_once 'StrategyValidation/ValidationPassword.php';
 
 class AdminAddController extends Controller {
 
@@ -20,65 +22,65 @@ class AdminAddController extends Controller {
 
     function index() {
 
+
+        $this->view->render('AdminAddView');
+    }
+
+    function add() {
+
+
         $errorMessage = "";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $password = $_POST["password"];
+
             $role = $_POST["roles"];
-            $comfirmedpassword = $_POST["comfirmedpassword"];
+
             $username = $_POST["username"];
-            if (empty($username)) {
-                $errorMessage .= "username is required \\n";
-            }
+            $contextUsername = new Validator(new ValidationInput());
+            $errorMessage = $contextUsername->executeValidatorStrategy($username);
 
-            if (!empty($password)) {
-                
-            } else {
-                $errorMessage .= "password is required \\n";
-            }
 
-            if (!empty($comfirmedpassword)) {
-                
-            } else {
+            $password = $_POST["password"];
+            $contextPassword = new Validator(new ValidationPassword());
+            $errorMessage = $contextPassword->executeValidatorStrategy($password);
+
+            $comfirmedpassword = $_POST["comfirmedpassword"];
+            if (empty($comfirmedpassword)) {
                 $errorMessage .= "comfirmed password is required \\n";
             }
 
             $ic = $_POST["ic"];
-            if (!empty($ic)) {
-                $contextIc = new Validator(new ValidationIc());
-                $icExist = $contextIc->executeExistStrategy($ic);
-                if (!$icExist) {
-                    $errorMessage .= "IC already exist \\n";
+            $contextIc = new Validator(new ValidationIc());
+            $errorIc = $contextIc->executeValidatorStrategy($ic);
+            $errorMessage .= $errorIc;
+            if (empty($errorIc)) {
+                $errorIc = $contextIc->executeExistStrategy($ic);
+                if (!empty($errorIc)) {
+                    $errorMessage .= $errorIc;
                 }
-            } else {
-                $errorMessage .= "ic is required \\n";
             }
 
             $email = $_POST["email"];
-            if (!empty($email)) {
-                $contextEmail = new Validator(new ValidationEmail());
-                $emailinvalid = $contextEmail->executeValidatorStrategy($email);
-                if (!empty($emailinvalid)) {
-                    $errorMessage .= $emailinvalid;
-                } else {
-                    $emailExist = $contextEmail->executeExistStrategy($email);
-                    if (!$emailExist) {
-                        $errorMessage .= "Email already exist \\n";
-                    }
+            $contextEmail = new Validator(new ValidationEmail());
+            $errorEmail = $contextEmail->executeValidatorStrategy($email);
+            $errorMessage .= $errorEmail;
+            if (empty($errorEmail)) {
+                $errorEmail = $contextEmail->executeExistStrategy($email);
+                if (!empty($errorEmail)) {
+                    $errorMessage .= $errorEmail;
                 }
-            } else {
-                $errorMessage .= "email is required \\n";
             }
 
             if (empty($errorMessage)) {
-
-
-                $this->model->insert($username, $password, $email, $ic, $role);
-                echo "<script>alert(\"Successfully Added\"); window.location.href=\"AdminAddController\";</script>";
+                if ($password == $comfirmedpassword) {
+                    $this->model->insert($username, $password, $email, $ic, $role);
+                    echo "<script>alert(\"Successfully Added\"); window.location.href=\"http://localhost/MVC/AdminAddController\";</script>";
+                }else{
+                       echo "<script>alert(\"Password does not match\"); window.location.href=\"http://localhost/MVC/AdminAddController\";</script>";
+                }
+                                
             } else {
-                echo "<script>alert(\"$errorMessage\"); window.location.href=\"AdminAddController\";</script>";
+                 echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/AdminAddController\";</script>";
             }
-        } else {
-            $this->view->render('AdminAddView');
         }
     }
 

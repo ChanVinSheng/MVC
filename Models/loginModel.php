@@ -11,21 +11,16 @@ class loginModel extends Model {
     }
 
     public function run() {
-
+        
+        
         $errorMessage = "";
 
         $password = $_POST["loginpassword"];
         $username = $_POST["loginusername"];
 
-
-
-        if (!empty($username)) {
-            $context = new Validator(new ValidationEmail());
-            $errorMessage = $context->executeValidatorStrategy($username);
-        } else {
-            $errorMessage .= "username is required \\n";
-        }
-
+        $context = new Validator(new ValidationEmail());
+        $errorMessage = $context->executeValidatorStrategy($username);
+        
         if (empty($password)) {
             $errorMessage .= "password is required \\n";
         }
@@ -44,12 +39,10 @@ class loginModel extends Model {
                     echo "<script>alert(\"Login successful.\"); window.location.href=\"../DepartmentHomeController\";</script>";
                 }
             } else {
-                echo "<script>alert(\"Email Or Password is wrong\")</script>";
-                header('location: ../login');
+                echo "<script>alert(\"Your email or password is wrong\"); window.location.href=\"../login\";</script>";
             }
         } else {
-            echo "<script>alert(\"$errorMessage\");</script>";
-            header('location: ../login');
+            echo "<script>alert(\"$errorMessage\"); window.location.href=\"../login\";</script>";
         }
     }
 

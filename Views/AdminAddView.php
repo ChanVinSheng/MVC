@@ -7,7 +7,7 @@
         <h2><strong>Add New User</strong></h2>
     </div>
     <br/>
-    <form action="adminaddcontroller" method="post" >
+    <form action="adminaddcontroller/add" method="post" >
         <table class="form" align="center" cellpadding="7" cellspacing="7">
             <tr>
                 <th><label for="email"><strong>Email:</strong></label></th>
