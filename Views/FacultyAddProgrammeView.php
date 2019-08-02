@@ -3,7 +3,7 @@
     <h2><strong>Add Programme</strong></h2>
     <br/>
     <form action="FacultyAddProgrammeController/insertDatabase" method="post">
-        <table class="form" align="center" cellpadding="7" cellspacing="7">
+        <table border="1" class="form" align="center" cellpadding="7" cellspacing="7">
             <tr>
                 <th><label for="programmecode"><strong>Programme Code: </strong></label></th>
                 <td><input name="programmecode" type="text" class="form-control" placeholder="e.g. DIT, RSD, FA1..." required  /></td>
