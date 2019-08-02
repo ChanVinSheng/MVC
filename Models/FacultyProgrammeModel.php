@@ -1,11 +1,12 @@
 <?php
+
 class FacultyProgrammeModel extends Model {
 
     function __construct() {
-         parent::__construct();
+        parent::__construct();
     }
 
-    function insert($programmecode,$description,$duration,$levelofstudy,$facultyid) {
+    function insert($programmecode, $description, $duration, $levelofstudy, $facultyid) {
         $data = array(
             'programmecode' => $programmecode,
             'description' => $description,
@@ -15,13 +16,13 @@ class FacultyProgrammeModel extends Model {
         );
         $this->db->insert('programme', $data);
     }
-    
+
     function retrieveAllProgramme() {
         $rows = $this->db->select("* FROM programme");
 
         return $rows;
     }
-    
+
     function retrievedByID($id) {
         $rows = $this->db->select("* FROM programme WHERE programmeid = :programmeid ", [':programmeid' => $id]);
         return $rows;

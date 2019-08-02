@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<professionalcurriculums>
+  <professionalcurriculum>
+    <curriculumid>1</curriculumid>
+    <curriculumname>The Association of Chartered Certified Accountants</curriculumname>
+    <curriculumdesc>Global body for professional accountants</curriculumdesc>
+    <status>active</status>
+  </professionalcurriculum>
+  <professionalcurriculum>
+    <curriculumid>2</curriculumid>
+    <curriculumname>Chartered Institute of Management Accountants</curriculumname>
+    <curriculumdesc>World's largest professional body of management accountants</curriculumdesc>
+    <status>active</status>
+  </professionalcurriculum>
+</professionalcurriculums>
