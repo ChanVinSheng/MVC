@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<programmes>
+  <programme programmeid="1">
+    <programmecode>RSD</programmecode>
+    <description>Software System Development</description>
+    <duration>2</duration>
+    <levelofstudyid>1</levelofstudyid>
+    <facultyid>2</facultyid>
+    <status>active</status>
+  </programme>
+  <programme programmeid="2">
+    <programmecode>DCN</programmecode>
+    <description>Computer Science and Management Mathematics</description>
+    <duration>2</duration>
+    <levelofstudyid>1</levelofstudyid>
+    <facultyid>1</facultyid>
+    <status>active</status>
+  </programme>
+</programmes>

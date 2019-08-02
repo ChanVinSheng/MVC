@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<minEntrys>
+  <minEntry>
+    <minentryid>1</minentryid>
+    <minentryname>3 Credits in the relevant subjects</minentryname>
+    <status>active</status>
+  </minEntry>
+  <minEntry>
+    <minentryid>2</minentryid>
+    <minentryname>3 Grade C in the relevant subjects</minentryname>
+    <status>active</status>
+  </minEntry>
+  <minEntry>
+    <minentryid>3</minentryid>
+    <minentryname>SPM  2 Grade of  RevalantSubject</minentryname>
+    <status>active</status>
+  </minEntry>
+  <minEntry>
+    <minentryid>4</minentryid>
+    <minentryname>SPM  1 Credit of  RevalantSubject</minentryname>
+    <status>active</status>
+  </minEntry>
+  <minEntry>
+    <minentryid>5</minentryid>
+    <minentryname>A LEVEL  3 Grade of  English</minentryname>
+    <status>active</status>
+  </minEntry>
+  <minEntry>
+    <minentryid>6</minentryid>
+    <minentryname>STPM  2 Grade of  English</minentryname>
+    <status>active</status>
+  </minEntry>
+  <minEntry>
+    <minentryid>7</minentryid>
+    <minentryname>STPM  2 Grade of  English</minentryname>
+    <status>active</status>
+  </minEntry>
+</minEntrys>

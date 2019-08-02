@@ -42,7 +42,7 @@
                     </select>   </td>
             </tr>
         </table>
-        <button class="btn btn-warning" style=" width: 360px;" type="submit" value="sbumit" name="submit" >Submit</button>
+        <button class="btn btn-info" style=" width: 360px;" type="submit" value="sbumit" name="submit" >Submit</button>
 
 
     </form>
