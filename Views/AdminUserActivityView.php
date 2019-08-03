@@ -1,7 +1,7 @@
 <div class="container">
     <br>
-    <form class="form-inline md-form mr-auto mb-4"action="http://localhost/MVC/AdminUserActivityController/search" method="post">
-        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search Action" aria-label="Search">
+    <form class="form-inline md-form mr-auto mb-4"action="http://localhost/MVC/AdminUserActivityController/search?<?php echo $_GET['find'];?>" method="get">
+        <input class="form-control mr-sm-2" type="text" name="find" placeholder="Search Action" aria-label="Search">
         <button class="btn btn-info" type="submit">Find</button>
     </form>
     <table class="table">

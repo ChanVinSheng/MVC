@@ -20,10 +20,7 @@ class api extends SimpleRest {
         
         $this->setHttpHeaders($status);
 
-        $response['status'] = $status;
-        $response['status_message'] = $this->getStatusMessage();
         $response['data'] = $row;
-
         $jsonResponse = json_encode($response);
         return $jsonResponse;
     }

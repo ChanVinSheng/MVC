@@ -25,11 +25,10 @@ class AdminUserActivityController extends Controller {
 
     function search() {
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            echo "test";
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            $search = $_GET['find'];
             $api = new api();
-            $useraaction = $_POST["search"];
-            $row = $this->model->retrieveAllActivitybyAction($useraaction);
+            $row = $this->model->retrieveAllActivitybyAction($search);
             $response = $api->getAction($row);
             $result = json_decode($response);
             $this->view->found = $result;
