@@ -15,8 +15,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($this->found as $key): ?>
-                <?php foreach ($key as $values): ?>
+            <?php foreach ($this->found as $values): ?>
                     <tr>
                         <td><?php echo $values->logid; ?></td>
                         <td><?php echo $values->userid; ?></td>
@@ -25,7 +24,6 @@
                         <td><?php echo $values->action; ?></td>
 
                     </tr>
-                <?php endforeach; ?>
             <?php endforeach; ?>
         </tbody>
     </table>

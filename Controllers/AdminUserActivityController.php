@@ -28,11 +28,12 @@ class AdminUserActivityController extends Controller {
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $search = $_GET['find'];
             $api = new api();
-            $row = $this->model->retrieveAllActivitybyAction($search);
-            $response = $api->getAction($row);
+            $rows = $this->model->retrieveAllActivitybyAction($search);
+            $response = $api->getAction($rows);
             $result = json_decode($response);
             $this->view->found = $result;
             header("Content-Type:text/html");
+            echo $result->data->error;
             $this->view->render('AdminUserActivityResultView');
         }
     }

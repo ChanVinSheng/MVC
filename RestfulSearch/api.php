@@ -4,24 +4,18 @@ require_once "SimpleRest.php";
 
 class api extends SimpleRest {
 
-    function __construct() {
-        
-    }
-
-
     public function getAction($row) {
 
         if (empty($row)) {
             $status = 404;
-            $row = array('error' => 'No mobiles found!');
+                $row = array('error' => 'No data found!');
         } else {
             $status = 200;
         }
         
         $this->setHttpHeaders($status);
-
-        $response['data'] = $row;
-        $jsonResponse = json_encode($response);
+        print_r($row);
+        $jsonResponse = json_encode($row);
         return $jsonResponse;
     }
 

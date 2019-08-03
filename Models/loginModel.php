@@ -42,7 +42,7 @@ class loginModel extends Model {
                     echo "<script>alert(\"Login successful.\"); window.location.href=\"../adminhomecontroller\";</script>";
                 } elseif ($rows->role == "Faculty") {
                     echo "<script>alert(\"Login successful.\"); window.location.href=\"../FacultyHomeController\";</script>";
-                } elseif ($rows->role == "Depertmant") {
+                } elseif ($rows->role == "Departmant") {
                     echo "<script>alert(\"Login successful.\"); window.location.href=\"../DepartmentHomeController\";</script>";
                 }
             } else {
