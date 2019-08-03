@@ -34,6 +34,7 @@
                 <td>     
                     <select name="roles">
                         <option>Admin</option>
+                        <option>Admin Faculty</option>
                         <option>Faculty</option>
                         <option>Department</option>
                     </select>

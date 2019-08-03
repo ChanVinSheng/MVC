@@ -22,6 +22,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-center">Sign In</h5>
                             <form class="form-signin" action="login/run" method="post">
+
                                 <div class="form-label-group">
                                     <input type="email"  name="loginusername" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                                     <label for="inputEmail">Email address</label>
@@ -31,9 +32,17 @@
                                     <input type="password" name="loginpassword" id="inputPassword" class="form-control" placeholder="Password" required>
                                     <label for="inputPassword">Password</label>
                                 </div>
+                                <?php
+                                if (isset($_COOKIE["rememberme"])) {
+                                    $pieces = explode(",", $_COOKIE["rememberme"]);
+                                    $email = $pieces[0];
+                                    $password = $pieces[1];
+                                    echo "<script>document.getElementById('inputEmail').value = '$email';document.getElementById('inputPassword').value = '$password';</script>";
+                                }
+                                ?>
 
                                 <div class="custom-control custom-checkbox mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <input name="check" type="checkbox" class="custom-control-input" id="customCheck1">
                                     <label class="custom-control-label" for="customCheck1">Remember password</label>
                                 </div>
                                 <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" value="Submit" title="Submit">Sign in</button>      

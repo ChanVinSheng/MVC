@@ -28,7 +28,29 @@
 
 
                                 <div class="container">
-                                    <div class="btn-group"><h2 style="color: white">--Admin Staff--</h2></div>
+                                    <div class="btn-group"><h2 style="color: white">--Admin--</h2></div>
+                                    <div class="btn-group">
+                                        <a class="btn btn-warning" href="<?php echo URL; ?>adminhomecontroller">Home</a>
+                                    </div>
+                                    <div class="btn-group">
+                                        <a class="btn btn-warning" href="<?php echo URL; ?>adminaddcontroller">Add user</a>
+                                    </div>
+                                    <div class="btn-group">
+                                        <a class="btn btn-warning" href="<?php echo URL; ?>adminmodifycontroller">Modify user</a>
+                                    </div>
+                                    <div class="btn-group">
+                                        <a class="btn btn-warning" href="<?php echo URL; ?>AdminUserActivityController">User Activty</a>
+                                    </div>
+
+
+
+
+                                </div>
+                            <?php } elseif ($_SESSION['role'] == 'Admin Faculty') { ?>
+
+
+                                <div class="container">
+                                    <div class="btn-group"><h2 style="color: white">--Admin Faculty--</h2></div>
                                     <div class="btn-group">
                                         <a class="btn btn-warning" href="<?php echo URL; ?>adminhomecontroller">Home</a>
                                     </div>
@@ -39,70 +61,67 @@
                                         <a class="btn btn-warning" href="<?php echo URL; ?>adminmodifycontroller">Modify user</a>
                                     </div>
 
-
-
-
-                                </div>
-
-                            <?php } elseif ($_SESSION['role'] == 'Faculty') { ?>
-                                <div class="container">
-                                    <div class="btn-group"><h2 style="color: white">--Faculty Staff--</h2></div>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-warning">Programmes</button>
-                                        <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyViewProgrammeController">View All Programmes</a>
-                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddProgrammeController">Add Programme</a>
+                                <?php } elseif ($_SESSION['role'] == 'Faculty') { ?>
+                                    <div class="container">
+                                        <div class="btn-group"><h2 style="color: white">--Faculty Staff--</h2></div>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-warning">Programmes</button>
+                                            <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="<?php echo URL; ?>FacultyViewProgrammeController">View All Programmes</a>
+                                                <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddProgrammeController">Add Programme</a>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-warning">Courses</button>
-                                        <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyViewCourseController">View All Courses</a>
-                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddCourseController">Add Course</a>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-warning">Courses</button>
+                                            <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="<?php echo URL; ?>FacultyViewCourseController">View All Courses</a>
+                                                <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddCourseController">Add Course</a>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-warning">Minimum Entry Requirement</button>
-                                        <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyViewMinEntryController">View All Minimum Entries</a>
-                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddMinEntryController">Add Minimum Entry</a>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-warning">Minimum Entry Requirement</button>
+                                            <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="<?php echo URL; ?>FacultyViewMinEntryController">View All Minimum Entries</a>
+                                                <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddMinEntryController">Add Minimum Entry</a>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-warning">Professional Curriculum</button>
-                                        <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyViewCurriculumController">View All Professional Curriculum</a>
-                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddCurriculumController">Add Professional Curriculum</a>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-warning">Professional Curriculum</button>
+                                            <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="<?php echo URL; ?>FacultyViewCurriculumController">View All Professional Curriculum</a>
+                                                <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddCurriculumController">Add Professional Curriculum</a>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-warning">Campuses</button>
-                                        <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyViewCampusController">View All Campuses</a>
-                                            <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddCampusController">Add Campus</a>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-warning">Campuses</button>
+                                            <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="<?php echo URL; ?>FacultyViewCampusController">View All Campuses</a>
+                                                <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddCampusController">Add Campus</a>
+                                            </div>
                                         </div>
+
+
                                     </div>
+                                <?php } ?>
 
 
-                                </div>
+                            <?php } else { ?>
+                                <p>NO HEADER</p>
                             <?php } ?>
-                        <?php } else { ?>
-                            <p>NO HEADER</p>
-                        <?php } ?>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <a class="btn btn-outline-success my-2 my-sm-0" href="<?php echo URL; ?>login/logout" type="submit" onclick="return confirm('Confirm Logout?');">Log out</a>                      

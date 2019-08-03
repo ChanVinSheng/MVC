@@ -11,8 +11,8 @@ class loginModel extends Model {
     }
 
     public function run() {
-        
-        
+
+
         $errorMessage = "";
 
         $password = $_POST["loginpassword"];
@@ -20,18 +20,25 @@ class loginModel extends Model {
 
         $context = new Validator(new ValidationEmail());
         $errorMessage = $context->executeValidatorStrategy($username);
-        
+
         if (empty($password)) {
             $errorMessage .= "password is required \\n";
         }
 
-        $rows = $this->db->find("role FROM user WHERE email = :email and password = :password ", array(':email' => $username, ':password' => $password));
+        $rows = $this->db->find("role , userid , email , password FROM user WHERE email = :email and password = :password ", array(':email' => $username, ':password' => $password));
 
         if (empty($errorMessage)) {
             if (!empty($rows->role)) {
                 session_start();
                 $_SESSION['role'] = $rows->role;
+                $_SESSION['userid'] = $rows->userid;
+                if (isset($_POST['check'])) {
+                    setcookie("rememberme", $rows->email . "," . $password, time() + (86400 * 30), "/");
+                }
+
                 if ($rows->role == "Admin") {
+                    echo "<script>alert(\"Login successful.\"); window.location.href=\"../adminhomecontroller\";</script>";
+                } elseif ($rows->role == "Admin Faculty") {
                     echo "<script>alert(\"Login successful.\"); window.location.href=\"../adminhomecontroller\";</script>";
                 } elseif ($rows->role == "Faculty") {
                     echo "<script>alert(\"Login successful.\"); window.location.href=\"../FacultyHomeController\";</script>";

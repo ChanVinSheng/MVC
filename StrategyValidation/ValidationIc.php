@@ -31,6 +31,8 @@ class ValidationIc extends Model implements Strategy {
         if (!empty($Exist)) {
             $message .= "ic already exist \\n";
         }
+        
+        return $message;
     }
 
 }

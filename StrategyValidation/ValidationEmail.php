@@ -10,7 +10,7 @@ class ValidationEmail extends Model implements Strategy {
             $message = "username is required \\n";
         } else {
             $whitelistCharacter = "/[^A-Za-z0-9.#\-@_]/";
-            $whitelistDomains = ['gmail.com', 'yahoo.com', 'hotmail.com'];
+            $whitelistDomains = ['gmail.com', 'yahoo.com', 'hotmail.com' , 'student.tarc.edu.my'];
             $email = explode('@', $input);
 
             if (preg_match($whitelistCharacter, $input)) {

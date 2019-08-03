@@ -17,17 +17,20 @@
                     <td><?php echo $key->email; ?></td>
                     <td><?php echo $key->ic; ?></td>
                     <td><?php echo $key->role; ?></td>
-                    
+
                     <td>
                         <form action="adminmodifycontroller/modify" method="post" >
-                            <button class="btn btn-info" type="submit" value="<?php echo $key->userid; ?>" name="edit">Edit</button>  
-                            <button class="btn btn-danger" type="submit" value="<?php echo $key->userid; ?>" name="delete">Delete</button>
+                            <?php if ($_SESSION['userid'] == $key->userid) { ?>
+                            <button class="btn btn-info" type="submit" value="<?php echo $key->userid; ?>" name="edit" disabled >Edit</button>  
+                                <button class="btn btn-danger" onclick="return confirm('Confirm Delete?'); type="submit" value="<?php echo $key->userid; ?>" name="delete" disabled  >Delete</button>
+                            <?php } else { ?>
+                                <button class="btn btn-outline-info" type="submit" value="<?php echo $key->userid; ?>" name="edit">Edit</button>  
+                                <button class="btn btn-outline-danger"  type="submit" value="<?php echo $key->userid; ?>" name="delete" onclick="return confirm('Confirm Delete?');">Delete</button>
+                            <?php } ?>
                         </form>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-</div>
-
 </div>
