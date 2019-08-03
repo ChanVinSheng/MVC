@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<campuss>
+  <campus>
+    <campusid>1</campusid>
+    <campusname>Kuala Lumpus Main Campus</campusname>
+    <status>active</status>
+  </campus>
+  <campus>
+    <campusid>2</campusid>
+    <campusname>Penang Branch Campus</campusname>
+    <status>active</status>
+  </campus>
+  <campus>
+    <campusid>3</campusid>
+    <campusname>Perak Branch Campus</campusname>
+    <status>active</status>
+  </campus>
+</campuss>
