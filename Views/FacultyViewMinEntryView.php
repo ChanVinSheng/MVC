@@ -1,7 +1,9 @@
+<title>View Minimum Entries</title>
 <div class="container">
+    <h2><strong>View Minimum Entries</strong></h2>
     <table class="table">
         <thead>
-            <tr>
+            <tr bgcolor="#E6E6FA">
                 <th>Minimum Entry ID</th>
                 <th>Minimum Entry Name</th>
                 <th>Actions</th>
@@ -13,7 +15,6 @@
                     <td><?php echo $key->minentryid; ?></td>
                     <td><?php echo $key->minentryname; ?></td>
             <form action="FacultyViewMinEntryController/modify" method="post" >
-                <td><button class="btn btn-info" type="submit" value="<?php echo $key->minentryid; ?>" name="edit">Edit</button></td>
                 <td>
                     <?php if ($key->status == "active") {
                         ?>
@@ -30,6 +31,4 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-</div>
-
 </div>

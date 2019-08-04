@@ -1,3 +1,4 @@
+<title>Add Course</title>
 <div class="container h-100" style="text-align:center">
     <br/>
     <h2><strong>Add Course</strong></h2>

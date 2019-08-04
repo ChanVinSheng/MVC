@@ -1,10 +1,13 @@
+<title>View Campuses</title>
 <div class="container">
+    <h2><strong>View Campuses</strong></h2>
     <table class="table">
         <thead>
-            <tr>
+            <tr bgcolor="#E6E6FA">
                 <th>Campus ID</th>
                 <th>Campus Name</th>
                 <th>Actions</th>
+                <th/>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +33,4 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-</div>
-
 </div>

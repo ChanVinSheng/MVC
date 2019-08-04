@@ -16,4 +16,36 @@
     <credithour>4</credithour>
     <status>active</status>
   </courses>
+  <courses>
+    <courseid>3</courseid>
+    <coursecode>BACS2093</coursecode>
+    <coursename>Operating System</coursename>
+    <courseinfo>Linux</courseinfo>
+    <credithour>3</credithour>
+    <status>active</status>
+  </courses>
+  <courses>
+    <courseid>4</courseid>
+    <coursecode>BACS3033</coursecode>
+    <coursename>Social and Professional Issues</coursename>
+    <courseinfo>Social and Professional</courseinfo>
+    <credithour>3</credithour>
+    <status>active</status>
+  </courses>
+  <courses>
+    <courseid>5</courseid>
+    <coursecode>MPU-3232</coursecode>
+    <coursename>Entrepreneurship</coursename>
+    <courseinfo>Business Planning</courseinfo>
+    <credithour>2</credithour>
+    <status>active</status>
+  </courses>
+  <courses>
+    <courseid>6</courseid>
+    <coursecode>MPU-3123</coursecode>
+    <coursename>Tamadun Islam dan Asia</coursename>
+    <courseinfo>History</courseinfo>
+    <credithour>3</credithour>
+    <status>active</status>
+  </courses>
 </coursess>

@@ -4,15 +4,23 @@
     <programmecode>RSD</programmecode>
     <description>Software System Development</description>
     <duration>2</duration>
-    <levelofstudyid>1</levelofstudyid>
-    <facultyid>2</facultyid>
+    <levelofstudyid>3</levelofstudyid>
+    <facultyid>1</facultyid>
     <status>active</status>
   </programme>
   <programme programmeid="2">
+    <programmecode>DCO</programmecode>
+    <description>Computer Science and Computer Mathematics</description>
+    <duration>2</duration>
+    <levelofstudyid>2</levelofstudyid>
+    <facultyid>1</facultyid>
+    <status>active</status>
+  </programme>
+  <programme programmeid="3">
     <programmecode>DCN</programmecode>
     <description>Computer Science and Management Mathematics</description>
-    <duration>2</duration>
-    <levelofstudyid>1</levelofstudyid>
+    <duration>4</duration>
+    <levelofstudyid>2</levelofstudyid>
     <facultyid>1</facultyid>
     <status>active</status>
   </programme>

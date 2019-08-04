@@ -1,11 +1,14 @@
+<title>View Professional Curriculums</title>
 <div class="container">
+    <h2><strong>View Professional Curriculums</strong></h2>
     <table class="table">
         <thead>
-            <tr>
+            <tr bgcolor="#E6E6FA">
                 <th>Professional Curriculum ID</th>
                 <th>Curriculum Name</th>
                 <th>Description</th>
                 <th>Actions</th>
+                <th/>
             </tr>
         </thead>
         <tbody>
@@ -32,6 +35,4 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-</div>
-
 </div>

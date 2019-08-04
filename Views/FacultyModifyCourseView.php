@@ -1,13 +1,16 @@
+<title>Modify Course</title>
 <div class="container">
+    <h2><strong>Modify Course</strong></h2>
     <table class="table">
         <thead>
-            <tr>
+            <tr bgcolor="#E6E6FA">
                 <th>Course ID</th>
                 <th>Course Code</th>
                 <th>Course Name</th>
                 <th>Course Info</th>
                 <th>Credit Hour(s)</th>
                 <th>Actions</th>
+                <th/>
             </tr>
         </thead>
         <tbody>
