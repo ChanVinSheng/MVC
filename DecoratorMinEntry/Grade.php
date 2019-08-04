@@ -6,6 +6,6 @@ class Grade extends Decorator
 
     public function getContent(): string
     {
-        return parent::getContent(). " Grade of ";
+        return parent::getContent(). "Grade in ";
     }
 }

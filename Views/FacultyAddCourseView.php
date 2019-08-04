@@ -30,7 +30,7 @@
             <tr>
                 <td></td>
                 <td class="submit-button-right">
-                    <input class="send_btn btn-info" type="submit" value="Submit" title="Submit" />                      
+                    <input class="btn btn-info" type="submit" value="Submit" title="Submit" />                      
             </tr>
         </table>
     </form>

@@ -7,7 +7,10 @@
         <table border="1" class="form" align="center" cellpadding="7" cellspacing="7">
             <tr>
                 <th><label for="programmecode"><strong>Programme Code: </strong></label></th>
-                <td><input name="programmecode" type="text" class="form-control" placeholder="e.g. DIT, RSD, FA1..." required  /></td>
+                <td>
+                    <input name="programmecode" type="text" class="form-control" placeholder="e.g. DIT, RSD, FA1..." required  />
+                    <input class="btn btn-info" type="button" name='check' value="Check" title="Check" />
+                </td>
             </tr>
             <tr>
                 <th><label for="description"><strong>Programme Description: </strong></label></th>
@@ -101,7 +104,7 @@
             <tr>
                 <td></td>
                 <td class="submit-button-right">
-                    <input class="send_btn btn-info" type="submit" value="Submit" title="Submit" />                      
+                    <input class="btn btn-info" type="submit" value="Submit" title="Submit" />                      
             </tr>
         </table>
     </form>

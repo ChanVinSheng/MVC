@@ -39,7 +39,7 @@ class FacultyViewProgrammeController extends Controller {
     }
 
     function index() {
-        $programmeXml = new FacultyCreateXMLfile("");
+        $programmeXml = new FacultyCreateXMLfile("programme");
         $saxp = new programmeSAXParser("programme");
         $programmedata = $saxp->getData();
         
@@ -54,6 +54,8 @@ class FacultyViewProgrammeController extends Controller {
         $output .= "<th>Duration of Study</th>";
         $output .= "<th>Level of Study</th>";
         $output .= "<th>Faculty</th>";
+        $output .= "<th>Estimated Total Fees(RM)</th>";
+        $output .= "<th>Fees Per Year(RM)</th>";
         $output .= "<th>Status</th>";
         $output .= "<th>Action</th>";
         $output .= "</tr>";
@@ -72,6 +74,8 @@ class FacultyViewProgrammeController extends Controller {
                 if (strtoupper($faculties->facultyid) == strtoupper($programmes['FACULTYID']))
                     $output .= "<td>" . $faculties->facultyname . "</td>";
             }
+            $output .= "<td>" . $programmes['FEE'] . "</td>";
+            $output .= "<td>" . $programmes['YEARLYFEE'] . "</td>";
             $output .= "<td>" . $programmes['STATUS'] . "</td>";
             $output .= "<form action='FacultyViewProgrammeController/modify' method='post' >";
             $output .= "<td><button class='btn btn-info' type='submit' value='" . $programmes['PROGRAMMECODE'] . "' name='edit'>Edit</button></td>";

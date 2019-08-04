@@ -7,6 +7,8 @@
     <levelofstudyid>3</levelofstudyid>
     <facultyid>1</facultyid>
     <status>active</status>
+    <fee>100</fee>
+    <yearlyfee>200</yearlyfee>
   </programme>
   <programme programmeid="2">
     <programmecode>DCO</programmecode>
@@ -15,6 +17,8 @@
     <levelofstudyid>2</levelofstudyid>
     <facultyid>1</facultyid>
     <status>active</status>
+    <fee>3450</fee>
+    <yearlyfee>1725</yearlyfee>
   </programme>
   <programme programmeid="3">
     <programmecode>DCN</programmecode>
@@ -23,5 +27,47 @@
     <levelofstudyid>2</levelofstudyid>
     <facultyid>1</facultyid>
     <status>active</status>
+    <fee>2000</fee>
+    <yearlyfee>1000</yearlyfee>
+  </programme>
+  <programme programmeid="4">
+    <programmecode>RFI</programmecode>
+    <description>Finance and Investment</description>
+    <duration>2</duration>
+    <levelofstudyid>3</levelofstudyid>
+    <facultyid>2</facultyid>
+    <status>active</status>
+    <fee>3600</fee>
+    <yearlyfee>1200</yearlyfee>
+  </programme>
+  <programme programmeid="5">
+    <programmecode>DEM</programmecode>
+    <description>E-Marketing</description>
+    <duration>2</duration>
+    <levelofstudyid>2</levelofstudyid>
+    <facultyid>2</facultyid>
+    <status>active</status>
+    <fee>2625</fee>
+    <yearlyfee>1313</yearlyfee>
+  </programme>
+  <programme programmeid="6">
+    <programmecode>FA1</programmecode>
+    <description>Foundation in Art</description>
+    <duration>1</duration>
+    <levelofstudyid>1</levelofstudyid>
+    <facultyid>1</facultyid>
+    <status>active</status>
+    <fee>750</fee>
+    <yearlyfee>750</yearlyfee>
+  </programme>
+  <programme programmeid="7">
+    <programmecode>MEB</programmecode>
+    <description>E-Business</description>
+    <duration>2</duration>
+    <levelofstudyid>4</levelofstudyid>
+    <facultyid>2</facultyid>
+    <status>active</status>
+    <fee>4875</fee>
+    <yearlyfee>2438</yearlyfee>
   </programme>
 </programmes>

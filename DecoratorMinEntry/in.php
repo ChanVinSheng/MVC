@@ -1,11 +1,12 @@
 <?php
 require_once 'Decorator.php';
 
-class GradeThree extends Decorator
+class in extends Decorator
 {
 
     public function getContent(): string
     {
-        return parent::getContent(). "3 ";
+        return parent::getContent(). "in ";
     }
 }
+
