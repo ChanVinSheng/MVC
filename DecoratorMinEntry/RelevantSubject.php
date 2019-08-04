@@ -6,6 +6,6 @@ class RelevantSubject extends Decorator
 
     public function getContent(): string
     {
-        return parent::getContent(). " RelevantSubject";
+        return parent::getContent(). "relevant subjects";
     }
 }

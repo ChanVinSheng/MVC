@@ -59,6 +59,8 @@ class FacultyHomeController extends Controller {
         $output .= "<th>Duration of Study</th>";
         $output .= "<th>Level of Study</th>";
         $output .= "<th>Faculty</th>";
+        $output .= "<th>Estimated Total Fees(RM)</th>";
+        $output .= "<th>Fees Per Year(RM)</th>";
         $output .= "<th>Status</th>";
         $output .= "</tr>";
         $output .= '</thead>';
@@ -75,6 +77,8 @@ class FacultyHomeController extends Controller {
                 if(strtoupper($faculties->facultyid) == strtoupper($programmes['FACULTYID']))
                    $output .= "<td>" . $faculties->facultyname . "</td>"; 
             }
+            $output .= "<td>" . $programmes['FEE'] . "</td>";
+            $output .= "<td>" . $programmes['YEARLYFEE'] . "</td>";
             $output .= "<td>" . $programmes['STATUS'] . "</td>";
             $output .= "</tr>";
         }

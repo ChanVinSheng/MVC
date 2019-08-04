@@ -6,6 +6,6 @@ class English extends Decorator
 
     public function getContent(): string
     {
-        return parent::getContent(). " English";
+        return parent::getContent(). "English";
     }
 }

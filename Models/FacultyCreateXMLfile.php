@@ -10,11 +10,9 @@ class FacultyCreateXMLfile {
         $programmesArray = $this->model->retrieveAllProgramme();
         $this->model2 = new FacultyCourseModel();
         $coursesArray = $this->model2->retrieveAllCourse();
-        
-        if($category != "" && count($coursesArray)){
+        if (($category != "programme") && count($coursesArray)) {
             $this->createXMLfileWithXSLT($coursesArray, $category);
-        }
-        elseif(count($programmesArray)) {
+        } elseif (($category == "programme") && count($programmesArray)) {
             $this->createXMLfile($programmesArray);
         }
     }
@@ -35,6 +33,8 @@ class FacultyCreateXMLfile {
             $levelofstudyid = $programmes->levelofstudyid;
             $facultyid = $programmes->facultyid;
             $status = $programmes->status;
+            $fee = $programmes->fee;
+            $yearlyfee = $programmes->yearlyfee;
             $programme = $dom->createElement('programme');
             $programme->setAttribute('programmeid', $programmeid);
             $code = $dom->createElement('programmecode', $programmecode);
@@ -49,12 +49,16 @@ class FacultyCreateXMLfile {
             $programme->appendChild($facID);
             $stat = $dom->createElement('status', $status);
             $programme->appendChild($stat);
+            $fees = $dom->createElement('fee', $fee);
+            $programme->appendChild($fees);
+            $yFees = $dom->createElement('yearlyfee', $yearlyfee);
+            $programme->appendChild($yFees);
             $root->appendChild($programme);
         }
         $dom->appendChild($root);
         $dom->save("Xml/$filePath");
     }
-    
+
     function createXMLfileWithXSLT($coursesArray, $Xslfilename) {
         $filePath = 'courses.xml';
 

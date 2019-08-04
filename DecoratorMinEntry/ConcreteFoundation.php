@@ -2,10 +2,10 @@
 
 require_once 'IMinEntry.php';
 
-class ConcreteALEVEL implements IMinEntry{
+class ConcreteFoundation implements IMinEntry{
 
     public function getContent(): string {
-        return "A LEVEL ";
+        return "Foundation - ";
     }
 
 }

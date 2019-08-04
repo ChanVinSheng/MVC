@@ -3,7 +3,9 @@
 class EstimatedFee {
   private $totalCreditHours;
   private $duration;
+  const ONETIMEPAYMENT = 450;
   const FEEPERCREDIT = 375;
+  const OTHERFEES = 900;
 
   public function EstimatedFee($totalCreditHours=0, $duration=0) {
     $this->totalCreditHours = $totalCreditHours;
@@ -27,7 +29,7 @@ class EstimatedFee {
   }
 
   public function getTotalAmount() {
-    $totalAmount = EstimatedFee::FEEPERCREDIT * $this->totalCreditHours;
+    $totalAmount = EstimatedFee::ONETIMEPAYMENT + (EstimatedFee::OTHERFEES * $this->duration) + (EstimatedFee::FEEPERCREDIT * $this->totalCreditHours);
     return $totalAmount;
   }
   

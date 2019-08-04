@@ -6,6 +6,6 @@ class GradeTwo extends Decorator
 
     public function getContent(): string
     {
-        return parent::getContent(). " 2";
+        return parent::getContent(). "2 ";
     }
 }

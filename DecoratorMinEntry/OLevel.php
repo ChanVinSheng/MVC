@@ -1,11 +1,11 @@
 <?php
 require_once 'Decorator.php';
 
-class Credit extends Decorator
+class OLevel extends Decorator
 {
 
     public function getContent(): string
     {
-        return parent::getContent(). "Credit of ";
+        return parent::getContent(). "O Level ";
     }
 }
