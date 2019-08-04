@@ -159,7 +159,9 @@ class FacultyViewProgrammeController extends Controller {
                         break;
                 }
                 $facultyid = $_POST["faculty"];
-                $this->modelProg->updateAll($programmeid, $programmecode, $description, $duration, $levelofstudyid, $facultyid);
+                $fee = 0;
+                $yearly = 0;
+                $this->modelProg->updateAll($programmeid, $programmecode, $description, $duration, $levelofstudyid, $facultyid, $fee, $yearly);
                 
                 $this->modelProgCampus->delete($programmeid);
                 $this->modelProgCurr->delete($programmeid);

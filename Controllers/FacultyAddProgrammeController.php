@@ -13,6 +13,8 @@ require 'Models/FacultyProgCurriculumModel.php';
 require 'Models/FacultyProgMinEntryModel.php';
 require 'Models/FacultyProgStructureModel.php';
 
+require 'SOAPcalcFee/lib/nusoap.php';
+
 class FacultyAddProgrammeController extends Controller {
 
     private $model;
@@ -64,28 +66,28 @@ class FacultyAddProgrammeController extends Controller {
             switch ($firstCode) {
                 case "F":
                     foreach ($rowLvlOfStudy as $lvlOfStudy) {
-                        if(strtoupper($lvlOfStudy->type) == strtoupper("Foundation")){
+                        if (strtoupper($lvlOfStudy->type) == strtoupper("Foundation")) {
                             $levelofstudyid = $lvlOfStudy->levelofstudyid;
                         }
                     }
                     break;
                 case "D":
                     foreach ($rowLvlOfStudy as $lvlOfStudy) {
-                        if(strtoupper($lvlOfStudy->type) == strtoupper("Diploma")){
+                        if (strtoupper($lvlOfStudy->type) == strtoupper("Diploma")) {
                             $levelofstudyid = $lvlOfStudy->levelofstudyid;
                         }
                     }
                     break;
                 case "R":
                     foreach ($rowLvlOfStudy as $lvlOfStudy) {
-                        if(strtoupper($lvlOfStudy->type) == strtoupper("Degree")){
+                        if (strtoupper($lvlOfStudy->type) == strtoupper("Degree")) {
                             $levelofstudyid = $lvlOfStudy->levelofstudyid;
                         }
                     }
                     break;
                 case "M":
                     foreach ($rowLvlOfStudy as $lvlOfStudy) {
-                        if(strtoupper($lvlOfStudy->type) == strtoupper("Master")){
+                        if (strtoupper($lvlOfStudy->type) == strtoupper("Master")) {
                             $levelofstudyid = $lvlOfStudy->levelofstudyid;
                         }
                     }
@@ -93,7 +95,22 @@ class FacultyAddProgrammeController extends Controller {
             }
             $facultyid = $_POST["faculty"];
 
-            $this->modelProg->insert($programmecode, $description, $duration, $levelofstudyid, $facultyid);
+            $credithr = 0;
+            if (isset($_POST['CourseChk'])) {
+                foreach ($_POST['CourseChk'] as $courseid) {
+                    $rows = $this->modelCourse->retrievedByID($courseid);
+                    foreach ($rows as $row) {
+                        $value = $row->credithour;
+                    }
+                    $credithr = (int) $credithr + (int) $value;
+                }
+            }
+
+            $client = new nusoap_client("http://localhost/MVC/SOAPcalcFee/service.php?wsdl");
+            $fee = $client->call('calcTotalAmount', array("credithr" => $credithr, "duration" => $duration));
+            $yearly = $client->call('calcYearlyAmount', array("credithr" => $credithr, "duration" => $duration));
+
+            $this->modelProg->insert($programmecode, $description, $duration, $levelofstudyid, $facultyid, $fee, $yearly);
             $rowProgramme = $this->modelProg->retrieveAllProgramme();
             $programmeid = count($rowProgramme);
 
@@ -124,7 +141,6 @@ class FacultyAddProgrammeController extends Controller {
                     $this->modelProgCurr->insert($programmeid, $curriculumid);
                 }
             }
-
 
             echo "<script>alert(\"Successfully Added\"); window.location.href=\"http://localhost/MVC/FacultyAddProgrammeController\";</script>";
         } else {
