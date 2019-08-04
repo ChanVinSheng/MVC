@@ -6,13 +6,15 @@ class FacultyProgrammeModel extends Model {
         parent::__construct();
     }
 
-    function insert($programmecode, $description, $duration, $levelofstudyid, $facultyid) {
+    function insert($programmecode, $description, $duration, $levelofstudyid, $facultyid, $fee, $yearlyFee) {
         $data = array(
             'programmecode' => $programmecode,
             'description' => $description,
             'duration' => $duration,
             'levelofstudyid' => $levelofstudyid,
-            'facultyid' => $facultyid
+            'facultyid' => $facultyid,
+            'fee' => $fee,
+            'yearlyFee' => $yearlyFee
         );
         $this->db->insert('programme', $data);
     }
@@ -41,13 +43,15 @@ class FacultyProgrammeModel extends Model {
         $this->db->update('programme', $data, $where);
     }
 
-    function updateAll($programmeid, $programmecode, $description, $duration, $levelofstudyid, $facultyid) {
+    function updateAll($programmeid, $programmecode, $description, $duration, $levelofstudyid, $facultyid, $fee, $yearlyFee ) {
         $data = array(
             'programmecode' => $programmecode,
             'description' => $description,
             'duration' => $duration,
             'levelofstudyid' => $levelofstudyid,
-            'facultyid' => $facultyid
+            'facultyid' => $facultyid,
+            'fee' => $fee,
+            'yearlyFee' => $yearlyFee,
         );
         $where = array('programmeid' => $programmeid);
         $this->db->update('programme', $data, $where);

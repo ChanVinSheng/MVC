@@ -26,6 +26,11 @@ class FacultyCourseModel extends Model {
         $rows = $this->db->select("* FROM courses WHERE courseid = :courseid ", [':courseid' => $id]);
         return $rows;
     }
+    
+    function getCreditHour($id) {
+        $rows = $this->db->select("credithour FROM courses WHERE courseid = :courseid ", [':courseid' => $id]);
+        return $rows;
+    }
 
     function updateOne($id, $value, $column) {
         $data = array(

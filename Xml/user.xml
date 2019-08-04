@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="userDepartment.xsl"?>
 <users>
   <user>
-    <userid>3</userid>
-    <username>vin</username>
+    <userid>1</userid>
+    <username>qwe</username>
+    <password>123</password>
+    <email>weiyin_01@hotmail.com</email>
+    <role>Faculty</role>
+    <ic>980616-14-5790</ic>
+  </user>
+  <user>
+    <userid>2</userid>
+    <username>123</username>
     <password>123</password>
     <email>123@gmail.com</email>
     <role>Admin</role>
-    <ic>970702-14-5253</ic>
-  </user>
-  <user>
-    <userid>5</userid>
-    <username>wywy</username>
-    <password>123</password>
-    <email>lowwy-wa16@student.tarc.edu.my</email>
-    <role>Faculty</role>
-    <ic>970702-14-5255</ic>
-  </user>
-  <user>
-    <userid>6</userid>
-    <username>vin</username>
-    <password>123</password>
-    <email>vinsheng19971@hotmail.com</email>
-    <role>Admin Faculty</role>
-    <ic>970702-14-5259</ic>
+    <ic/>
   </user>
 </users>
