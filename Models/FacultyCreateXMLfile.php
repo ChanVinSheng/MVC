@@ -1,13 +1,20 @@
 <?php
 
 require_once 'FacultyProgrammeModel.php';
+require_once 'FacultyCourseModel.php';
 
 class FacultyCreateXMLfile {
 
-    function __construct() {
+    function __construct($category) {
         $this->model = new FacultyProgrammeModel();
         $programmesArray = $this->model->retrieveAllProgramme();
-        if (count($programmesArray)) {
+        $this->model2 = new FacultyCourseModel();
+        $coursesArray = $this->model2->retrieveAllCourse();
+        
+        if($category != "" && count($coursesArray)){
+            $this->createXMLfileWithXSLT($coursesArray, $category);
+        }
+        elseif(count($programmesArray)) {
             $this->createXMLfile($programmesArray);
         }
     }
@@ -43,6 +50,41 @@ class FacultyCreateXMLfile {
             $stat = $dom->createElement('status', $status);
             $programme->appendChild($stat);
             $root->appendChild($programme);
+        }
+        $dom->appendChild($root);
+        $dom->save("Xml/$filePath");
+    }
+    
+    function createXMLfileWithXSLT($coursesArray, $Xslfilename) {
+        $filePath = 'courses.xml';
+
+        $dom = new DOMDocument('1.0', 'utf-8');
+        $dom->formatOutput = true;
+        $dom->preserveWhiteSpace = false;
+        $xslt = $dom->createProcessingInstruction('xml-stylesheet', "  type=\"text/xsl\" href=\"$Xslfilename.xsl\"   ");
+        $dom->appendChild($xslt);
+        $root = $dom->createElement('coursess');
+        foreach ($coursesArray as $courses) {
+
+            $courseid = $courses->courseid;
+            $coursecode = $courses->coursecode;
+            $coursename = $courses->coursename;
+            $courseinfo = $courses->courseinfo;
+            $credithour = $courses->credithour;
+            $status = $courses->status;
+            $course = $dom->createElement('courses');
+            $course->setAttribute('courseid', $courseid);
+            $code = $dom->createElement('coursecode', $coursecode);
+            $course->appendChild($code);
+            $name = $dom->createElement('coursename', $coursename);
+            $course->appendChild($name);
+            $info = $dom->createElement('courseinfo', $courseinfo);
+            $course->appendChild($info);
+            $credithr = $dom->createElement('credithour', $credithour);
+            $course->appendChild($credithr);
+            $state = $dom->createElement('status', $status);
+            $course->appendChild($state);
+            $root->appendChild($course);
         }
         $dom->appendChild($root);
         $dom->save("Xml/$filePath");

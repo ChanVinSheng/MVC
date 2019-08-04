@@ -18,5 +18,18 @@ class FacultyProgCampusModel extends Model {
 
         return $rows;
     }
+    
+    function updateOne($id, $value, $column) {
+        $data = array(
+            $column => $value
+        );
+        $where = array('programmeid' => $id);
+        $this->db->update('programmecampus', $data, $where);
+    }
+    
+    function delete($id) {
+        $where = array('programmeid' => $id);
+        $this->db->delete('programmecampus', $where);
+    }
 
 }

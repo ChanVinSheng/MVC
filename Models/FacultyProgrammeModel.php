@@ -6,12 +6,12 @@ class FacultyProgrammeModel extends Model {
         parent::__construct();
     }
 
-    function insert($programmecode, $description, $duration, $levelofstudy, $facultyid) {
+    function insert($programmecode, $description, $duration, $levelofstudyid, $facultyid) {
         $data = array(
             'programmecode' => $programmecode,
             'description' => $description,
             'duration' => $duration,
-            'levelofstudy' => $levelofstudy,
+            'levelofstudyid' => $levelofstudyid,
             'facultyid' => $facultyid
         );
         $this->db->insert('programme', $data);
@@ -27,6 +27,11 @@ class FacultyProgrammeModel extends Model {
         $rows = $this->db->select("* FROM programme WHERE programmeid = :programmeid ", [':programmeid' => $id]);
         return $rows;
     }
+    
+    function retrievedByCode($code) {
+        $rows = $this->db->select("* FROM programme WHERE programmecode = :programmecode ", [':programmecode' => $code]);
+        return $rows;
+    }
 
     function updateOne($id, $value, $column) {
         $data = array(
@@ -36,12 +41,12 @@ class FacultyProgrammeModel extends Model {
         $this->db->update('programme', $data, $where);
     }
 
-    function updateAll($programmeid, $programmecode, $description, $duration, $levelofstudy, $facultyid) {
+    function updateAll($programmeid, $programmecode, $description, $duration, $levelofstudyid, $facultyid) {
         $data = array(
             'programmecode' => $programmecode,
             'description' => $description,
             'duration' => $duration,
-            'levelofstudy' => $levelofstudy,
+            'levelofstudyid' => $levelofstudyid,
             'facultyid' => $facultyid
         );
         $where = array('programmeid' => $programmeid);

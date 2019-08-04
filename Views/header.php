@@ -64,7 +64,9 @@
 
                                 <?php } elseif ($_SESSION['role'] == 'Faculty') { ?>
                                     <div class="container">
-                                        <div class="btn-group"><h2 style="color: white">--Faculty Staff--</h2></div>
+                                        <div class="btn-group">
+                                            <a class="btn btn-warning" href="<?php echo URL; ?>FacultyHomeController">Home</a>
+                                        </div>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-warning">Programmes</button>
                                             <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
@@ -82,6 +84,7 @@
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" href="<?php echo URL; ?>FacultyViewCourseController">View All Courses</a>
                                                 <a class="dropdown-item" href="<?php echo URL; ?>FacultyAddCourseController">Add Course</a>
+                                                <a class="dropdown-item" href="<?php echo URL; ?>FacultySearchCourseController">Search Course</a>
                                             </div>
                                         </div>
 

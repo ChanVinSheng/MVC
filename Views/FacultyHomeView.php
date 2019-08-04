@@ -1,6 +1,6 @@
-
+<title>Home</title>
 <div class="container">
-    <h1>Faculty Management</h1>
+    <h2><strong>Faculty Management</strong></h2>
     <hr>
     <form  action = "FacultyHomeController" method = "POST">
         <thead><tr><th><h3 style="font-weight: bold">Programmes</h3></th></tr></thead><th/><th/><th/><th/><th/>
@@ -21,7 +21,7 @@
         <td><a href="FacultyViewMinEntryController" class="w3-button w3-blue">View and Modify Entry</a></td>
         <td/><br/><br/><br/>
 
-        <thead><tr><th><h3 style="font-weight: bold">Professional Curriculum</h3></th></tr></thead><th/><th/><th/><th/><th/>
+        <thead><tr><th><h3 style="font-weight: bold">Professional Curriculums</h3></th></tr></thead><th/><th/><th/><th/><th/>
         <?php echo $this->curriculumXml; ?>
         <td><a href="FacultyAddCurriculumController" class="w3-button w3-blue">Add Curriculum</a></td>
         <td><a href="FacultyViewCurriculumController" class="w3-button w3-blue">View and Modify Curriculum</a></td>

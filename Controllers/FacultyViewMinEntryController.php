@@ -23,12 +23,7 @@ class FacultyViewMinEntryController extends Controller {
 
     function modify() {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if (isset($_POST["edit"])) {
-                $minentryid = $_POST["edit"];
-                $row = $this->model->retrievedByID($minentryid);
-                $this->view->row = $row;
-                $this->view->render('FacultyModifyMinEntryView');
-            } elseif (isset($_POST["activate"])) {
+            if (isset($_POST["activate"])) {
                 $minentryid = $_POST["activate"];
                 $status = "active";
                 $column = "status";
@@ -45,25 +40,4 @@ class FacultyViewMinEntryController extends Controller {
             }
         }
     }
-
-    function edit() {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if (isset($_POST["done"])) {
-                $minentryid = $_POST["done"];
-                $minentryname = $_POST["minentryname"];
-                $column = "minentryname";
-                $this->model->updateOne($minentryid, $minentryname, $column);
-                echo "<script>alert(\"Successfully Modify\"); window.location.href=\"http://localhost/MVC/FacultyViewMinEntryController\";</script>";
-            }
-            elseif (isset($_POST["cancel"])) {
-                echo "<script>window.location.href=\"http://localhost/MVC/FacultyViewMinEntryController\";</script>";
-            } 
-            else {
-                echo "<script>alert(\"Unsuccessfully Modify\"); window.location.href=\"http://localhost/MVC/FacultyViewMinEntryController\";</script>";
-            }
-        } else {
-            echo "<script>alert(\"Error returning\"); window.location.href=\"http://localhost/MVC/FacultyViewMinEntryController\";</script>";
-        }
-    }
-
 }

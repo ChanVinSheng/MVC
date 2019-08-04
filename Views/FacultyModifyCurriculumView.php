@@ -1,11 +1,14 @@
+<title>Modify Professional Curriculum</title>
 <div class="container">
+    <h2><strong>Modify Professional Curriculum</strong></h2>
     <table class="table">
         <thead>
-            <tr>
+            <tr bgcolor="#E6E6FA">
                 <th>Professional Curriculum ID</th>
                 <th>Curriculum Name</th>
                 <th>Description</th>
                 <th>Actions</th>
+                <th/>
             </tr>
         </thead>
         <tbody>
