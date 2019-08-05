@@ -11,8 +11,12 @@ class AdminUserActivityController extends Controller {
         $this->model = new StaffActivityModel();
         parent::__construct();
         session_start();
-        if (!isset($_SESSION['role'])) {
-            echo "<script>alert(\"Access Denie.\"); window.location.href=\"login\";</script>";
+        if (isset($_SESSION['role'])) {
+            if($_SESSION['role'] != "Admin" || $_SESSION['role'] != "Admin Faculty")
+                echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
+        }
+        else{
+            echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
         }
     }
 
