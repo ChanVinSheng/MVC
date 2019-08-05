@@ -7,13 +7,13 @@ class api extends SimpleRest {
     public function getAction($row) {
 
         if (empty($row)) {
-            $status = 404;
-                $row = array('error' => 'No data found!');
+            $statusCode = 404;
+                $row = array('error' => 'No data found!' , 'status' => $statusCode);
         } else {
-            $status = 200;
+            $statusCode = 200;
         }
         
-        $this->setHttpHeaders($status);
+        $this->setHttpHeaders($statusCode);
         $jsonResponse = json_encode($row);
         return $jsonResponse;
     }

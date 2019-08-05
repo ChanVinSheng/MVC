@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <table class="table">
         <thead>
             <tr>
@@ -13,7 +13,7 @@
             <?php foreach ($this->row as $key): ?>
                 <tr>
                     <td><?php echo $key->username; ?></td>
-                    <td><?php echo $key->password; ?></td>
+                    <td> <label><?php echo $key->password; ?></label></td>
                     <td><?php echo $key->email; ?></td>
                     <td><?php echo $key->ic; ?></td>
                     <td><?php echo $key->role; ?></td>

@@ -17,7 +17,6 @@ class loginModel extends Model {
 
         $password = $_POST["loginpassword"];
         $username = $_POST["loginusername"];
-
         $context = new Validator(new ValidationEmail());
         $errorMessage = $context->executeValidatorStrategy($username);
 
@@ -25,28 +24,33 @@ class loginModel extends Model {
             $errorMessage .= "password is required \\n";
         }
 
-        $rows = $this->db->find("role , userid , email , password FROM user WHERE email = :email and password = :password ", array(':email' => $username, ':password' => $password));
+        $rows = $this->db->find("role , userid , email , password FROM user WHERE email = :email", array(':email' => $username));
 
         if (empty($errorMessage)) {
-            if (!empty($rows->role)) {
-                session_start();
-                $_SESSION['role'] = $rows->role;
-                $_SESSION['userid'] = $rows->userid;
-                if (isset($_POST['check'])) {
-                    setcookie("rememberme", $rows->email . "," . $password, time() + (86400 * 30), "/");
-                }
+            if (password_verify($password, $rows->password)) {
+                if (!empty($rows->role)) {
+                    session_start();
+                    $_SESSION['role'] = $rows->role;
+                    $_SESSION['userid'] = $rows->userid;
+                    if (isset($_POST['check'])) {
+                        setcookie("rememberme", $rows->email . "," . $password, time() + (86400 * 30), "/");
+                    }
 
-                if ($rows->role == "Admin") {
-                    echo "<script>alert(\"Login successful.\"); window.location.href=\"../adminhomecontroller\";</script>";
-                } elseif ($rows->role == "Admin Faculty") {
-                    echo "<script>alert(\"Login successful.\"); window.location.href=\"../adminhomecontroller\";</script>";
-                } elseif ($rows->role == "Faculty") {
-                    echo "<script>alert(\"Login successful.\"); window.location.href=\"../FacultyHomeController\";</script>";
-                } elseif ($rows->role == "Departmant") {
-                    echo "<script>alert(\"Login successful.\"); window.location.href=\"../DepartmentHomeController\";</script>";
+                    if ($rows->role == "Admin") {
+                        echo "<script>alert(\"Login successful.\"); window.location.href=\"../adminhomecontroller\";</script>";
+                    } elseif ($rows->role == "Admin Faculty") {
+                        echo "<script>alert(\"Login successful.\"); window.location.href=\"../adminhomecontroller\";</script>";
+                    } elseif ($rows->role == "Faculty") {
+                        echo "<script>alert(\"Login successful.\"); window.location.href=\"../FacultyHomeController\";</script>";
+                    } elseif ($rows->role == "Departmant") {
+                        echo "<script>alert(\"Login successful.\"); window.location.href=\"../DepartmentHomeController\";</script>";
+                    }
+                } else {
+                    echo "<script>alert(\"Your email or password is wrong\"); window.location.href=\"../login\";</script>";
                 }
-            } else {
-                echo "<script>alert(\"Your email or password is wrong\"); window.location.href=\"../login\";</script>";
+            }else{
+                  echo "<script>alert(\"Your email or password is wrong\"); window.location.href=\"../login\";</script>";
+        
             }
         } else {
             echo "<script>alert(\"$errorMessage\"); window.location.href=\"../login\";</script>";

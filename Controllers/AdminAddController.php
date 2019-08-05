@@ -33,22 +33,28 @@ class AdminAddController extends Controller {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $role = $_POST["roles"];
+            $role = dataHandling::HtmlTrimStrips($role);
+
 
             $username = $_POST["username"];
+            $username = dataHandling::HtmlTrimStrips($username);
             $contextUsername = new Validator(new ValidationInput());
             $errorMessage = $contextUsername->executeValidatorStrategy($username);
 
 
             $password = $_POST["password"];
+            $password = dataHandling::HtmlTrimStrips($password);
             $contextPassword = new Validator(new ValidationPassword());
             $errorMessage = $contextPassword->executeValidatorStrategy($password);
 
             $comfirmedpassword = $_POST["comfirmedpassword"];
+            $comfirmedpassword = dataHandling::HtmlTrimStrips($comfirmedpassword);
             if (empty($comfirmedpassword)) {
                 $errorMessage .= "comfirmed password is required \\n";
             }
 
             $ic = $_POST["ic"];
+            $ic = dataHandling::HtmlTrimStrips($ic);
             $contextIc = new Validator(new ValidationIc());
             $errorIc = $contextIc->executeValidatorStrategy($ic);
             $errorMessage .= $errorIc;
@@ -60,6 +66,7 @@ class AdminAddController extends Controller {
             }
 
             $email = $_POST["email"];
+            $email = dataHandling::HtmlTrimStrips($email);
             $contextEmail = new Validator(new ValidationEmail());
             $errorEmail = $contextEmail->executeValidatorStrategy($email);
             $errorMessage .= $errorEmail;
@@ -72,14 +79,15 @@ class AdminAddController extends Controller {
 
             if (empty($errorMessage)) {
                 if ($password == $comfirmedpassword) {
-                    $this->model->insert($username, $password, $email, $ic, $role);
+                    
+                    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+                    $this->model->insert($username, $hashed_password, $email, $ic, $role);
                     echo "<script>alert(\"Successfully Added\"); window.location.href=\"http://localhost/MVC/AdminAddController\";</script>";
-                }else{
-                       echo "<script>alert(\"Password does not match\"); window.location.href=\"http://localhost/MVC/AdminAddController\";</script>";
+                } else {
+                    echo "<script>alert(\"Password does not match\"); window.location.href=\"http://localhost/MVC/AdminAddController\";</script>";
                 }
-                                
             } else {
-                 echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/AdminAddController\";</script>";
+                echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/AdminAddController\";</script>";
             }
         }
     }

@@ -43,7 +43,6 @@ class AdminHomeController extends Controller {
             $output = "<h3>All Staff</h3>";
             $output .= "<hr />";
             $output .= '<table class="table">';
-            $output .= '<thead>';
             $output .= '<tr bgcolor="#9acd32">';
             $output .= "<th>User ID</th>";
             $output .= "<th>User Name</th>";
@@ -51,7 +50,6 @@ class AdminHomeController extends Controller {
             $output .= "<th>Email</th>";
             $output .= "<th>Role</th>";
             $output .= "</tr>";
-            $output .= '</thead>';
             foreach ($userdata as $user) {
                 $output .= "<tr>";
                 $output .= "<td>" . $user['USERID'] . "</td>";

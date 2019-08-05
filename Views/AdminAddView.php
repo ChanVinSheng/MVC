@@ -11,28 +11,28 @@
         <table class="form" align="center" cellpadding="7" cellspacing="7">
             <tr>
                 <th><label for="email"><strong>Email:</strong></label></th>
-                <td><input name="email" type="text"/></td>
+                <td><input placeholder="e.g. example@gmail.com" required autofocus class="form-control" name="email" type="text"/></td>
             </tr>
             <tr>
                 <th><label for="username"><strong>Username</strong></label></th>
-                <td><input name="username" type="text"  /></td>
+                <td><input placeholder="Username" required class="form-control" name="username" type="text"  /></td>
             </tr>
             <tr>
                 <th><label for="ic"><strong>ic</strong></label></th>
-                <td><input name="ic" type="text"  /></td>
+                <td><input placeholder="e.g XXXX-XX-XXXX" required class="form-control" name="ic" type="text"  /></td>
             </tr>
             <tr>
                 <th><label for="password"><strong>Password:</strong></label></th>
-                <td><input name="password" type="text"  /></td>
+                <td><input placeholder="Password" required class="form-control" name="password" type="text"  /></td>
             </tr>
             <tr>
                 <th><label for="comfirmedpassword"><strong>Comfirmed Password:</strong></label></th>
-                <td><input name="comfirmedpassword" type="text"  /></td>
+                <td><input placeholder="Comfirmed Password" required class="form-control" name="comfirmedpassword" type="text"  /></td>
             </tr>
             <tr>
                 <th><label for="roles"><strong>Role</strong></label></th>
                 <td>     
-                    <select name="roles">
+                    <select class="form-control mr-sm-2" name="roles">
                         <option>Admin</option>
                         <option>Admin Faculty</option>
                         <option>Faculty</option>
@@ -43,7 +43,7 @@
             <tr>
                 <td></td>
                 <td class="submit-button-right">
-                    <input class="send_btn" type="submit" value="Submit" title="Submit" />                      
+                    <input class="btn btn-info" type="submit" value="Submit" title="Submit" />                      
             </tr>
         </table>
     </form>
