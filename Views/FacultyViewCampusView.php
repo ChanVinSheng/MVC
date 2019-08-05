@@ -7,7 +7,6 @@
                 <th>Campus ID</th>
                 <th>Campus Name</th>
                 <th>Actions</th>
-                <th/>
             </tr>
         </thead>
         <tbody>
@@ -16,7 +15,6 @@
                     <td><?php echo $key->campusid; ?></td>
                     <td><?php echo $key->campusname; ?></td>
             <form action="FacultyViewCampusController/modify" method="post" >
-                <td><button class="btn btn-info" type="submit" value="<?php echo $key->campusid; ?>" name="edit">Edit</button></td>
                 <td>
                     <?php if ($key->status == "active") {
                         ?>

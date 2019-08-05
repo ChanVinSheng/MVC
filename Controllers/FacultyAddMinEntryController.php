@@ -31,6 +31,9 @@ require_once 'DecoratorMinEntry/English.php';
 require_once 'DecoratorMinEntry/Malay.php';
 require_once 'DecoratorMinEntry/Maths.php';
 
+require_once 'StrategyValidation/Validator.php';
+require_once 'StrategyValidation/ValidationMinEntry.php';
+
 class FacultyAddMinEntryController extends Controller {
 
     private $model;
@@ -114,8 +117,16 @@ class FacultyAddMinEntryController extends Controller {
             } elseif ($subject == "Mathematics") {
                 $decorator1 = new Maths($decorator1);
             }
+            
+            $errorMessage = "";
+            $contextMinEntry = new Validator(new ValidationMinEntry());
+            $errorMessage = $contextMinEntry->executeValidatorStrategy($decorator1->getContent());
 
-            $this->model->insert($decorator1->getContent());
+            if (empty($errorMessage)) {
+                $this->model->insert($decorator1->getContent());
+            }else{
+                echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/FacultyAddMinEntryController\";</script>";
+            }
             
              echo "<script>alert(\"Successful Add.\"); window.location.href=\"http://localhost/MVC/FacultyAddMinEntryController\";</script>";
         }

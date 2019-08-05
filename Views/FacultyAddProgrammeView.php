@@ -9,7 +9,6 @@
                 <th><label for="programmecode"><strong>Programme Code: </strong></label></th>
                 <td>
                     <input name="programmecode" type="text" class="form-control" placeholder="e.g. DIT, RSD, FA1..." required  />
-                    <input class="btn btn-info" type="button" name='check' value="Check" title="Check" />
                 </td>
             </tr>
             <tr>
