@@ -15,6 +15,8 @@ require_once 'Models/FacultyProgCurriculumModel.php';
 require_once 'Models/FacultyProgMinEntryModel.php';
 require_once 'Models/FacultyProgStructureModel.php';
 
+require 'SOAPcalcFee/lib/nusoap.php';
+
 class FacultyViewProgrammeController extends Controller {
 
     function __construct() {
@@ -30,7 +32,7 @@ class FacultyViewProgrammeController extends Controller {
         $this->modelStruct = new FacultyProgStructureModel();
         $this->modelDpFaculty = new DpFacultiesModel();
         $this->modelDpLoS = new DpLoSModel();
-        
+
         parent::__construct();
         session_start();
         if (!isset($_SESSION['role'])) {
@@ -42,7 +44,7 @@ class FacultyViewProgrammeController extends Controller {
         $programmeXml = new FacultyCreateXMLfile("programme");
         $saxp = new programmeSAXParser("programme");
         $programmedata = $saxp->getData();
-        
+
         $rowFaculties = $this->modelDpFaculty->retrieveAll();
         $rowLvlOfStudy = $this->modelDpLoS->retrieveAll();
 
@@ -93,7 +95,7 @@ class FacultyViewProgrammeController extends Controller {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["edit"])) {
                 $programmecode = $_POST["edit"];
-                
+
                 $row = $this->modelProg->retrievedByCode($programmecode);
                 $rowCampus = $this->modelCampus->retrieveAllCampus();
                 $rowCourse = $this->modelCourse->retrieveAllCourse();
@@ -163,10 +165,22 @@ class FacultyViewProgrammeController extends Controller {
                         break;
                 }
                 $facultyid = $_POST["faculty"];
-                $fee = 0;
-                $yearly = 0;
+
+                $credithr = 0;
+                if (isset($_POST['CourseChk'])) {
+                    foreach ($_POST['CourseChk'] as $courseid) {
+                        $rows = $this->modelCourse->retrievedByID($courseid);
+                        foreach ($rows as $row) {
+                            $value = $row->credithour;
+                        }
+                        $credithr = (int) $credithr + (int) $value;
+                    }
+                }
+                $client = new nusoap_client("http://localhost/MVC/SOAPcalcFee/service.php?wsdl");
+                $fee = $client->call('calcTotalAmount', array("credithr" => $credithr, "duration" => $duration));
+                $yearly = $client->call('calcYearlyAmount', array("credithr" => $credithr, "duration" => $duration));
                 $this->modelProg->updateAll($programmeid, $programmecode, $description, $duration, $levelofstudyid, $facultyid, $fee, $yearly);
-                
+
                 $this->modelProgCampus->delete($programmeid);
                 $this->modelProgCurr->delete($programmeid);
                 $this->modelProgMinEntry->delete($programmeid);
