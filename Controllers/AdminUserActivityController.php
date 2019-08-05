@@ -33,7 +33,6 @@ class AdminUserActivityController extends Controller {
             $result = json_decode($response);
             $this->view->found = $result;
             header("Content-Type:text/html");
-            echo $result->data->error;
             $this->view->render('AdminUserActivityResultView');
         }
     }
