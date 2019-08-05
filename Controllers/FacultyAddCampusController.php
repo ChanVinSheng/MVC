@@ -14,7 +14,11 @@ class FacultyAddCampusController extends Controller {
         $this->model = new FacultyCampusModel();
         parent::__construct();
         session_start();
-        if (!isset($_SESSION['role'])) {
+        if (isset($_SESSION['role'])) {
+            if($_SESSION['role'] != "Faculty")
+                echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
+        }
+        else{
             echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
         }
     }
@@ -22,6 +26,7 @@ class FacultyAddCampusController extends Controller {
     function index() {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $campusname = $_POST["campusname"];
+            $campusname = dataHandling::HtmlStrips($campusname);
 
             $errorMessage = "";
             $contextName = new Validator(new ValidationCampusName());

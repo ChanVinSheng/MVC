@@ -76,6 +76,7 @@
                                         <br/> 
                                         <?php
                                         $tempCount++;
+                                        break;
                                     }
                                 }
                                 if ($tempCount == 0) {
@@ -103,6 +104,7 @@
                                         <br/> 
                                         <?php
                                         $tempCount++;
+                                        break;
                                     }
                                 }
                                 if ($tempCount == 0) {
@@ -130,6 +132,7 @@
                                         <br/> 
                                         <?php
                                         $tempCount++;
+                                        break;
                                     }
                                 }
                                 if ($tempCount == 0) {
@@ -157,6 +160,7 @@
                                         <br/> 
                                         <?php
                                         $tempCount++;
+                                        break;
                                     }
                                 }
                                 if ($tempCount == 0) {
