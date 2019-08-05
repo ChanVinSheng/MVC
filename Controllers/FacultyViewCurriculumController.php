@@ -1,5 +1,6 @@
 <?php
 
+require 'Models/StaffActivityModel.php';
 require 'Models/FacultyCurriculumModel.php';
 
 require_once 'StrategyValidation/Validator.php';
@@ -26,6 +27,8 @@ class FacultyViewCurriculumController extends Controller {
 
     function modify() {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $userlog = new StaffActivityModel();
+
             if (isset($_POST["edit"])) {
                 $curriculumid = $_POST["edit"];
                 $_SESSION['curriculumid'] = $curriculumid;
@@ -37,12 +40,15 @@ class FacultyViewCurriculumController extends Controller {
                 $status = "active";
                 $column = "status";
                 $this->model->updateOne($curriculumid, $status, $column);
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Activate");
                 echo "<script>alert(\"Successfully Activate\"); window.location.href=\"http://localhost/MVC/FacultyViewCurriculumController\";</script>";
             } elseif (isset($_POST["deactivate"])) {
                 $curriculumid = $_POST["deactivate"];
                 $status = "inactive";
                 $column = "status";
                 $this->model->updateOne($curriculumid, $status, $column);
+
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Deactivate");
                 echo "<script>alert(\"Successfully Deactivate\"); window.location.href=\"http://localhost/MVC/FacultyViewCurriculumController\";</script>";
             } else {
                 echo "<script>alert(\"Error returning\"); window.location.href=\"http://localhost/MVC/FacultyViewCurriculumController\";</script>";
@@ -68,6 +74,8 @@ class FacultyViewCurriculumController extends Controller {
 
                 if (empty($errorMessage)) {
                     $this->model->updateAll($curriculumid, $curriculumname, $curriculumdesc);
+                    $userlog = new StaffActivityModel();
+                    $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Edit");
                     echo "<script>alert(\"Successfully Modify\"); window.location.href=\"http://localhost/MVC/FacultyViewCurriculumController\";</script>";
                 } else {
                     echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/FacultyViewCurriculumController/modify\";</script>";

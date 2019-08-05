@@ -9,6 +9,7 @@ require_once 'Models/FacultyCurriculumModel.php';
 require_once 'Models/FacultyMinEntryModel.php';
 require_once 'Models/DpFacultiesModel.php';
 require_once 'Models/DpLoSModel.php';
+require_once 'Models/StaffActivityModel.php';
 
 require_once 'Models/FacultyProgCampusModel.php';
 require_once 'Models/FacultyProgCurriculumModel.php';
@@ -190,6 +191,7 @@ class FacultyViewProgrammeController extends Controller {
 
     function edit() {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $userlog = new StaffActivityModel();
             if (isset($_POST["done"])) {
                 $programmeid = $_POST["done"];
                 $programmecode = $_POST["programmecode"];
@@ -295,7 +297,7 @@ class FacultyViewProgrammeController extends Controller {
                             $this->modelProgCurr->insert($programmeid, $curriculumid);
                         }
                     }
-
+                    $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Edit");
                     echo "<script>alert(\"Successfully Modify\"); window.location.href=\"http://localhost/MVC/FacultyViewProgrammeController\";</script>";
                 } else {
                     echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/FacultyViewProgrammeController/modify\";</script>";
@@ -307,12 +309,14 @@ class FacultyViewProgrammeController extends Controller {
                 $status = "active";
                 $column = "status";
                 $this->modelProg->updateOne($programmeid, $status, $column);
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Activate");
                 echo "<script>alert(\"Successfully Activate\"); window.location.href=\"http://localhost/MVC/FacultyViewProgrammeController\";</script>";
             } elseif (isset($_POST["deactivate"])) {
                 $programmeid = $_POST["deactivate"];
                 $status = "inactive";
                 $column = "status";
                 $this->modelProg->updateOne($programmeid, $status, $column);
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Deactivate");
                 echo "<script>alert(\"Successfully Deactivate\"); window.location.href=\"http://localhost/MVC/FacultyViewProgrammeController\";</script>";
             } else {
                 echo "<script>alert(\"Unsuccessfully Modify\"); window.location.href=\"http://localhost/MVC/FacultyViewProgrammeController\";</script>";

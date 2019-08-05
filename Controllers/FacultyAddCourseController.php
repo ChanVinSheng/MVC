@@ -1,5 +1,6 @@
 <?php
 
+require 'Models/StaffActivityModel.php';
 require 'Models/FacultyCourseModel.php';
 
 require_once 'StrategyValidation/Validator.php';
@@ -39,6 +40,8 @@ class FacultyAddCourseController extends Controller {
 
             if (empty($errorMessage)) {
                 $this->model->insert($coursecode, $coursename, $courseinfo, $credithour);
+                $userlog = new StaffActivityModel();
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Add");
                 echo "<script>alert(\"Successfully Added\"); window.location.href=\"FacultyAddCourseController\";</script>";
             } else {
                 echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/FacultyAddCourseController\";</script>";

@@ -1,5 +1,5 @@
 <?php
-
+require 'Models/StaffActivityModel.php';
 require 'Models/FacultyCampusModel.php';
 
 class FacultyViewCampusController extends Controller {
@@ -23,17 +23,23 @@ class FacultyViewCampusController extends Controller {
 
     function modify() {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $userlog = new StaffActivityModel();
+
             if (isset($_POST["activate"])) {
                 $campusid = $_POST["activate"];
                 $status = "active";
                 $column = "status";
                 $this->model->updateOne($campusid, $status, $column);
-                echo "<script>alert(\"Successfully Activate\"); window.location.href=\"http://localhost/MVC/FacultyViewCampusController\";</script>";    
+
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Activate");
+                echo "<script>alert(\"Successfully Activate\"); window.location.href=\"http://localhost/MVC/FacultyViewCampusController\";</script>";
             } elseif (isset($_POST["deactivate"])) {
                 $campusid = $_POST["deactivate"];
                 $status = "inactive";
                 $column = "status";
                 $this->model->updateOne($campusid, $status, $column);
+
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Deactivate");
                 echo "<script>alert(\"Successfully Deactivate\"); window.location.href=\"http://localhost/MVC/FacultyViewCampusController\";</script>";
             } else {
                 echo "<script>alert(\"Error returning\"); window.location.href=\"http://localhost/MVC/FacultyViewCampusController\";</script>";

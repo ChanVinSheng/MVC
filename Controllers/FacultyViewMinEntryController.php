@@ -1,6 +1,7 @@
 <?php
 
 require 'Models/FacultyMinEntryModel.php';
+require 'Models/StaffActivityModel.php';
 
 class FacultyViewMinEntryController extends Controller {
 

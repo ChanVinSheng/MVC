@@ -12,10 +12,10 @@
         <tbody>
             <?php foreach ($this->row as $key): ?>
                 <tr>
-                    <td><?php echo $key['USERID']; ?></td>
-                    <td> <label><?php echo $key['USERNAME']; ?></label></td>
-                    <td><?php echo $key['PASSWORD']; ?></td>
+                    <td><?php echo $key['USERNAME']; ?></td>
+                    <td> <label><?php echo $key['PASSWORD']; ?></label></td>
                     <td><?php echo $key['EMAIL']; ?></td>
+                    <td><?php echo $key['IC']; ?></td>
                     <td><?php echo $key['ROLE']; ?></td>
 
                     <td>

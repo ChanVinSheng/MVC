@@ -1,5 +1,6 @@
 <?php
 
+require 'Models/StaffActivityModel.php';
 require 'Models/FacultyCampusModel.php';
 
 require_once 'StrategyValidation/Validator.php';
@@ -28,6 +29,8 @@ class FacultyAddCampusController extends Controller {
 
             if (empty($errorMessage)) {
                 $this->model->insert($campusname);
+                $userlog = new StaffActivityModel();
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Add");
                 echo "<script>alert(\"Successfully Added\"); window.location.href=\"FacultyAddCampusController\";</script>";
             } else {
                 echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/FacultyAddCampusController\";</script>";

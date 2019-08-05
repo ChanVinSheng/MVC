@@ -1,5 +1,6 @@
 <?php
 
+require 'Models/StaffActivityModel.php';
 require 'Models/FacultyProgrammeModel.php';
 require 'Models/FacultyCampusModel.php';
 require 'Models/FacultyCourseModel.php';
@@ -268,7 +269,8 @@ class FacultyAddProgrammeController extends Controller {
                         $this->modelProgCurr->insert($programmeid, $curriculumid);
                     }
                 }
-
+                $userlog = new StaffActivityModel();
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Add");
                 echo "<script>alert(\"Successfully Added\"); window.location.href=\"http://localhost/MVC/FacultyAddProgrammeController\";</script>";
             } else {
                 echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/FacultyAddProgrammeController/nextAdd\";</script>";

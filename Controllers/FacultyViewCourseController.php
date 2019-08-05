@@ -1,6 +1,7 @@
 <?php
 
 require 'Models/FacultyCourseModel.php';
+require 'Models/StaffActivityModel.php';
 
 require_once 'StrategyValidation/Validator.php';
 require_once 'StrategyValidation/ValidationCourseName.php';
@@ -27,6 +28,8 @@ class FacultyViewCourseController extends Controller {
 
     function modify() {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $userlog = new StaffActivityModel();
+
             if (isset($_POST["edit"])) {
                 $courseid = $_POST["edit"];
                 $_SESSION['courseid'] = $courseid;
@@ -38,12 +41,16 @@ class FacultyViewCourseController extends Controller {
                 $status = "active";
                 $column = "status";
                 $this->model->updateOne($courseid, $status, $column);
+
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Activate");
                 echo "<script>alert(\"Successfully Activate\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController\";</script>";
             } elseif (isset($_POST["deactivate"])) {
                 $courseid = $_POST["deactivate"];
                 $status = "inactive";
                 $column = "status";
                 $this->model->updateOne($courseid, $status, $column);
+
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Deactivate");
                 echo "<script>alert(\"Successfully Deactivate\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController\";</script>";
             } else {
                 echo "<script>alert(\"Error returning\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController\";</script>";
@@ -74,6 +81,8 @@ class FacultyViewCourseController extends Controller {
 
                 if (empty($errorMessage)) {
                     $this->model->updateAll($courseid, $coursecode, $coursename, $courseinfo, $credithour);
+                    $userlog = new StaffActivityModel();
+                    $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Edit");
                     echo "<script>alert(\"Successfully Modify\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController\";</script>";
                 } else {
                     echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController/modify\";</script>";

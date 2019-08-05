@@ -38,7 +38,7 @@ class userSAXParser {
 
 
         if (!empty($data)) {
-            if ($this->elements == 'USERID' || $this->elements == 'PASSWORD' || $this->elements == 'EMAIL' || $this->elements == 'ROLE' || $this->elements == 'USERNAME') {
+            if ($this->elements == 'USERID' || $this->elements == 'PASSWORD' || $this->elements == 'EMAIL' || $this->elements == 'ROLE' || $this->elements == 'USERNAME' || $this->elements == 'IC')  {
                 $this->users[count($this->users) - 1][$this->elements] = trim($data);
             }
         }

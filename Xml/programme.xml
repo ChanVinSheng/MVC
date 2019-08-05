@@ -7,8 +7,8 @@
     <levelofstudyid>3</levelofstudyid>
     <facultyid>1</facultyid>
     <status>active</status>
-    <fee>3375</fee>
-    <yearlyfee>1688</yearlyfee>
+    <fee>5250</fee>
+    <yearlyfee>2625</yearlyfee>
   </programme>
   <programme programmeid="2">
     <programmecode>DCO</programmecode>
@@ -17,8 +17,8 @@
     <levelofstudyid>2</levelofstudyid>
     <facultyid>1</facultyid>
     <status>active</status>
-    <fee>3375</fee>
-    <yearlyfee>1688</yearlyfee>
+    <fee>4875</fee>
+    <yearlyfee>2438</yearlyfee>
   </programme>
   <programme programmeid="3">
     <programmecode>DCN</programmecode>
@@ -47,8 +47,8 @@
     <levelofstudyid>2</levelofstudyid>
     <facultyid>2</facultyid>
     <status>active</status>
-    <fee>2250</fee>
-    <yearlyfee>1125</yearlyfee>
+    <fee>4875</fee>
+    <yearlyfee>2438</yearlyfee>
   </programme>
   <programme programmeid="6">
     <programmecode>FA1</programmecode>
@@ -71,13 +71,13 @@
     <yearlyfee>2438</yearlyfee>
   </programme>
   <programme programmeid="8">
-    <programmecode>RSS</programmecode>
-    <description>rss</description>
+    <programmecode>DIT</programmecode>
+    <description>DIT PROGRAM</description>
     <duration>1</duration>
-    <levelofstudyid>3</levelofstudyid>
+    <levelofstudyid>2</levelofstudyid>
     <facultyid>1</facultyid>
     <status>active</status>
-    <fee>2475</fee>
-    <yearlyfee>2475</yearlyfee>
+    <fee>8100</fee>
+    <yearlyfee>8100</yearlyfee>
   </programme>
 </programmes>

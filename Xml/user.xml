@@ -16,4 +16,12 @@
     <role>Admin Faculty</role>
     <ic>991010-12-1212</ic>
   </user>
+  <user>
+    <userid>7</userid>
+    <username>wy</username>
+    <password>$2y$10$cPvjxgnzzlHLzL8QZ9PjRebtzij9iCeuIoamXv8mMOeyyKwnEqY7S</password>
+    <email>1234@gmail.com</email>
+    <role>Faculty</role>
+    <ic>991212-12-1212</ic>
+  </user>
 </users>

@@ -1,5 +1,6 @@
 <?php
 
+require 'Models/StaffActivityModel.php';
 require 'Models/FacultyMinEntryModel.php';
 
 require_once 'DecoratorMinEntry/ConcreteFoundation.php';
@@ -59,7 +60,7 @@ class FacultyAddMinEntryController extends Controller {
             $requirement = $_POST['requirement'];
             $subject = $_POST['subject'];
             $category = $_POST['category'];
-            
+
             if ($level == "Foundation") {
                 $lvlChoice = new ConcreteFoundation();
             } elseif ($level == "Diploma") {
@@ -117,18 +118,19 @@ class FacultyAddMinEntryController extends Controller {
             } elseif ($subject == "Mathematics") {
                 $decorator1 = new Maths($decorator1);
             }
-            
+
             $errorMessage = "";
             $contextMinEntry = new Validator(new ValidationMinEntry());
             $errorMessage = $contextMinEntry->executeValidatorStrategy($decorator1->getContent());
 
             if (empty($errorMessage)) {
                 $this->model->insert($decorator1->getContent());
-            }else{
+                $userlog = new StaffActivityModel();
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Add");
+                echo "<script>alert(\"Successful Add.\"); window.location.href=\"http://localhost/MVC/FacultyAddMinEntryController\";</script>";
+            } else {
                 echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/FacultyAddMinEntryController\";</script>";
             }
-            
-             echo "<script>alert(\"Successful Add.\"); window.location.href=\"http://localhost/MVC/FacultyAddMinEntryController\";</script>";
         }
     }
 
