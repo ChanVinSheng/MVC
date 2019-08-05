@@ -14,7 +14,6 @@ class api extends SimpleRest {
         }
         
         $this->setHttpHeaders($status);
-        print_r($row);
         $jsonResponse = json_encode($row);
         return $jsonResponse;
     }
