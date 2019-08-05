@@ -17,7 +17,7 @@ class AdminAddController extends Controller {
         parent::__construct();
         session_start();
         if (isset($_SESSION['role'])) {
-            if($_SESSION['role'] != "Admin" || $_SESSION['role'] != "Admin Faculty")
+            if($_SESSION['role'] != "Admin" && $_SESSION['role'] != "Admin Faculty")
                 echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
         }
         else{

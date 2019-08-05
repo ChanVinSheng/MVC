@@ -26,13 +26,13 @@ class FacultyAddCampusController extends Controller {
     function index() {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $campusname = $_POST["campusname"];
-            $campusname = dataHandling::HtmlStrips($campusname);
 
             $errorMessage = "";
             $contextName = new Validator(new ValidationCampusName());
             $errorMessage = $contextName->executeValidatorStrategy($campusname);
 
             if (empty($errorMessage)) {
+                $campusname = dataHandling::HtmlStrips($campusname);
                 $this->model->insert($campusname);
                 $userlog = new StaffActivityModel();
                 $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Add");

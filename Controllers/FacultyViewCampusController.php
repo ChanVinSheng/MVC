@@ -31,6 +31,7 @@ class FacultyViewCampusController extends Controller {
 
             if (isset($_POST["activate"])) {
                 $campusid = $_POST["activate"];
+                $campusid = dataHandling::HtmlTrimStrips($campusid);
                 $status = "active";
                 $column = "status";
                 $this->model->updateOne($campusid, $status, $column);
@@ -39,6 +40,7 @@ class FacultyViewCampusController extends Controller {
                 echo "<script>alert(\"Successfully Activate\"); window.location.href=\"http://localhost/MVC/FacultyViewCampusController\";</script>";
             } elseif (isset($_POST["deactivate"])) {
                 $campusid = $_POST["deactivate"];
+                $campusid = dataHandling::HtmlTrimStrips($campusid);
                 $status = "inactive";
                 $column = "status";
                 $this->model->updateOne($campusid, $status, $column);
