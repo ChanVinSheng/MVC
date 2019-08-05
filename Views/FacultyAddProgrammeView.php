@@ -3,7 +3,7 @@
     <br/>
     <h2><strong>Add Programme</strong></h2>
     <br/>
-    <form action="FacultyAddProgrammeController/insertDatabase" method="post">
+    <form action="http://localhost/MVC/FacultyAddProgrammeController/nextAdd" method="post">
         <table border="1" class="form" align="center" cellpadding="7" cellspacing="7">
             <tr>
                 <th><label for="programmecode"><strong>Programme Code: </strong></label></th>
@@ -41,69 +41,9 @@
                 </td>
             </tr>
             <tr>
-                <th><label for="prog"><strong>Programme Course(s): </strong></label></th>
-                <td align="left">
-                    <?php
-                    foreach ($this->rowCourse as $courses) {
-                        if($courses->status == "active"){
-                        ?>
-                        <input type="checkbox" name="CourseChk[]" class="CourseGrouped" id="<?php echo $courses->courseid ?>" value="<?php echo $courses->courseid ?>"> <?php echo $courses->coursecode . " " . $courses->coursename ?> 
-                        <br/>
-                        <?php
-                        }
-                    }
-                    ?>
-                </td>
-            </tr>
-            <tr>
-                <th><label for="campus"><strong>Campuses Offered: </strong></label></th>
-                <td align="left">
-                    <?php
-                    foreach ($this->rowCampus as $campuses) {
-                        if($campuses->status == "active"){
-                        ?>
-                        <input type="checkbox" name="CampusChk[]" class="CampusGrouped" id="<?php echo $campuses->campusid ?>" value="<?php echo $campuses->campusid ?>"> <?php echo $campuses->campusname ?>
-                        <br/>
-                        <?php
-                        }
-                    }
-                    ?>
-                </td>
-            </tr>
-            <tr>
-                <th><label for="minentry"><strong>Minimum Requirement Entries: </strong></label></th>
-                <td align="left">
-                    <?php
-                    foreach ($this->rowMinEntry as $minEntries) {
-                        if($minEntries->status == "active"){
-                        ?>
-                        <input type="checkbox" name="MinEntryChk[]" class="MinEntryGrouped" id="<?php echo $minEntries->minentryid ?>" value="<?php echo $minEntries->minentryid ?>"> <?php echo $minEntries->minentryname ?>
-                        <br/>
-                        <?php
-                        }
-                    }
-                    ?>
-                </td>
-            </tr>
-            <tr>
-                <th><label for="curriculum"><strong>Incorporation of Professional Curriculum: </strong></label></th>
-                <td align="left">
-                    <?php
-                    foreach ($this->rowCurriculum as $curriculum) {
-                        if($curriculum->status == "active"){
-                        ?>
-                        <input type="checkbox" name="CurriculumChk[]" class="CurriculumGrouped" id="<?php echo $curriculum->curriculumid ?>" value="<?php echo $curriculum->curriculumid ?>"> <?php echo $curriculum->curriculumname ?>
-                        <br/>
-                        <?php
-                        }
-                    }
-                    ?>
-                </td>
-            </tr>
-            <tr>
                 <td></td>
                 <td class="submit-button-right">
-                    <input class="btn btn-info" type="submit" value="Submit" title="Submit" />                      
+                    <input class="btn btn-info" type="submit" value="Submit" title="Next" />                      
             </tr>
         </table>
     </form>

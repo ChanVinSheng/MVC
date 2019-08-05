@@ -121,7 +121,7 @@
                     <td align="left">
                         <?php
                         foreach ($this->rowMinEntry as $minEntries) {
-                            if ($minEntries->status == "active") {
+                            if ($minEntries->status == "active" && (substr($minEntries->minentryname,0,2) == $this->tempProgWords)) {
                                 $tempCount = 0;
                                 foreach ($this->rowPMinEntry as $pMinEntry) {
                                     if ($pMinEntry->programmeid == $key->programmeid && $pMinEntry->minentryid == $minEntries->minentryid) {

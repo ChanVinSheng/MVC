@@ -103,6 +103,21 @@ class FacultyViewProgrammeController extends Controller {
                 $programmecode = $_POST["edit"];
                 $_SESSION['programmecode'] = $programmecode;
 
+                $code = $programmecode[0];
+                switch ($code) {
+                    case "F":
+                        $words = "Fo";
+                        break;
+                    case "D":
+                        $words = "Di";
+                        break;
+                    case "R":
+                        $words = "De";
+                        break;
+                    case "M":
+                        $words = "Ma";
+                        break;
+                }
                 $row = $this->modelProg->retrievedByCode($programmecode);
                 $rowCampus = $this->modelCampus->retrieveAllCampus();
                 $rowCourse = $this->modelCourse->retrieveAllCourse();
@@ -124,6 +139,7 @@ class FacultyViewProgrammeController extends Controller {
                 $this->view->rowPCurr = $rowPCurr;
                 $this->view->rowPMinEntry = $rowPMinEntry;
                 $this->view->rowPStruc = $rowPStruc;
+                $this->view->tempProgWords = $words;
                 $this->view->render('FacultyModifyProgrammeView');
             } else {
                 echo "<script>alert(\"Error returning\"); window.location.href=\"http://localhost/MVC/FacultyViewProgrammeController\";</script>";
@@ -131,6 +147,21 @@ class FacultyViewProgrammeController extends Controller {
         } elseif (isset($_SESSION['programmecode'])) {
             $programmecode = $_SESSION['programmecode'];
 
+            $code = $programmecode[0];
+            switch ($code) {
+                case "F":
+                    $words = "Fo";
+                    break;
+                case "D":
+                    $words = "Di";
+                    break;
+                case "R":
+                    $words = "De";
+                    break;
+                case "M":
+                    $words = "Ma";
+                    break;
+            }
             $row = $this->modelProg->retrievedByCode($programmecode);
             $rowCampus = $this->modelCampus->retrieveAllCampus();
             $rowCourse = $this->modelCourse->retrieveAllCourse();
@@ -152,6 +183,7 @@ class FacultyViewProgrammeController extends Controller {
             $this->view->rowPCurr = $rowPCurr;
             $this->view->rowPMinEntry = $rowPMinEntry;
             $this->view->rowPStruc = $rowPStruc;
+            $this->view->tempProgWords = $words;
             $this->view->render('FacultyModifyProgrammeView');
         }
     }
