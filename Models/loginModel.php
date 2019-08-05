@@ -24,7 +24,7 @@ class loginModel extends Model {
             $errorMessage .= "password is required \\n";
         }
 
-        $rows = $this->db->find("role , userid , email , password FROM user WHERE email = :email", array(':email' => $username));
+        $rows = $this->db->find("role , userid ,username , email , password FROM user WHERE email = :email", array(':email' => $username));
 
         if (empty($errorMessage)) {
             if (password_verify($password, $rows->password)) {
@@ -32,6 +32,7 @@ class loginModel extends Model {
                     session_start();
                     $_SESSION['role'] = $rows->role;
                     $_SESSION['userid'] = $rows->userid;
+                    $_SESSION['username'] = $rows->username;
                     if (isset($_POST['check'])) {
                         setcookie("rememberme", $rows->email . "," . $password, time() + (86400 * 30), "/");
                     }
@@ -48,9 +49,8 @@ class loginModel extends Model {
                 } else {
                     echo "<script>alert(\"Your email or password is wrong\"); window.location.href=\"../login\";</script>";
                 }
-            }else{
-                  echo "<script>alert(\"Your email or password is wrong\"); window.location.href=\"../login\";</script>";
-        
+            } else {
+                echo "<script>alert(\"Your email or password is wrong\"); window.location.href=\"../login\";</script>";
             }
         } else {
             echo "<script>alert(\"$errorMessage\"); window.location.href=\"../login\";</script>";

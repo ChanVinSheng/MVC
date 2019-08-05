@@ -18,10 +18,10 @@
             <thead>
                 <tr>
                     <th>Log id</th>
-                    <th>user id</th>
-                    <th>username</th>
-                    <th>date</th>
-                    <th>action</th>
+                    <th>User id</th>
+                    <th>Username</th>
+                    <th>Date & Time</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,10 +34,9 @@
                         <td><?php echo $values->action; ?></td>
 
                     </tr>       
-                </tbody>
-            </table>
-        <?php endforeach; ?>
-
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     <?php } ?>
 
 </div>

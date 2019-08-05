@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <users>
   <user>
-    <userid>3</userid>
-    <username>nick</username>
-    <password>$2y$10$.dbyrcYbZZzzCz631MWQTekPvp45639PrkVPUAk2GaNWtLSd7pO3S</password>
-    <email>hh@gmail.com</email>
-    <role>Admin</role>
-    <ic>991010-14-5252</ic>
-  </user>
-  <user>
     <userid>4</userid>
     <username>vin</username>
     <password>$2y$10$SjWClgv/mt.eLvD9eyzmhOKRiMx4PTsqF0BLBumQ8Lpo22kUEQbYq</password>
@@ -17,11 +9,11 @@
     <ic>970702-14-5253</ic>
   </user>
   <user>
-    <userid>5</userid>
-    <username>123</username>
-    <password>$2y$10$OYg7DxBS/SCx08qQSYQHWunhudPzFNFrovudkf3WECiv8SvkunERi</password>
-    <email>1234@gmail.com</email>
-    <role>Faculty</role>
-    <ic>970702-12-1212</ic>
+    <userid>6</userid>
+    <username>test123</username>
+    <password>$2y$10$Tq7Sk4OVlryXihWYnDAu.eppeFwg1VeyeE5vQW0BX2frZuWqZ08iO</password>
+    <email>test@gmail.com</email>
+    <role>Admin Faculty</role>
+    <ic>991010-12-1212</ic>
   </user>
 </users>

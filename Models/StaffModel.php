@@ -44,11 +44,9 @@ class StaffModel extends Model {
         return $rows;
     }
 
-    function update($userid , $username, $password, $email, $ic, $role) {
+    function update($userid , $username, $ic, $role) {
          $data = array(
             'username' => $username,
-            'password' => $password,
-            'email' => $email,
             'ic' => $ic,
             'role' => $role
         );

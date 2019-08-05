@@ -1,6 +1,7 @@
 <?php
 
 require 'Models/StaffModel.php';
+require 'Models/StaffActivityModel.php';
 require_once 'StrategyValidation/Validator.php';
 require_once 'StrategyValidation/ValidationEmail.php';
 require_once 'StrategyValidation/ValidationIc.php';
@@ -80,8 +81,12 @@ class AdminAddController extends Controller {
             if (empty($errorMessage)) {
                 if ($password == $comfirmedpassword) {
                     
+                    $userlog = new StaffActivityModel();
+                    $userlog->insert($_SESSION['userid'],  $_SESSION['username'], "Add");
+                    
                     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                     $this->model->insert($username, $hashed_password, $email, $ic, $role);
+
                     echo "<script>alert(\"Successfully Added\"); window.location.href=\"http://localhost/MVC/AdminAddController\";</script>";
                 } else {
                     echo "<script>alert(\"Password does not match\"); window.location.href=\"http://localhost/MVC/AdminAddController\";</script>";

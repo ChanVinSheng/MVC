@@ -1,6 +1,9 @@
 <?php
 
 require 'Models/StaffModel.php';
+require 'Models/StaffActivityModel.php';
+require_once 'Models/XmlGenerate.php';
+require_once 'Models/userSAXParser.php';
 
 class AdminModifyController extends Controller {
 
@@ -17,9 +20,14 @@ class AdminModifyController extends Controller {
 
     function index() {
 
+        $xml = new XmlGenerate("user");
+        $xml->databaseToXml("user", "user.xml");
+        $sax = new userSAXParser("user");
+        $userdata = $sax->getData();
 
-        $row = $this->model->retrieveAllStaff();
-        $this->view->row = $row;
+        $this->view->row = $userdata;
+       // $row = $this->model->retrieveAllStaff();
+       // $this->view->row = $row;
         $this->view->render('AdminModifyView');
     }
 
@@ -35,6 +43,10 @@ class AdminModifyController extends Controller {
                 $this->view->render('AdminModifyEditView');
             } elseif (isset($_POST["delete"])) {
                 $userid = $_POST["delete"];
+
+                $userlog = new StaffActivityModel();
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Delete");
+
                 $this->model->delete($userid);
                 echo "<script>alert(\"Successfully Delete\"); window.location.href=\"http://localhost/MVC/AdminModifyController\";</script>";
             } else {
@@ -46,13 +58,15 @@ class AdminModifyController extends Controller {
     function edit() {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["done"])) {
-                $email = $_POST["email"];
                 $ic = $_POST["ic"];
-                $password = $_POST["password"];
                 $role = $_POST["role"];
                 $username = $_POST["username"];
                 $userid = $_POST["done"];
-                $this->model->update($userid, $username, $password, $email, $ic, $role);
+
+                $userlog = new StaffActivityModel();
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Edit");
+
+                $this->model->update($userid, $username, $ic, $role);
                 echo "<script>alert(\"Successfully Modify\"); window.location.href=\"http://localhost/MVC/AdminModifyController\";</script>";
             } else {
                 echo "<script>alert(\"Unsuccessfully Modify\"); window.location.href=\"http://localhost/MVC/AdminModifyController\";</script>";

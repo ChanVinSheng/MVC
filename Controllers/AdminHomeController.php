@@ -39,7 +39,6 @@ class AdminHomeController extends Controller {
             $xml->databaseToXml("user", "user.xml");
             $sax = new userSAXParser("user");
             $userdata = $sax->getData();
-
             $output = "<h3>All Staff</h3>";
             $output .= "<hr />";
             $output .= '<table class="table">';
