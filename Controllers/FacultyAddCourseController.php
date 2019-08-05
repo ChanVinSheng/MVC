@@ -2,6 +2,11 @@
 
 require 'Models/FacultyCourseModel.php';
 
+require_once 'StrategyValidation/Validator.php';
+require_once 'StrategyValidation/ValidationCourseCode.php';
+require_once 'StrategyValidation/ValidationCourseName.php';
+require_once 'StrategyValidation/ValidationCourseInfo.php';
+
 class FacultyAddCourseController extends Controller {
 
     private $model;
@@ -17,15 +22,28 @@ class FacultyAddCourseController extends Controller {
 
     function index() {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $coursecode = $_POST["coursecode"];
-            $cousename = $_POST["coursename"];
+            $coursecode = strtoupper($_POST["coursecode"]);
+            $coursename = $_POST["coursename"];
             $courseinfo = $_POST["courseinfo"];
             $credithour = $_POST["credithour"];
 
-            $this->model->insert($coursecode, $cousename, $courseinfo, $credithour);
-            echo "<script>alert(\"Successfully Added\"); window.location.href=\"FacultyAddCourseController\";</script>";
-        }
-        else
+            $errorMessage = "";
+            $contextCode = new Validator(new ValidationCourseCode());
+            $errorMessage = $contextCode->executeValidatorStrategy($coursecode);
+
+            $contextName = new Validator(new ValidationCourseName());
+            $errorMessage .= $contextName->executeValidatorStrategy($coursename);
+
+            $contextInfo = new Validator(new ValidationCourseInfo());
+            $errorMessage .= $contextInfo->executeValidatorStrategy($courseinfo);
+
+            if (empty($errorMessage)) {
+                $this->model->insert($coursecode, $coursename, $courseinfo, $credithour);
+                echo "<script>alert(\"Successfully Added\"); window.location.href=\"FacultyAddCourseController\";</script>";
+            } else {
+                echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/FacultyAddCourseController\";</script>";
+            }
+        } else
             $this->view->render('FacultyAddCourseView');
     }
 

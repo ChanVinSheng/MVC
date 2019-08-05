@@ -11,7 +11,7 @@
                 </tr>
                 <tr>
                     <th><label for="programmecode"><strong>Programme Code: </strong></label></th>
-                    <td><input name="programmecode" type="text" class="form-control" value="<?php echo $key->programmecode; ?>" placeholder="e.g. DIT, RSD, FA1..." required  /></td>
+                    <td><input name="programmecode" type="text" class="form-control" value="<?php echo $key->programmecode; ?>" placeholder="e.g. DIT, RSD, FA1..." required readonly="readonly" /></td>
                 </tr>
                 <tr>
                     <th><label for="description"><strong>Programme Description: </strong></label></th>

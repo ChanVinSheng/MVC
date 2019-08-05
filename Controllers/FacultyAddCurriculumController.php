@@ -2,6 +2,10 @@
 
 require 'Models/FacultyCurriculumModel.php';
 
+require_once 'StrategyValidation/Validator.php';
+require_once 'StrategyValidation/ValidationCurrName.php';
+require_once 'StrategyValidation/ValidationDesc.php';
+
 class FacultyAddCurriculumController extends Controller {
 
     private $model;
@@ -20,10 +24,20 @@ class FacultyAddCurriculumController extends Controller {
             $curriculumname = $_POST["curriculumname"];
             $curriculumdesc = $_POST["curriculumdesc"];
 
-            $this->model->insert($curriculumname,$curriculumdesc);
-            echo "<script>alert(\"Successfully Added\"); window.location.href=\"FacultyAddCurriculumController\";</script>";
-        }
-        else
+            $errorMessage = "";
+            $contextName = new Validator(new ValidationCurrName());
+            $errorMessage = $contextName->executeValidatorStrategy($curriculumname);
+
+            $contextDesc = new Validator(new ValidationDesc());
+            $errorMessage .= $contextDesc->executeValidatorStrategy($curriculumdesc);
+
+            if (empty($errorMessage)) {
+                $this->model->insert($curriculumname, $curriculumdesc);
+                echo "<script>alert(\"Successfully Added\"); window.location.href=\"FacultyAddCurriculumController\";</script>";
+            } else {
+                echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/FacultyAddCurriculumController\";</script>";
+            }
+        } else
             $this->view->render('FacultyAddCurriculumView');
     }
 

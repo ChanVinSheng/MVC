@@ -16,7 +16,7 @@
                 <tr>
             <form action="http://localhost/MVC/FacultyViewCurriculumController/edit" method="post" >
                 <td><label><?php echo $key->curriculumid; ?></label></td>
-                <td><input name="curriculumname" type="text" value="<?php echo $key->curriculumname; ?>" style="width: 250px;" /></td>
+                <td><input name="curriculumname" type="text" value="<?php echo $key->curriculumname; ?>" style="width: 250px;" readonly="readonly" /></td>
                 <td><input name="curriculumdesc" type="text" value="<?php echo $key->curriculumdesc; ?>" style="width: 500px;" /></td>
                 <td>
                     <button class="btn btn-info" type="submit" value="<?php echo $key->curriculumid; ?>" name="done" >Done</button>    

@@ -2,6 +2,10 @@
 
 require 'Models/FacultyCourseModel.php';
 
+require_once 'StrategyValidation/Validator.php';
+require_once 'StrategyValidation/ValidationCourseName.php';
+require_once 'StrategyValidation/ValidationCourseInfo.php';
+
 class FacultyViewCourseController extends Controller {
 
     private $model;
@@ -25,6 +29,7 @@ class FacultyViewCourseController extends Controller {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["edit"])) {
                 $courseid = $_POST["edit"];
+                $_SESSION['courseid'] = $courseid;
                 $row = $this->model->retrievedByID($courseid);
                 $this->view->row = $row;
                 $this->view->render('FacultyModifyCourseView');
@@ -33,7 +38,7 @@ class FacultyViewCourseController extends Controller {
                 $status = "active";
                 $column = "status";
                 $this->model->updateOne($courseid, $status, $column);
-                echo "<script>alert(\"Successfully Activate\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController\";</script>";    
+                echo "<script>alert(\"Successfully Activate\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController\";</script>";
             } elseif (isset($_POST["deactivate"])) {
                 $courseid = $_POST["deactivate"];
                 $status = "inactive";
@@ -43,6 +48,11 @@ class FacultyViewCourseController extends Controller {
             } else {
                 echo "<script>alert(\"Error returning\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController\";</script>";
             }
+        } elseif (isset($_SESSION['programmecode'])) {
+            $courseid = $_SESSION['courseid'];
+            $row = $this->model->retrievedByID($courseid);
+            $this->view->row = $row;
+            $this->view->render('FacultyModifyCourseView');
         }
     }
 
@@ -54,13 +64,23 @@ class FacultyViewCourseController extends Controller {
                 $coursename = $_POST["coursename"];
                 $courseinfo = $_POST["courseinfo"];
                 $credithour = $_POST["credithour"];
-                $this->model->updateAll($courseid, $coursecode, $coursename, $courseinfo, $credithour);
-                echo "<script>alert(\"Successfully Modify\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController\";</script>";
-            } 
-            elseif (isset($_POST["cancel"])) {
+
+                $errorMessage = "";
+                $contextName = new Validator(new ValidationCourseName());
+                $errorMessage = $contextName->executeValidatorStrategy($coursename);
+
+                $contextInfo = new Validator(new ValidationCourseInfo());
+                $errorMessage .= $contextInfo->executeValidatorStrategy($courseinfo);
+
+                if (empty($errorMessage)) {
+                    $this->model->updateAll($courseid, $coursecode, $coursename, $courseinfo, $credithour);
+                    echo "<script>alert(\"Successfully Modify\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController\";</script>";
+                } else {
+                    echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController/modify\";</script>";
+                }
+            } elseif (isset($_POST["cancel"])) {
                 echo "<script>window.location.href=\"http://localhost/MVC/FacultyViewCourseController\";</script>";
-            } 
-            else {
+            } else {
                 echo "<script>alert(\"Unsuccessfully Modify\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController\";</script>";
             }
         } else {

@@ -17,6 +17,12 @@ require_once 'Models/FacultyProgStructureModel.php';
 
 require 'SOAPcalcFee/lib/nusoap.php';
 
+require_once 'StrategyValidation/Validator.php';
+require_once 'StrategyValidation/ValidationDesc.php';
+require_once 'StrategyValidation/ValidationCourseChk.php';
+require_once 'StrategyValidation/ValidationCampusChk.php';
+require_once 'StrategyValidation/ValidationMinEntryChk.php';
+
 class FacultyViewProgrammeController extends Controller {
 
     function __construct() {
@@ -95,6 +101,7 @@ class FacultyViewProgrammeController extends Controller {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["edit"])) {
                 $programmecode = $_POST["edit"];
+                $_SESSION['programmecode'] = $programmecode;
 
                 $row = $this->modelProg->retrievedByCode($programmecode);
                 $rowCampus = $this->modelCampus->retrieveAllCampus();
@@ -121,6 +128,31 @@ class FacultyViewProgrammeController extends Controller {
             } else {
                 echo "<script>alert(\"Error returning\"); window.location.href=\"http://localhost/MVC/FacultyViewProgrammeController\";</script>";
             }
+        } elseif (isset($_SESSION['programmecode'])) {
+            $programmecode = $_SESSION['programmecode'];
+
+            $row = $this->modelProg->retrievedByCode($programmecode);
+            $rowCampus = $this->modelCampus->retrieveAllCampus();
+            $rowCourse = $this->modelCourse->retrieveAllCourse();
+            $rowCurriculum = $this->modelCurr->retrieveAllCurriculum();
+            $rowMinEntry = $this->modelMinEntry->retrieveAllMinEntry();
+            $rowFaculties = $this->modelDpFaculty->retrieveAll();
+            $rowPCampus = $this->modelProgCampus->retrieveAllProgrammeCampus();
+            $rowPCurr = $this->modelProgCurr->retrieveAllProgrammeCurriculum();
+            $rowPMinEntry = $this->modelProgMinEntry->retrieveAllProgrammeMinEntry();
+            $rowPStruc = $this->modelStruct->retrieveAllProgrammeStructure();
+
+            $this->view->row = $row;
+            $this->view->rowCampus = $rowCampus;
+            $this->view->rowCourse = $rowCourse;
+            $this->view->rowCurriculum = $rowCurriculum;
+            $this->view->rowMinEntry = $rowMinEntry;
+            $this->view->rowFc = $rowFaculties;
+            $this->view->rowPCampus = $rowPCampus;
+            $this->view->rowPCurr = $rowPCurr;
+            $this->view->rowPMinEntry = $rowPMinEntry;
+            $this->view->rowPStruc = $rowPStruc;
+            $this->view->render('FacultyModifyProgrammeView');
         }
     }
 
@@ -131,90 +163,111 @@ class FacultyViewProgrammeController extends Controller {
                 $programmecode = $_POST["programmecode"];
                 $description = $_POST["description"];
                 $duration = $_POST["duration"];
-                $firstCode = $programmecode[0];
-                $levelofstudyid = "";
-                $rowLvlOfStudy = $this->modelDpLoS->retrieveAll();
-                switch ($firstCode) {
-                    case "F":
-                        foreach ($rowLvlOfStudy as $lvlOfStudy) {
-                            if (strtoupper($lvlOfStudy->type) == strtoupper("Foundation")) {
-                                $levelofstudyid = $lvlOfStudy->levelofstudyid;
+                $courseIsset = isset($_POST['CourseChk']);
+                $campusIsset = isset($_POST['CampusChk']);
+                $minEntryIsset = isset($_POST['MinEntryChk']);
+
+                $errorMessage = "";
+                $contextDesc = new Validator(new ValidationDesc());
+                $errorMessage = $contextDesc->executeValidatorStrategy($description);
+
+                $contextIsset1 = new Validator(new ValidationCourseChk());
+                $errorMessage .= $contextIsset1->executeValidatorStrategy($courseIsset);
+
+                $contextIsset2 = new Validator(new ValidationCampusChk());
+                $errorMessage .= $contextIsset2->executeValidatorStrategy($campusIsset);
+
+                $contextIsset3 = new Validator(new ValidationMinEntryChk());
+                $errorMessage .= $contextIsset3->executeValidatorStrategy($minEntryIsset);
+
+                if (empty($errorMessage)) {
+                    $firstCode = $programmecode[0];
+                    $levelofstudyid = "";
+                    $rowLvlOfStudy = $this->modelDpLoS->retrieveAll();
+                    switch ($firstCode) {
+                        case "F":
+                            foreach ($rowLvlOfStudy as $lvlOfStudy) {
+                                if (strtoupper($lvlOfStudy->type) == strtoupper("Foundation")) {
+                                    $levelofstudyid = $lvlOfStudy->levelofstudyid;
+                                }
                             }
-                        }
-                        break;
-                    case "D":
-                        foreach ($rowLvlOfStudy as $lvlOfStudy) {
-                            if (strtoupper($lvlOfStudy->type) == strtoupper("Diploma")) {
-                                $levelofstudyid = $lvlOfStudy->levelofstudyid;
+                            break;
+                        case "D":
+                            foreach ($rowLvlOfStudy as $lvlOfStudy) {
+                                if (strtoupper($lvlOfStudy->type) == strtoupper("Diploma")) {
+                                    $levelofstudyid = $lvlOfStudy->levelofstudyid;
+                                }
                             }
-                        }
-                        break;
-                    case "R":
-                        foreach ($rowLvlOfStudy as $lvlOfStudy) {
-                            if (strtoupper($lvlOfStudy->type) == strtoupper("Degree")) {
-                                $levelofstudyid = $lvlOfStudy->levelofstudyid;
+                            break;
+                        case "R":
+                            foreach ($rowLvlOfStudy as $lvlOfStudy) {
+                                if (strtoupper($lvlOfStudy->type) == strtoupper("Degree")) {
+                                    $levelofstudyid = $lvlOfStudy->levelofstudyid;
+                                }
                             }
-                        }
-                        break;
-                    case "M":
-                        foreach ($rowLvlOfStudy as $lvlOfStudy) {
-                            if (strtoupper($lvlOfStudy->type) == strtoupper("Master")) {
-                                $levelofstudyid = $lvlOfStudy->levelofstudyid;
+                            break;
+                        case "M":
+                            foreach ($rowLvlOfStudy as $lvlOfStudy) {
+                                if (strtoupper($lvlOfStudy->type) == strtoupper("Master")) {
+                                    $levelofstudyid = $lvlOfStudy->levelofstudyid;
+                                }
                             }
+                            break;
+                    }
+                    $facultyid = $_POST["faculty"];
+
+                    $credithr = 0;
+                    if (isset($_POST['CourseChk'])) {
+                        foreach ($_POST['CourseChk'] as $courseid) {
+                            $rows = $this->modelCourse->retrievedByID($courseid);
+                            foreach ($rows as $row) {
+                                $value = $row->credithour;
+                            }
+                            $credithr = (int) $credithr + (int) $value;
                         }
-                        break;
-                }
-                $facultyid = $_POST["faculty"];
+                    }
+                    $client = new nusoap_client("http://localhost/MVC/SOAPcalcFee/service.php?wsdl");
+                    $fee = $client->call('calcTotalAmount', array("credithr" => $credithr, "duration" => $duration));
+                    $yearly = $client->call('calcYearlyAmount', array("credithr" => $credithr, "duration" => $duration));
+                    $this->modelProg->updateAll($programmeid, $programmecode, $description, $duration, $levelofstudyid, $facultyid, $fee, $yearly);
 
-                $credithr = 0;
-                if (isset($_POST['CourseChk'])) {
-                    foreach ($_POST['CourseChk'] as $courseid) {
-                        $rows = $this->modelCourse->retrievedByID($courseid);
-                        foreach ($rows as $row) {
-                            $value = $row->credithour;
+                    $this->modelProgCampus->delete($programmeid);
+                    $this->modelProgCurr->delete($programmeid);
+                    $this->modelProgMinEntry->delete($programmeid);
+                    $this->modelStruct->delete($programmeid);
+
+                    if (isset($_POST['CourseChk'])) {
+                        foreach ($_POST['CourseChk'] as $courses) {
+                            $courseid = $courses;
+                            $this->modelStruct->insert($programmeid, $courseid);
                         }
-                        $credithr = (int) $credithr + (int) $value;
                     }
-                }
-                $client = new nusoap_client("http://localhost/MVC/SOAPcalcFee/service.php?wsdl");
-                $fee = $client->call('calcTotalAmount', array("credithr" => $credithr, "duration" => $duration));
-                $yearly = $client->call('calcYearlyAmount', array("credithr" => $credithr, "duration" => $duration));
-                $this->modelProg->updateAll($programmeid, $programmecode, $description, $duration, $levelofstudyid, $facultyid, $fee, $yearly);
 
-                $this->modelProgCampus->delete($programmeid);
-                $this->modelProgCurr->delete($programmeid);
-                $this->modelProgMinEntry->delete($programmeid);
-                $this->modelStruct->delete($programmeid);
-
-                if (isset($_POST['CourseChk'])) {
-                    foreach ($_POST['CourseChk'] as $courses) {
-                        $courseid = $courses;
-                        $this->modelStruct->insert($programmeid, $courseid);
+                    if (isset($_POST['CampusChk'])) {
+                        foreach ($_POST['CampusChk'] as $campuses) {
+                            $campusid = $campuses;
+                            $this->modelProgCampus->insert($programmeid, $campusid);
+                        }
                     }
-                }
 
-                if (isset($_POST['CampusChk'])) {
-                    foreach ($_POST['CampusChk'] as $campuses) {
-                        $campusid = $campuses;
-                        $this->modelProgCampus->insert($programmeid, $campusid);
+                    if (isset($_POST['MinEntryChk'])) {
+                        foreach ($_POST['MinEntryChk'] as $minEntries) {
+                            $minentryid = $minEntries;
+                            $this->modelProgMinEntry->insert($programmeid, $minentryid);
+                        }
                     }
-                }
 
-                if (isset($_POST['MinEntryChk'])) {
-                    foreach ($_POST['MinEntryChk'] as $minEntries) {
-                        $minentryid = $minEntries;
-                        $this->modelProgMinEntry->insert($programmeid, $minentryid);
+                    if (isset($_POST['CurriculumChk'])) {
+                        foreach ($_POST['CurriculumChk'] as $curriculum) {
+                            $curriculumid = $curriculum;
+                            $this->modelProgCurr->insert($programmeid, $curriculumid);
+                        }
                     }
-                }
 
-                if (isset($_POST['CurriculumChk'])) {
-                    foreach ($_POST['CurriculumChk'] as $curriculum) {
-                        $curriculumid = $curriculum;
-                        $this->modelProgCurr->insert($programmeid, $curriculumid);
-                    }
+                    echo "<script>alert(\"Successfully Modify\"); window.location.href=\"http://localhost/MVC/FacultyViewProgrammeController\";</script>";
+                } else {
+                    echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/FacultyViewProgrammeController/modify\";</script>";
                 }
-
-                echo "<script>alert(\"Successfully Modify\"); window.location.href=\"http://localhost/MVC/FacultyViewProgrammeController\";</script>";
             } elseif (isset($_POST["cancel"])) {
                 echo "<script>window.location.href=\"http://localhost/MVC/FacultyViewProgrammeController\";</script>";
             } elseif (isset($_POST["activate"])) {

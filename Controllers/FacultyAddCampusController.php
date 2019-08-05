@@ -2,6 +2,9 @@
 
 require 'Models/FacultyCampusModel.php';
 
+require_once 'StrategyValidation/Validator.php';
+require_once 'StrategyValidation/ValidationCampusName.php';
+
 class FacultyAddCampusController extends Controller {
 
     private $model;
@@ -19,8 +22,16 @@ class FacultyAddCampusController extends Controller {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $campusname = $_POST["campusname"];
 
-            $this->model->insert($campusname);
-            echo "<script>alert(\"Successfully Added\"); window.location.href=\"FacultyAddCampusController\";</script>";
+            $errorMessage = "";
+            $contextName = new Validator(new ValidationCampusName());
+            $errorMessage = $contextName->executeValidatorStrategy($campusname);
+
+            if (empty($errorMessage)) {
+                $this->model->insert($campusname);
+                echo "<script>alert(\"Successfully Added\"); window.location.href=\"FacultyAddCampusController\";</script>";
+            } else {
+                echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/FacultyAddCampusController\";</script>";
+            }
         } else
             $this->view->render('FacultyAddCampusView');
     }
