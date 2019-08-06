@@ -64,7 +64,7 @@ class database extends PDO
     }
    
     
-    public function count($table, $column= 'id')
+    public function count( $column , $table )
     {
         $stmt = $this->prepare("SELECT $column FROM $table");
         $stmt->execute();
