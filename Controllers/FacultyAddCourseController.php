@@ -16,7 +16,11 @@ class FacultyAddCourseController extends Controller {
         $this->model = new FacultyCourseModel();
         parent::__construct();
         session_start();
-        if (!isset($_SESSION['role'])) {
+        if (isset($_SESSION['role'])) {
+            if ($_SESSION['role'] != "Faculty")
+                echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
+        }
+        else {
             echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
         }
     }
@@ -39,6 +43,11 @@ class FacultyAddCourseController extends Controller {
             $errorMessage .= $contextInfo->executeValidatorStrategy($courseinfo);
 
             if (empty($errorMessage)) {
+                $coursecode = dataHandling::HtmlTrimStrips($coursecode);
+                $coursename = dataHandling::HtmlStrips($coursename);
+                $courseinfo = dataHandling::Html($courseinfo);
+                $credithour = dataHandling::HtmlTrimStrips($credithour);
+
                 $this->model->insert($coursecode, $coursename, $courseinfo, $credithour);
                 $userlog = new StaffActivityModel();
                 $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Add");

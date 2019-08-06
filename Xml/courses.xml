@@ -48,4 +48,12 @@
     <credithour>3</credithour>
     <status>active</status>
   </courses>
+  <courses>
+    <courseid>7</courseid>
+    <coursecode>123</coursecode>
+    <coursename>123</coursename>
+    <courseinfo>123</courseinfo>
+    <credithour>2</credithour>
+    <status>active</status>
+  </courses>
 </coursess>

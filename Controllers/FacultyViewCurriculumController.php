@@ -14,7 +14,11 @@ class FacultyViewCurriculumController extends Controller {
         $this->model = new FacultyCurriculumModel();
         parent::__construct();
         session_start();
-        if (!isset($_SESSION['role'])) {
+        if (isset($_SESSION['role'])) {
+            if ($_SESSION['role'] != "Faculty")
+                echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
+        }
+        else {
             echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
         }
     }
@@ -37,6 +41,7 @@ class FacultyViewCurriculumController extends Controller {
                 $this->view->render('FacultyModifyCurriculumView');
             } elseif (isset($_POST["activate"])) {
                 $curriculumid = $_POST["activate"];
+                $curriculumid = dataHandling::HtmlTrimStrips($curriculumid);
                 $status = "active";
                 $column = "status";
                 $this->model->updateOne($curriculumid, $status, $column);
@@ -44,6 +49,7 @@ class FacultyViewCurriculumController extends Controller {
                 echo "<script>alert(\"Successfully Activate\"); window.location.href=\"http://localhost/MVC/FacultyViewCurriculumController\";</script>";
             } elseif (isset($_POST["deactivate"])) {
                 $curriculumid = $_POST["deactivate"];
+                $curriculumid = dataHandling::HtmlTrimStrips($curriculumid);
                 $status = "inactive";
                 $column = "status";
                 $this->model->updateOne($curriculumid, $status, $column);
@@ -73,6 +79,10 @@ class FacultyViewCurriculumController extends Controller {
                 $errorMessage = $contextDesc->executeValidatorStrategy($curriculumdesc);
 
                 if (empty($errorMessage)) {
+                    $curriculumid = dataHandling::HtmlTrimStrips($curriculumid);
+                    $curriculumname = dataHandling::HtmlStrips($curriculumname);
+                    $curriculumdesc = dataHandling::HtmlStrips($curriculumdesc);
+
                     $this->model->updateAll($curriculumid, $curriculumname, $curriculumdesc);
                     $userlog = new StaffActivityModel();
                     $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Edit");

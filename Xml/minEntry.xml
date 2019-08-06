@@ -20,4 +20,9 @@
     <minentryname>Master - Bachelor's Degree CGPA 3.0 in relevant subjects</minentryname>
     <status>active</status>
   </minEntry>
+  <minEntry>
+    <minentryid>5</minentryid>
+    <minentryname>Foundation - O Level 3 Credit of relevant subjects</minentryname>
+    <status>active</status>
+  </minEntry>
 </minEntrys>

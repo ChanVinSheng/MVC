@@ -11,7 +11,11 @@ class FacultyViewMinEntryController extends Controller {
         $this->model = new FacultyMinEntryModel();
         parent::__construct();
         session_start();
-        if (!isset($_SESSION['role'])) {
+        if (isset($_SESSION['role'])) {
+            if($_SESSION['role'] != "Faculty")
+                echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
+        }
+        else{
             echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
         }
     }
@@ -28,6 +32,7 @@ class FacultyViewMinEntryController extends Controller {
 
             if (isset($_POST["activate"])) {
                 $minentryid = $_POST["activate"];
+                $minentryid = dataHandling::HtmlTrimStrips($minentryid);
                 $status = "active";
                 $column = "status";
                 $this->model->updateOne($minentryid, $status, $column);
@@ -36,6 +41,7 @@ class FacultyViewMinEntryController extends Controller {
                 echo "<script>alert(\"Successfully Activate\"); window.location.href=\"http://localhost/MVC/FacultyViewMinEntryController\";</script>";
             } elseif (isset($_POST["deactivate"])) {
                 $minentryid = $_POST["deactivate"];
+                $minentryid = dataHandling::HtmlTrimStrips($minentryid);
                 $status = "inactive";
                 $column = "status";
                 $this->model->updateOne($minentryid, $status, $column);

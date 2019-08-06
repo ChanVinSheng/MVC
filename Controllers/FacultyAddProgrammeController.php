@@ -42,7 +42,11 @@ class FacultyAddProgrammeController extends Controller {
         $this->modelStruct = new FacultyProgStructureModel();
         parent::__construct();
         session_start();
-        if (!isset($_SESSION['role'])) {
+        if (isset($_SESSION['role'])) {
+            if($_SESSION['role'] != "Faculty")
+                echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
+        }
+        else{
             echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
         }
     }
@@ -237,6 +241,14 @@ class FacultyAddProgrammeController extends Controller {
                 $client = new nusoap_client("http://localhost/MVC/SOAPcalcFee/service.php?wsdl");
                 $fee = $client->call('calcTotalAmount', array("credithr" => $credithr, "duration" => $duration));
                 $yearly = $client->call('calcYearlyAmount', array("credithr" => $credithr, "duration" => $duration));
+                
+                $programmecode = dataHandling::HtmlTrimStrips($programmecode);
+                $description = dataHandling::HtmlStrips($description);
+                $duration = dataHandling::HtmlTrimStrips($duration);
+                $levelofstudyid = dataHandling::HtmlTrimStrips($levelofstudyid);
+                $facultyid = dataHandling::HtmlTrimStrips($facultyid);
+                $fee = dataHandling::HtmlTrimStrips($fee);
+                $yearly = dataHandling::HtmlTrimStrips($yearly);
 
                 $this->modelProg->insert($programmecode, $description, $duration, $levelofstudyid, $facultyid, $fee, $yearly);
                 $rowProgramme = $this->modelProg->retrieveAllProgramme();
@@ -245,6 +257,7 @@ class FacultyAddProgrammeController extends Controller {
                 if (isset($_POST['CourseChk'])) {
                     foreach ($_POST['CourseChk'] as $courses) {
                         $courseid = $courses;
+                        $courseid = dataHandling::HtmlTrimStrips($courseid);
                         $this->modelStruct->insert($programmeid, $courseid);
                     }
                 }
@@ -252,6 +265,7 @@ class FacultyAddProgrammeController extends Controller {
                 if (isset($_POST['CampusChk'])) {
                     foreach ($_POST['CampusChk'] as $campuses) {
                         $campusid = $campuses;
+                        $campusid = dataHandling::HtmlTrimStrips($campusid);
                         $this->modelProgCampus->insert($programmeid, $campusid);
                     }
                 }
@@ -259,6 +273,7 @@ class FacultyAddProgrammeController extends Controller {
                 if (isset($_POST['MinEntryChk'])) {
                     foreach ($_POST['MinEntryChk'] as $minEntries) {
                         $minentryid = $minEntries;
+                        $minentryid = dataHandling::HtmlTrimStrips($minentryid);
                         $this->modelProgMinEntry->insert($programmeid, $minentryid);
                     }
                 }
@@ -266,6 +281,7 @@ class FacultyAddProgrammeController extends Controller {
                 if (isset($_POST['CurriculumChk'])) {
                     foreach ($_POST['CurriculumChk'] as $curriculum) {
                         $curriculumid = $curriculum;
+                        $curriculumid = dataHandling::HtmlTrimStrips($curriculumid);
                         $this->modelProgCurr->insert($programmeid, $curriculumid);
                     }
                 }

@@ -19,7 +19,7 @@
             <form action="http://localhost/MVC/FacultyViewCourseController/edit" method="post" >
                 <td><label><?php echo $key->courseid; ?></label></td>
                 <td><input name="coursecode" type="text" value="<?php echo $key->coursecode; ?>" style="width: 150px;" readonly="readonly" /></td>
-                <td><input name="coursename" type="text" value="<?php echo $key->coursename; ?>" style="width: 250px;" /></td>
+                <td><input name="coursename" type="text" value="<?php echo $key->coursename; ?>" style="width: 250px;" readonly="readonly" /></td>
                 <td><input name="courseinfo" type="text" value="<?php echo $key->courseinfo; ?>" style="width: 300px;" /></td>
                 <td>
                     <select name="credithour" class="form-control" required="">

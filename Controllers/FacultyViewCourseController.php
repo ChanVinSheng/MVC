@@ -15,7 +15,11 @@ class FacultyViewCourseController extends Controller {
         $this->model = new FacultyCourseModel();
         parent::__construct();
         session_start();
-        if (!isset($_SESSION['role'])) {
+        if (isset($_SESSION['role'])) {
+            if($_SESSION['role'] != "Faculty")
+                echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
+        }
+        else{
             echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
         }
     }
@@ -38,6 +42,7 @@ class FacultyViewCourseController extends Controller {
                 $this->view->render('FacultyModifyCourseView');
             } elseif (isset($_POST["activate"])) {
                 $courseid = $_POST["activate"];
+                $courseid = dataHandling::HtmlTrimStrips($courseid);
                 $status = "active";
                 $column = "status";
                 $this->model->updateOne($courseid, $status, $column);
@@ -46,13 +51,32 @@ class FacultyViewCourseController extends Controller {
                 echo "<script>alert(\"Successfully Activate\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController\";</script>";
             } elseif (isset($_POST["deactivate"])) {
                 $courseid = $_POST["deactivate"];
+                $courseid = dataHandling::HtmlTrimStrips($courseid);
                 $status = "inactive";
                 $column = "status";
                 $this->model->updateOne($courseid, $status, $column);
 
                 $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Deactivate");
                 echo "<script>alert(\"Successfully Deactivate\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController\";</script>";
-            } else {
+            } elseif (isset($_POST["activateSort"])) {
+                $courseid = $_POST["activateSort"];
+                $courseid = dataHandling::HtmlTrimStrips($courseid);
+                $status = "active";
+                $column = "status";
+                $this->model->updateOne($courseid, $status, $column);
+
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Activate");
+                echo "<script>alert(\"Successfully Activate\"); window.location.href=\"http://localhost/MVC/FacultySearchCourseController\";</script>";
+            } elseif (isset($_POST["deactivateSort"])) {
+                $courseid = $_POST["deactivateSort"];
+                $courseid = dataHandling::HtmlTrimStrips($courseid);
+                $status = "inactive";
+                $column = "status";
+                $this->model->updateOne($courseid, $status, $column);
+
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Deactivate");
+                echo "<script>alert(\"Successfully Deactivate\"); window.location.href=\"http://localhost/MVC/FacultySearchCourseController\";</script>";
+            }else {
                 echo "<script>alert(\"Error returning\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController\";</script>";
             }
         } elseif (isset($_SESSION['programmecode'])) {
@@ -73,13 +97,17 @@ class FacultyViewCourseController extends Controller {
                 $credithour = $_POST["credithour"];
 
                 $errorMessage = "";
-                $contextName = new Validator(new ValidationCourseName());
-                $errorMessage = $contextName->executeValidatorStrategy($coursename);
 
                 $contextInfo = new Validator(new ValidationCourseInfo());
                 $errorMessage .= $contextInfo->executeValidatorStrategy($courseinfo);
 
                 if (empty($errorMessage)) {
+                    $courseid = dataHandling::HtmlTrimStrips($courseid);
+                    $coursecode = dataHandling::HtmlTrimStrips($coursecode);
+                    $coursename = dataHandling::HtmlStrips($coursename);
+                    $courseinfo = dataHandling::Html($courseinfo);
+                    $credithour = dataHandling::HtmlTrimStrips($credithour);
+                    
                     $this->model->updateAll($courseid, $coursecode, $coursename, $courseinfo, $credithour);
                     $userlog = new StaffActivityModel();
                     $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Edit");

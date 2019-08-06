@@ -15,7 +15,11 @@ class FacultyAddCurriculumController extends Controller {
         $this->model = new FacultyCurriculumModel();
         parent::__construct();
         session_start();
-        if (!isset($_SESSION['role'])) {
+        if (isset($_SESSION['role'])) {
+            if($_SESSION['role'] != "Faculty")
+                echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
+        }
+        else{
             echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
         }
     }
@@ -33,6 +37,9 @@ class FacultyAddCurriculumController extends Controller {
             $errorMessage .= $contextDesc->executeValidatorStrategy($curriculumdesc);
 
             if (empty($errorMessage)) {
+                $curriculumname = dataHandling::HtmlStrips($curriculumname);
+                $curriculumdesc = dataHandling::HtmlStrips($curriculumdesc);
+                
                 $this->model->insert($curriculumname, $curriculumdesc);
                 $userlog = new StaffActivityModel();
                 $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Add");
