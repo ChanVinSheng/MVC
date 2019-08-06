@@ -20,7 +20,7 @@
 
                     <td>
                         <form action="adminmodifycontroller/modify" method="post" >
-                            <?php if ($_SESSION['userid'] == $key['USERID']) { ?>
+                            <?php if ($_SESSION['userid'] == $key['USERID'] || $key['ROLE'] == "Admin") { ?>
                                 <button class="btn btn-info" type="submit" value="<?php echo $key['USERID']; ?>" name="edit" disabled >Edit</button>  
                                 <button class="btn btn-danger" onclick="return confirm('Confirm Delete?'); type ="submit" value="<?php echo $key['USERID']; ?>" name="delete" disabled  >Delete</button>
                             <?php } else { ?>

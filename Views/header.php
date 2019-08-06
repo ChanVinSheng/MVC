@@ -127,8 +127,15 @@
                                 <p>NO HEADER</p>
                             <?php } ?>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <a class="btn btn-outline-success my-2 my-sm-0" href="<?php echo URL; ?>login/logout" type="submit" onclick="return confirm('Confirm Logout?');">Log out</a>                      
+                    <?php if (isset($_SESSION['role'])) { ?>
+                        <?php if ($_SESSION['role'] == 'Admin') { ?>
+                            <form class="form-inline my-2 my-lg-0" action="<?php echo URL; ?>login/logout">
+                                <button class="btn btn-success" type="submit">Profile</button>
+                            </form>
+                        <?php } ?>
+                    <?php } ?>
+                    <form class="form-inline my-2 my-lg-0" action="<?php echo URL; ?>login/logout">
+                        <button class="btn btn-danger"type="submit" onclick="return confirm('Confirm Logout?');">Log out</button>                      
                     </form>
                 </div>
             </nav>

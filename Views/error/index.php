@@ -1,2 +1,11 @@
+<!DOCTYPE html>
+<html>
 
-<h1>This is an error</h1>  
+
+    <body  background="<?php echo URL; ?>public/image/error-page.jpg" style="height: 100%;">
+
+    </body>
+
+
+
+</html>

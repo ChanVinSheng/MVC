@@ -47,9 +47,9 @@ class Router {
     }
 
     function error() {
-        echo "router error";
         require 'Controllers/errorpage.php';
         $controller = new Errorpage();
+        $controller->index();
         return false;
     }
 
