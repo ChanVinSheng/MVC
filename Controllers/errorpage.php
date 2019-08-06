@@ -9,6 +9,6 @@ class Errorpage extends Controller {
     
         function index(){
             
-        $this->view->render('error/index');
+        $this->view->render('error/index' , true);
     }
 }

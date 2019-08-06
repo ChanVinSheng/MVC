@@ -1,14 +1,25 @@
 <div class="container">
     <br>
-    <form class="form-inline md-form mr-auto mb-4" action="http://localhost/MVC/AdminUserActivityController/search?<?php echo $_GET['find']; ?>" method="get">
-        <select class="form-control mr-sm-2"  name="find">
-            <option>Edit</option>
-            <option>Delete</option>
-            <option>Create</option>
-            <option>Deactivate</option>
-        </select>
-        <button class="btn btn-info" type="submit">Find</button>
-    </form>
+    <ul class="nav">
+        <li class="list-inline-item align-middle">    
+            <form class="form-inline md-form mr-auto mb-4" action="http://localhost/MVC/AdminUserActivityController/search?<?php echo $_GET['find']; ?>" method="get">
+                <select class="form-control mr-sm-2"  name="find">
+                    <option>Edit</option>
+                    <option>Delete</option>
+                    <option>Create</option>
+                    <option>Deactivate</option>
+                </select>
+                <button class="btn btn-info" type="submit">Find</button>
+            </form>
+        </li>
+        <li class="list-inline-item align-middle">
+            <form class="form-inline md-form mr-auto mb-4" action="http://localhost/MVC/AdminUserActivityController/">
+                <button class="btn btn-info" type="submit">Reset</button>
+            </form>
+        </li>
+    </ul>
+
+
     <?php if (array_key_exists("error", $this->found)) { ?>
         <h2><?php echo $this->found->status; ?></h2>
         <?php echo $this->found->error; ?>
