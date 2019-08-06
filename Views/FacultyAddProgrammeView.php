@@ -16,6 +16,17 @@
                 <td><input name="description" type="text" class="form-control" placeholder="Enter Programme Description" required  /></td>
             </tr>
             <tr>
+                <th><label for="category"><strong>Category: </strong></label></th>
+                <td>
+                    <select name="category" class="form-control" required="">
+                        <option>IT</option>
+                        <option>Account</option>
+                        <option>Art</option>
+                        <option>Science</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <th><label for="faculty"><strong>Faculty: </strong></label></th>
                 <td>
                     <select name="faculty" class="form-control" required="">

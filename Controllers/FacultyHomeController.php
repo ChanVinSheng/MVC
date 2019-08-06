@@ -26,7 +26,7 @@ class FacultyHomeController extends Controller {
     }
 
     function index() {
-        $programmeXml = new FacultyCreateXMLfile("");
+        $programmeXml = new FacultyCreateXMLfile("programme");
         $saxp = new programmeSAXParser("programme");
         $programmedata = $saxp->getData();
         
@@ -60,6 +60,7 @@ class FacultyHomeController extends Controller {
         $output .= '<tr bgcolor="#E6E6FA">';
         $output .= "<th>Programme Code</th>";
         $output .= "<th>Description</th>";
+        $output .= "<th>Category</th>";
         $output .= "<th>Duration of Study</th>";
         $output .= "<th>Level of Study</th>";
         $output .= "<th>Faculty</th>";
@@ -72,6 +73,7 @@ class FacultyHomeController extends Controller {
             $output .= "<tr>";
             $output .= "<td>" . $programmes['PROGRAMMECODE'] . "</td>";
             $output .= "<td>" . $programmes['DESCRIPTION'] . "</td>";
+            $output .= "<td>" . $programmes['CATEGORY'] . "</td>";
             $output .= "<td>" . $programmes['DURATION'] . "</td>";
             foreach($rowLvlOfStudy as $lvlOfStudy){
                 if(strtoupper($lvlOfStudy->levelofstudyid) == strtoupper($programmes['LEVELOFSTUDYID']))
@@ -81,8 +83,8 @@ class FacultyHomeController extends Controller {
                 if(strtoupper($faculties->facultyid) == strtoupper($programmes['FACULTYID']))
                    $output .= "<td>" . $faculties->facultyname . "</td>"; 
             }
-            $output .= "<td>" . $programmes['FEE'] . "</td>";
-            $output .= "<td>" . $programmes['YEARLYFEE'] . "</td>";
+            $output .= "<td>" . number_format($programmes['FEE'], 2, '.', ',') . "</td>";
+            $output .= "<td>" . number_format($programmes['YEARLYFEE'], 2, '.', ',') . "</td>";
             $output .= "<td>" . $programmes['STATUS'] . "</td>";
             $output .= "</tr>";
         }

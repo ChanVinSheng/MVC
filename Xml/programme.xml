@@ -2,6 +2,7 @@
 <programmes>
   <programme programmeid="1">
     <programmecode>RSD</programmecode>
+    <category>Account</category>
     <description>Software System Development</description>
     <duration>2</duration>
     <levelofstudyid>3</levelofstudyid>
@@ -12,6 +13,7 @@
   </programme>
   <programme programmeid="2">
     <programmecode>DCO</programmecode>
+    <category>IT</category>
     <description>Computer Science and Computer Mathematics</description>
     <duration>2</duration>
     <levelofstudyid>2</levelofstudyid>
@@ -22,6 +24,7 @@
   </programme>
   <programme programmeid="3">
     <programmecode>DCN</programmecode>
+    <category>IT</category>
     <description>Computer Science and Management Mathematics</description>
     <duration>4</duration>
     <levelofstudyid>2</levelofstudyid>
@@ -32,6 +35,7 @@
   </programme>
   <programme programmeid="4">
     <programmecode>RFI</programmecode>
+    <category>Account</category>
     <description>Finance and Investment</description>
     <duration>2</duration>
     <levelofstudyid>3</levelofstudyid>
@@ -42,6 +46,7 @@
   </programme>
   <programme programmeid="5">
     <programmecode>DEM</programmecode>
+    <category>Account</category>
     <description>E-Marketing</description>
     <duration>2</duration>
     <levelofstudyid>2</levelofstudyid>
@@ -52,6 +57,7 @@
   </programme>
   <programme programmeid="6">
     <programmecode>FA1</programmecode>
+    <category>Art</category>
     <description>Foundation in Art</description>
     <duration>1</duration>
     <levelofstudyid>1</levelofstudyid>
@@ -62,6 +68,7 @@
   </programme>
   <programme programmeid="7">
     <programmecode>MEB</programmecode>
+    <category>Account</category>
     <description>E-Business</description>
     <duration>2</duration>
     <levelofstudyid>4</levelofstudyid>
@@ -72,7 +79,8 @@
   </programme>
   <programme programmeid="8">
     <programmecode>RSS</programmecode>
-    <description>rss</description>
+    <category>Science</category>
+    <description>rssssss</description>
     <duration>1</duration>
     <levelofstudyid>3</levelofstudyid>
     <facultyid>1</facultyid>
