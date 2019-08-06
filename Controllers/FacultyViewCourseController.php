@@ -58,7 +58,25 @@ class FacultyViewCourseController extends Controller {
 
                 $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Deactivate");
                 echo "<script>alert(\"Successfully Deactivate\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController\";</script>";
-            } else {
+            } elseif (isset($_POST["activateSort"])) {
+                $courseid = $_POST["activateSort"];
+                $courseid = dataHandling::HtmlTrimStrips($courseid);
+                $status = "active";
+                $column = "status";
+                $this->model->updateOne($courseid, $status, $column);
+
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Activate");
+                echo "<script>alert(\"Successfully Activate\"); window.location.href=\"http://localhost/MVC/FacultySearchCourseController\";</script>";
+            } elseif (isset($_POST["deactivateSort"])) {
+                $courseid = $_POST["deactivateSort"];
+                $courseid = dataHandling::HtmlTrimStrips($courseid);
+                $status = "inactive";
+                $column = "status";
+                $this->model->updateOne($courseid, $status, $column);
+
+                $userlog->insert($_SESSION['userid'], $_SESSION['username'], "Deactivate");
+                echo "<script>alert(\"Successfully Deactivate\"); window.location.href=\"http://localhost/MVC/FacultySearchCourseController\";</script>";
+            }else {
                 echo "<script>alert(\"Error returning\"); window.location.href=\"http://localhost/MVC/FacultyViewCourseController\";</script>";
             }
         } elseif (isset($_SESSION['programmecode'])) {
@@ -79,8 +97,6 @@ class FacultyViewCourseController extends Controller {
                 $credithour = $_POST["credithour"];
 
                 $errorMessage = "";
-                $contextName = new Validator(new ValidationCourseName());
-                $errorMessage = $contextName->executeValidatorStrategy($coursename);
 
                 $contextInfo = new Validator(new ValidationCourseInfo());
                 $errorMessage .= $contextInfo->executeValidatorStrategy($courseinfo);

@@ -15,4 +15,9 @@
     <campusname>Perak Branch Campus</campusname>
     <status>active</status>
   </campus>
+  <campus>
+    <campusid>4</campusid>
+    <campusname>Johor Branch Campus</campusname>
+    <status>active</status>
+  </campus>
 </campuss>
