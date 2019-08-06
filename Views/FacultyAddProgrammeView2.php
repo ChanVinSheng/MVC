@@ -16,6 +16,33 @@
                 <td><input name="description" type="text" class="form-control" placeholder="Enter Programme Description" value="<?php echo $this->tempProgDesc; ?>" required readonly="reasonly" /></td>
             </tr>
             <tr>
+                <th><label for="category"><strong>Category: </strong></label></th>
+                <td>
+                    <select name="category" class="form-control" required="" readonly="">
+                        <option <?php
+                        if ($this->tempProgCat == "IT") {
+                            echo "selected=\"selected\"";
+                        }
+                        ?>>IT</option>
+                        <option <?php
+                        if ($this->tempProgCat == "Account") {
+                            echo "selected=\"selected\"";
+                        }
+                        ?>>Account</option>
+                        <option <?php
+                            if ($this->tempProgCat == "Art") {
+                                echo "selected=\"selected\"";
+                            }
+                            ?>>Art</option>
+                        <option <?php
+                            if ($this->tempProgCat == "Science") {
+                                echo "selected=\"selected\"";
+                            }
+                            ?>>Science</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <th><label for="faculty"><strong>Faculty: </strong></label></th>
                 <td>
                     <select name="faculty" class="form-control" required="" readonly="">

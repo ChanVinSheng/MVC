@@ -5,14 +5,14 @@ require_once 'FacultyCourseModel.php';
 
 class FacultyCreateXMLfile {
 
-    function __construct($category) {
+    function __construct($cat) {
         $this->model = new FacultyProgrammeModel();
         $programmesArray = $this->model->retrieveAllProgramme();
         $this->model2 = new FacultyCourseModel();
         $coursesArray = $this->model2->retrieveAllCourse();
-        if (($category != "programme") && count($coursesArray)) {
-            $this->createXMLfileWithXSLT($coursesArray, $category);
-        } elseif (($category == "programme") && count($programmesArray)) {
+        if (($cat != "programme") && count($coursesArray)) {
+            $this->createXMLfileWithXSLT($coursesArray, $cat);
+        } elseif (($cat == "programme") && count($programmesArray)) {
             $this->createXMLfile($programmesArray);
         }
     }
@@ -28,6 +28,7 @@ class FacultyCreateXMLfile {
 
             $programmeid = $programmes->programmeid;
             $programmecode = $programmes->programmecode;
+            $category = $programmes->category;
             $description = $programmes->description;
             $duration = $programmes->duration;
             $levelofstudyid = $programmes->levelofstudyid;
@@ -39,6 +40,8 @@ class FacultyCreateXMLfile {
             $programme->setAttribute('programmeid', $programmeid);
             $code = $dom->createElement('programmecode', $programmecode);
             $programme->appendChild($code);
+            $cat = $dom->createElement('category', $category);
+            $programme->appendChild($cat);
             $desc = $dom->createElement('description', $description);
             $programme->appendChild($desc);
             $dur = $dom->createElement('duration', $duration);

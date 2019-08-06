@@ -25,4 +25,9 @@
     <minentryname>Foundation - O Level 3 Credit of relevant subjects</minentryname>
     <status>active</status>
   </minEntry>
+  <minEntry>
+    <minentryid>6</minentryid>
+    <minentryname>Master - Bachelor's Degree Grade B in Mathematics</minentryname>
+    <status>active</status>
+  </minEntry>
 </minEntrys>

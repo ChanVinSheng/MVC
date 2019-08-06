@@ -162,6 +162,7 @@ class FacultyViewProgrammeController extends Controller {
             if (isset($_POST["done"])) {
                 $programmeid = $_POST["done"];
                 $programmecode = $_POST["programmecode"];
+                $category = $_POST["category"];
                 $description = $_POST["description"];
                 $duration = $_POST["duration"];
                 $courseIsset = isset($_POST['CourseChk']);
@@ -233,6 +234,7 @@ class FacultyViewProgrammeController extends Controller {
 
                     $programmeid = dataHandling::HtmlTrimStrips($programmeid);
                     $programmecode = dataHandling::HtmlTrimStrips($programmecode);
+                    $category = dataHandling::HtmlTrimStrips($category);
                     $description = dataHandling::HtmlStrips($description);
                     $duration = dataHandling::HtmlTrimStrips($duration);
                     $levelofstudyid = dataHandling::HtmlTrimStrips($levelofstudyid);
@@ -240,7 +242,7 @@ class FacultyViewProgrammeController extends Controller {
                     $fee = dataHandling::HtmlTrimStrips($fee);
                     $yearly = dataHandling::HtmlTrimStrips($yearly);
 
-                    $this->modelProg->updateAll($programmeid, $programmecode, $description, $duration, $levelofstudyid, $facultyid, $fee, $yearly);
+                    $this->modelProg->updateAll($programmeid, $programmecode, $description, $duration, $levelofstudyid, $facultyid, $fee, $yearly, $category);
 
                     $this->modelProgCampus->delete($programmeid);
                     $this->modelProgCurr->delete($programmeid);

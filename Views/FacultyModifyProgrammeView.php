@@ -18,6 +18,33 @@
                     <td><input name="description" type="text" class="form-control" value="<?php echo $key->description; ?>" placeholder="Enter Programme Description" required  /></td>
                 </tr>
                 <tr>
+                    <th><label for="category"><strong>Category: </strong></label></th>
+                    <td>
+                        <select name="category" class="form-control" required="">
+                            <option <?php
+                            if ($key->category == "IT") {
+                                echo "selected=\"selected\"";
+                            }
+                            ?>>IT</option>
+                            <option <?php
+                            if ($key->category == "Account") {
+                                echo "selected=\"selected\"";
+                            }
+                            ?>>Account</option>
+                            <option <?php
+                            if ($key->category == "Art") {
+                                echo "selected=\"selected\"";
+                            }
+                            ?>>Art</option>
+                            <option <?php
+                            if ($key->category == "Science") {
+                                echo "selected=\"selected\"";
+                            }
+                            ?>>Science</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
                     <th><label for="faculty"><strong>Faculty: </strong></label></th>
                     <td>
                         <select name="faculty" class="form-control" required="">
