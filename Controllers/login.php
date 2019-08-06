@@ -5,6 +5,7 @@ require 'Models/loginModel.php';
 class login extends Controller {
 
     private $model;
+    private $ip;
 
     function __construct() {
         $this->model = new loginModel();
@@ -20,7 +21,14 @@ class login extends Controller {
     }
 
     function logout() {
-         $this->model->logout();
+        $this->model->logout();
+    }
+
+    function retriveAttempt() {
+        $count = $this->model->retriveAttempt($this->ip);
+        if ($count[0] > 3) {
+            echo "Your are allowed 3 attempts in 10 minutes";
+        }
     }
 
 }

@@ -38,7 +38,7 @@
                                     $email = $pieces[0];
                                     $password = $pieces[1];
                                     echo "<script>document.getElementById('inputEmail').value = '$email';document.getElementById('inputPassword').value = '$password';</script>";
-                                }
+                                }                               
                                 ?>
 
                                 <div class="custom-control custom-checkbox mb-3">
