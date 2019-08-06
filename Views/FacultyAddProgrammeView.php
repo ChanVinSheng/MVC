@@ -3,8 +3,8 @@
     <br/>
     <h2><strong>Add Programme</strong></h2>
     <br/>
-    <form action="http://localhost/MVC/FacultyAddProgrammeController/nextAdd" method="post">
-        <table border="1" class="form" align="center" cellpadding="7" cellspacing="7">
+    <form action="http://localhost/MVC/FacultyViewCourseController/modify" method="post">
+        <table class="form" align="center" cellpadding="7" cellspacing="7">
             <tr>
                 <th><label for="programmecode"><strong>Programme Code: </strong></label></th>
                 <td>

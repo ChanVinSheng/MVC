@@ -16,40 +16,53 @@
                 <link href="http://localhost/MVC/public/css/bootstrap.min.css" rel="stylesheet"/>
             </head>
             <body>
-                <h3>BAIT Courses</h3>
+                <h3 style='font-weight: bold;'>BAIT Courses</h3>
                 <hr />
-                <table class="table" >
-                    <tr bgcolor="E6E6FA">
-                        <th>Course ID</th>
-                        <th>Course Code</th>
-                        <th>Course Name</th>
-                        <th>Course Info</th>
-                        <th>Credit Hour(s)</th>
-                    </tr>
-                    <xsl:for-each select="coursess/courses" >
-                        <xsl:if test="starts-with(coursecode, 'BAIT')">   
-                            <tr>
-                                <td>
-                                    <xsl:value-of select="@courseid" />
-                                </td>
-                                <td>
-                                    <xsl:value-of select="coursecode"/>
-                                </td>
-                                <td>
-                                    <xsl:value-of select="coursename"/>
-                                </td>
-                                <td>
-                                    <xsl:value-of select="courseinfo"/>
-                                </td>
-                                <td>
-                                    <xsl:value-of select="credithour"/>
-                                </td>                               
-                            </tr>
-                        </xsl:if>
-                    </xsl:for-each>
- 
-      
-                </table>
+                <form action="FacultyViewCourseController/modify" method="post" >
+                    <table class="table" >
+                        <tr bgcolor="E6E6FA">
+                            <th>Course ID</th>
+                            <th>Course Code</th>
+                            <th>Course Name</th>
+                            <th>Course Info</th>
+                            <th>Credit Hour(s)</th>
+                            <th>Actions</th>
+                            <th></th>
+                        </tr>
+                        <xsl:for-each select="coursess/courses" >
+                            <xsl:if test="starts-with(coursecode, 'BAIT')">   
+                                <tr>
+                                    <td>
+                                        <xsl:value-of select="@courseid" />
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="coursecode"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="coursename"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="courseinfo"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="credithour"/>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-info" type="submit" value="{@courseid}/>" name="edit">Edit</button>
+                                    </td>
+                                    <td>
+                                        <xsl:if test="status='active'">
+                                            <button class="btn btn-danger" type="submit" value="{@courseid}" name="deactivateSort">Deactivate</button>
+                                        </xsl:if>
+                                        <xsl:if test="status='inactive'">
+                                            <button class="btn btn-success" type="submit" value="{@courseid}" name="activateSort">Activate</button>
+                                        </xsl:if>
+                                    </td>                               
+                                </tr>
+                            </xsl:if>
+                        </xsl:for-each>
+                    </table>
+                </form>
             </body>
         </html>
     </xsl:template>

@@ -59,46 +59,9 @@ class FacultyViewProgrammeController extends Controller {
         $rowFaculties = $this->modelDpFaculty->retrieveAll();
         $rowLvlOfStudy = $this->modelDpLoS->retrieveAll();
 
-        $output = "<table class='table'>";
-        $output .= "<thead>";
-        $output .= "<tr bgcolor='#E6E6FA'>";
-        $output .= "<th>Programme Code</th>";
-        $output .= "<th>Description</th>";
-        $output .= "<th>Duration of Study</th>";
-        $output .= "<th>Level of Study</th>";
-        $output .= "<th>Faculty</th>";
-        $output .= "<th>Estimated Total Fees(RM)</th>";
-        $output .= "<th>Fees Per Year(RM)</th>";
-        $output .= "<th>Status</th>";
-        $output .= "<th>Action</th>";
-        $output .= "</tr>";
-        $output .= '</thead>';
-        $output .= "<tbody>";
-        foreach ($programmedata as $programmes) {
-            $output .= "<tr>";
-            $output .= "<td>" . $programmes['PROGRAMMECODE'] . "</td>";
-            $output .= "<td>" . $programmes['DESCRIPTION'] . "</td>";
-            $output .= "<td>" . $programmes['DURATION'] . "</td>";
-            foreach ($rowLvlOfStudy as $lvlOfStudy) {
-                if (strtoupper($lvlOfStudy->levelofstudyid) == strtoupper($programmes['LEVELOFSTUDYID']))
-                    $output .= "<td>" . $lvlOfStudy->type . "</td>";
-            }
-            foreach ($rowFaculties as $faculties) {
-                if (strtoupper($faculties->facultyid) == strtoupper($programmes['FACULTYID']))
-                    $output .= "<td>" . $faculties->facultyname . "</td>";
-            }
-            $output .= "<td>" . $programmes['FEE'] . "</td>";
-            $output .= "<td>" . $programmes['YEARLYFEE'] . "</td>";
-            $output .= "<td>" . $programmes['STATUS'] . "</td>";
-            $output .= "<form action='FacultyViewProgrammeController/modify' method='post' >";
-            $output .= "<td><button class='btn btn-info' type='submit' value='" . $programmes['PROGRAMMECODE'] . "' name='edit'>Edit</button></td>";
-            $output .= "</form>";
-            $output .= "</tr>";
-            $output .= "<tbody>";
-        }
-
-        $output .= "</table>";
-        $this->view->programmeXml = $output;
+        $this->view->data = $programmedata;
+        $this->view->Fac = $rowFaculties;
+        $this->view->LoS = $rowLvlOfStudy;
         $this->view->render('FacultyViewProgrammeView');
     }
 
