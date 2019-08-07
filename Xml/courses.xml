@@ -1,63 +1,56 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet   type="text/xsl" href="BAIT.xsl"   ?>
 <coursess>
-  <courses>
-    <courseid>1</courseid>
+  <courses courseid="1">
     <coursecode>BAIT3173</coursecode>
     <coursename>Integrative Programming</coursename>
     <courseinfo>This course examines the use of scripting techniques, architectures, programming practices, and programming languages for facilitating the management and integration of applications/systems in an organization.</courseinfo>
     <credithour>3</credithour>
     <status>active</status>
   </courses>
-  <courses>
-    <courseid>2</courseid>
+  <courses courseid="2">
     <coursecode>BAIT3094</coursecode>
     <coursename>Advanced Computer Networks</coursename>
     <courseinfo>This course presents the advanced elements of network communication systems.</courseinfo>
     <credithour>4</credithour>
     <status>active</status>
   </courses>
-  <courses>
-    <courseid>3</courseid>
+  <courses courseid="3">
     <coursecode>BACS2093</coursecode>
     <coursename>Operating System</coursename>
     <courseinfo>Linux</courseinfo>
     <credithour>3</credithour>
     <status>active</status>
   </courses>
-  <courses>
-    <courseid>4</courseid>
+  <courses courseid="4">
     <coursecode>BACS3033</coursecode>
     <coursename>Social and Professional Issues</coursename>
     <courseinfo>Social and Professional</courseinfo>
     <credithour>3</credithour>
     <status>active</status>
   </courses>
-  <courses>
-    <courseid>5</courseid>
+  <courses courseid="5">
     <coursecode>MPU-3232</coursecode>
     <coursename>Entrepreneurship</coursename>
     <courseinfo>Business Planning</courseinfo>
     <credithour>2</credithour>
     <status>active</status>
   </courses>
-  <courses>
-    <courseid>6</courseid>
+  <courses courseid="6">
     <coursecode>MPU-3123</coursecode>
     <coursename>Tamadun Islam dan Asia</coursename>
     <courseinfo>History</courseinfo>
     <credithour>3</credithour>
     <status>active</status>
   </courses>
-  <courses>
-    <courseid>7</courseid>
+  <courses courseid="7">
     <coursecode>123</coursecode>
     <coursename>123</coursename>
     <courseinfo>123</courseinfo>
     <credithour>2</credithour>
     <status>active</status>
   </courses>
-  <courses>
-    <courseid>8</courseid>
+  <courses courseid="8">
     <coursecode>BAIT1234</coursecode>
     <coursename>Programming</coursename>
     <courseinfo>Programming</courseinfo>
