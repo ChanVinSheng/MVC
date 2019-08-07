@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="userDepartment.xsl"?>
 <users>
   <user>
     <userid>2</userid>
@@ -21,7 +22,7 @@
     <username>vin</username>
     <password>$2y$10$4bcjAeYINf0BT/bxJgC1BuSv75dEl.sUr8MHWqQrD5VTu4N7ocZXe</password>
     <email>test123@gmail.com</email>
-    <role>Faculty</role>
+    <role>Admin Faculty</role>
     <ic>970702-14-5212</ic>
   </user>
   <user>

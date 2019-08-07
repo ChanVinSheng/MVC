@@ -9,10 +9,10 @@ class AdminHomeController extends Controller {
         parent::__construct();
         session_start();
         if (isset($_SESSION['role'])) {
-            if($_SESSION['role'] != "Admin" && $_SESSION['role'] != "Admin Faculty")
+            if ($_SESSION['role'] != "Admin" && $_SESSION['role'] != "Admin Faculty")
                 echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
         }
-        else{
+        else {
             echo "<script>alert(\"Access Denied.\"); window.location.href=\"login\";</script>";
         }
     }
@@ -25,6 +25,12 @@ class AdminHomeController extends Controller {
             $xml->databaseToXmlWithSlt("user", "user.xml", "userAdmin");
             $proc = new XsltProcessor;
             $proc->importStylesheet(DOMDocument::load("Xls/userAdmin.xsl")); //load XSL script
+            $proc->transformToXML(DOMDocument::load("Xml/user.xml"));
+            $this->view->xml = $proc->transformToXML(DOMDocument::load("Xml/user.xml"));
+        } elseif (isset($_POST["AdminFaculty"])) {
+            $xml->databaseToXmlWithSlt("user", "user.xml", "userAdminFaculty");
+            $proc = new XsltProcessor;
+            $proc->importStylesheet(DOMDocument::load("Xls/userAdminFaculty.xsl")); //load XSL script
             $proc->transformToXML(DOMDocument::load("Xml/user.xml"));
             $this->view->xml = $proc->transformToXML(DOMDocument::load("Xml/user.xml"));
         } elseif (isset($_POST["Faculty"])) {

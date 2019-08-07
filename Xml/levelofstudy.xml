@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="level.xsl"?>
 <levelofstudys>
   <levelofstudy>
+    <description>Foundation in Art</description>
     <levelofstudyid>1</levelofstudyid>
     <type>Foundation</type>
-    <status>active</status>
-  </levelofstudy>
-  <levelofstudy>
-    <levelofstudyid>2</levelofstudyid>
-    <type>Diploma</type>
-    <status>active</status>
-  </levelofstudy>
-  <levelofstudy>
-    <levelofstudyid>3</levelofstudyid>
-    <type>Degree</type>
-    <status>active</status>
-  </levelofstudy>
-  <levelofstudy>
-    <levelofstudyid>4</levelofstudyid>
-    <type>Master</type>
-    <status>active</status>
   </levelofstudy>
 </levelofstudys>

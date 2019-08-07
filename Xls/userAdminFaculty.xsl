@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:output method="html"/>
     <xsl:template match="/">
         <html>
             <head>
-                <title>Department</title>
-                <meta charset="utf-8"/>
-                <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+                <title>Admin Faculty</title>
+                <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link href="http://localhost/MVC/public/css/bootstrap.min.css" rel="stylesheet"/>
             </head>
             <body>
-                <h3>Department</h3>
+                <h3>Admin</h3>
                 <hr />
                 <table class="table" >
-                    <tr bgcolor="FF9333">
+                    <tr bgcolor="A47A71">
                         <th>Uesr id</th>
                         <th>User Name</th>
                         <th>Password</th>
@@ -22,7 +22,7 @@
                         <th>Role</th>
                     </tr>
                     <xsl:for-each select="users/user" >
-                        <xsl:if test="role='Department'">   
+                        <xsl:if test="role='Admin Faculty'">   
                             <tr>
                                 <td>
                                     <xsl:value-of select="userid"/>
@@ -41,7 +41,7 @@
                                 </td>                               
                             </tr>
                         </xsl:if>
-                    </xsl:for-each>
+                    </xsl:for-each> 
                 </table>
             </body>
         </html>

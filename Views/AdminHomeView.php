@@ -11,6 +11,9 @@
             <button type="submit" name="Admin" value="Admin" class = "btn btn-info">
                 Admin 
             </button>
+            <button type="submit" name="AdminFaculty" value="AdminFaculty" class = "btn btn-info">
+                Admin Faculty
+            </button>
 
             <button type="submit" name="Faculty" value="Faculty" class = "btn btn-info">
                 Faculty 
