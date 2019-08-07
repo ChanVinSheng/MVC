@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <users>
   <user>
-    <userid>1</userid>
-    <username>qwe</username>
-    <password>$2y$10$SjWClgv/mt.eLvD9eyzmhOKRiMx4PTsqF0BLBumQ8Lpo22kUEQbYq</password>
-    <email>weiyin_01@hotmail.com</email>
-    <role>Faculty</role>
-    <ic>980616-14-5790</ic>
-  </user>
-  <user>
     <userid>2</userid>
     <username>123</username>
     <password>$2y$10$SjWClgv/mt.eLvD9eyzmhOKRiMx4PTsqF0BLBumQ8Lpo22kUEQbYq</password>
     <email>123@gmail.com</email>
     <role>Admin</role>
-    <ic/>
+    <ic>980616-14-7212</ic>
+  </user>
+  <user>
+    <userid>3</userid>
+    <username>abc</username>
+    <password>$2y$10$dqKPNnO/zTm5Sl9jrI3tJuCLNye.swbYLR8b9Lt9ENE925/vY55d6</password>
+    <email>test2@gmail.com</email>
+    <role>Department</role>
+    <ic>970702-14-1212</ic>
+  </user>
+  <user>
+    <userid>4</userid>
+    <username>vin</username>
+    <password>$2y$10$4bcjAeYINf0BT/bxJgC1BuSv75dEl.sUr8MHWqQrD5VTu4N7ocZXe</password>
+    <email>test123@gmail.com</email>
+    <role>Faculty</role>
+    <ic>970702-14-5212</ic>
+  </user>
+  <user>
+    <userid>5</userid>
+    <username>qqq</username>
+    <password>$2y$10$J4bWmF2bgRuZnDglA.DqUOXhQb0nSJEnjkOzcYNW9xqQYXovXAhLe</password>
+    <email>qqq@gmail.com</email>
+    <role>Faculty</role>
+    <ic>970702-14-5253</ic>
   </user>
 </users>

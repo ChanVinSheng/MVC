@@ -1,6 +1,4 @@
 <?php
-
-
 class StaffActivityModel extends Model {
 
     function __construct() {
@@ -26,5 +24,4 @@ class StaffActivityModel extends Model {
         );
         $this->db->insert('userlog', $data);
     }
-
 }

@@ -28,8 +28,7 @@
 
 
 
-                                <div class="container">
-                                    <div class="btn-group"><h2 style="color: white">--Admin--</h2></div>
+                                <div class="container-fluid">
                                     <div class="btn-group">
                                         <a class="btn btn-warning" href="<?php echo URL; ?>adminhomecontroller">Home</a>
                                     </div>
@@ -42,16 +41,59 @@
                                     <div class="btn-group">
                                         <a class="btn btn-warning" href="<?php echo URL; ?>AdminUserActivityController">User Activty</a>
                                     </div>
+                                    <div class="btn-group">
 
-
-
+                                        <button type="button" class="btn btn-warning">Faculties</button>
+                                        <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="<?php echo URL; ?>DpViewFacultiesCtrl">View All Faculties</a>
+                                            <a class="dropdown-item" href="<?php echo URL; ?>DpAddFacultiesCtrl">Add Faculties</a>
+                                        </div>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-warning">Level Of Study</button>
+                                        <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="<?php echo URL; ?>DpViewLoSCtrl">View All Level of Study</a>
+                                            <a class="dropdown-item" href="<?php echo URL; ?>DpAddLoSCtrl">Add Level of Study</a>
+                                        </div>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-warning">Accommodation</button>
+                                        <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="<?php echo URL; ?>DpViewAccmdCtrl">View All Accommodation</a>
+                                            <a class="dropdown-item" href="<?php echo URL; ?>DpAddAccmdCtrl">Add Accommodation</a>
+                                        </div>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-warning">F-Aid Information</button>
+                                        <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="<?php echo URL; ?>DpViewFAidInfoCtrl">View All F-Aid Information</a>
+                                            <a class="dropdown-item" href="<?php echo URL; ?>DpAddFAidInfoCtrl">Add F-Aid Information</a>
+                                        </div>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-warning">Financial Aid</button>
+                                        <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="<?php echo URL; ?>DpViewFAidCtrl">View All Financial Aid</a>
+                                            <a class="dropdown-item" href="<?php echo URL; ?>DpAddFAidCtrl">Add Financial Aid</a>
+                                        </div>
+                                    </div>
 
                                 </div>
                             <?php } elseif ($_SESSION['role'] == 'Admin Faculty') { ?>
 
 
                                 <div class="container">
-                                    <div class="btn-group"><h2 style="color: white">--Admin Faculty--</h2></div>
+
                                     <div class="btn-group">
                                         <a class="btn btn-warning" href="<?php echo URL; ?>adminhomecontroller">Home</a>
                                     </div>
@@ -120,23 +162,78 @@
 
 
                                     </div>
+                                <?php } elseif ($_SESSION['role'] == 'Department') { ?>
+
+                                    <div class="container">
+                                        <div class="btn-group">
+                                            <a class="btn btn-warning" href="<?php echo URL; ?>DpHomeCtrl">Home</a>
+                                        </div>
+                                        <div class="btn-group">
+
+                                            <button type="button" class="btn btn-warning">Faculties</button>
+                                            <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="<?php echo URL; ?>DpViewFacultiesCtrl">View All Faculties</a>
+                                                <a class="dropdown-item" href="<?php echo URL; ?>DpAddFacultiesCtrl">Add Faculties</a>
+                                            </div>
+                                        </div>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-warning">Level Of Study</button>
+                                            <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="<?php echo URL; ?>DpViewLoSCtrl">View All Level of Study</a>
+                                                <a class="dropdown-item" href="<?php echo URL; ?>DpAddLoSCtrl">Add Level of Study</a>
+                                            </div>
+                                        </div>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-warning">Accommodation</button>
+                                            <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="<?php echo URL; ?>DpViewAccmdCtrl">View All Accommodation</a>
+                                                <a class="dropdown-item" href="<?php echo URL; ?>DpAddAccmdCtrl">Add Accommodation</a>
+                                            </div>
+                                        </div>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-warning">Financial Aid</button>
+                                            <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="<?php echo URL; ?>DpViewFAidCtrl">View All Financial Aid</a>
+                                                <a class="dropdown-item" href="<?php echo URL; ?>DpAddFAidCtrl">Add Financial Aid</a>
+                                            </div>
+                                        </div>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-warning">F-Aid Information</button>
+                                            <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="<?php echo URL; ?>DpViewFAidInfoCtrl">View All F-Aid Information</a>
+                                                <a class="dropdown-item" href="<?php echo URL; ?>DpAddFAidInfoCtrl">Add F-Aid Information</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <?php } ?>
 
 
                             <?php } else { ?>
-                                <p>NO HEADER</p>
+                                <form class="form-inline my-2 my-lg-0" action="<?php echo URL; ?>student">
+                                    <button class="btn btn-success"  type="submit">Home</button>                      
+                                </form>
                             <?php } ?>
                     </ul>
                     <?php if (isset($_SESSION['role'])) { ?>
-                        <?php if ($_SESSION['role'] == 'Admin') { ?>
-                            <form class="form-inline my-2 my-lg-0" action="<?php echo URL; ?>login/logout">
-                                <button class="btn btn-success" type="submit">Profile</button>
-                            </form>
-                        <?php } ?>
+                        <form class="form-inline my-2 my-lg-0" action="<?php echo URL; ?>login/logout">
+                            <button class="btn btn-danger"type="submit" onclick="return confirm('Confirm Logout?');">Log out</button>                      
+                        </form>
+                    <?php } else { ?>
+
+                        <form class="form-inline my-2 my-lg-0" action="<?php echo URL; ?>login">
+                            <button class="btn btn-primary" type="submit">Log in</button>                      
+                        </form>
                     <?php } ?>
-                    <form class="form-inline my-2 my-lg-0" action="<?php echo URL; ?>login/logout">
-                        <button class="btn btn-danger"type="submit" onclick="return confirm('Confirm Logout?');">Log out</button>                      
-                    </form>
                 </div>
             </nav>
         </header>

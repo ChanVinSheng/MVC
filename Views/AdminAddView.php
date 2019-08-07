@@ -23,11 +23,11 @@
             </tr>
             <tr>
                 <th><label for="password"><strong>Password:</strong></label></th>
-                <td><input placeholder="Password" required class="form-control" name="password" type="text"  /></td>
+                <td><input placeholder="Password" required class="form-control" name="password" type="password"  /></td>
             </tr>
             <tr>
                 <th><label for="comfirmedpassword"><strong>Comfirmed Password:</strong></label></th>
-                <td><input placeholder="Comfirmed Password" required class="form-control" name="comfirmedpassword" type="text"  /></td>
+                <td><input placeholder="Comfirmed Password" required class="form-control" name="comfirmedpassword" type="password"  /></td>
             </tr>
             <tr>
                 <th><label for="roles"><strong>Role</strong></label></th>

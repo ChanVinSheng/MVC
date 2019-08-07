@@ -19,8 +19,8 @@ class DpLoSModel extends Model {
         return $rows;
     }
 
-    function retrievedByID($id) {
-        $rows = $this->db->select("* FROM levelofstudy WHERE levelofstudyid = :levelofstudyid ", [':levelofstudyid' => $id]);
+    function retrievedByID($check, $input) {
+        $rows = $this->db->select("* FROM levelofstudy WHERE " . $check . " = :" . $check . " ", [":" . $check . "" => $input]);
         return $rows;
     }
 

@@ -1,8 +1,5 @@
 <?php
 
-//Reading XML using the SAX(Simple API for XML) parser 
-
-
 class userSAXParser {
 
     private $users = array();

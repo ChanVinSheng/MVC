@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feeDetails>
+  <feeDetail>
+    <programmecode>RSD</programmecode>
+    <description>Software System Development</description>
+    <feeMin>23000</feeMin>
+    <feeMax>25000</feeMax>
+  </feeDetail>
+  <feeDetail>
+    <programmecode>DCO</programmecode>
+    <description>Computer Science and Computer Mathematics</description>
+    <feeMin>23000</feeMin>
+    <feeMax>25000</feeMax>
+  </feeDetail>
+  <feeDetail>
+    <programmecode>DCN</programmecode>
+    <description>Computer Science and Management Mathematics</description>
+    <feeMin>23000</feeMin>
+    <feeMax>25000</feeMax>
+  </feeDetail>
+  <feeDetail>
+    <programmecode>RFI</programmecode>
+    <description>Finance and Investment</description>
+    <feeMin>20000</feeMin>
+    <feeMax>21500</feeMax>
+  </feeDetail>
+  <feeDetail>
+    <programmecode>DEM</programmecode>
+    <description>E-Marketing</description>
+    <feeMin>20000</feeMin>
+    <feeMax>21500</feeMax>
+  </feeDetail>
+  <feeDetail>
+    <programmecode>FA1</programmecode>
+    <description>Foundation in Art</description>
+    <feeMin>23000</feeMin>
+    <feeMax>25000</feeMax>
+  </feeDetail>
+  <feeDetail>
+    <programmecode>MEB</programmecode>
+    <description>E-Business</description>
+    <feeMin>20000</feeMin>
+    <feeMax>21500</feeMax>
+  </feeDetail>
+  <feeDetail>
+    <programmecode>DIT</programmecode>
+    <description>DIT PROGRAM</description>
+    <feeMin>23000</feeMin>
+    <feeMax>25000</feeMax>
+  </feeDetail>
+</feeDetails>

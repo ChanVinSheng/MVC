@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<typeDetails>
+  <typeDetail>
+    <programmecode>RSD</programmecode>
+    <description>Software System Development</description>
+    <type>Degree</type>
+  </typeDetail>
+  <typeDetail>
+    <programmecode>DCO</programmecode>
+    <description>Computer Science and Computer Mathematics</description>
+    <type>Diploma</type>
+  </typeDetail>
+  <typeDetail>
+    <programmecode>DCN</programmecode>
+    <description>Computer Science and Management Mathematics</description>
+    <type>Diploma</type>
+  </typeDetail>
+  <typeDetail>
+    <programmecode>RFI</programmecode>
+    <description>Finance and Investment</description>
+    <type>Degree</type>
+  </typeDetail>
+  <typeDetail>
+    <programmecode>DEM</programmecode>
+    <description>E-Marketing</description>
+    <type>Diploma</type>
+  </typeDetail>
+  <typeDetail>
+    <programmecode>FA1</programmecode>
+    <description>Foundation in Art</description>
+    <type>Foundation</type>
+  </typeDetail>
+  <typeDetail>
+    <programmecode>MEB</programmecode>
+    <description>E-Business</description>
+    <type>Master</type>
+  </typeDetail>
+  <typeDetail>
+    <programmecode>DIT</programmecode>
+    <description>DIT PROGRAM</description>
+    <type>Diploma</type>
+  </typeDetail>
+</typeDetails>

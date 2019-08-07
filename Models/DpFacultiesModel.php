@@ -22,8 +22,8 @@ class DpFacultiesModel extends Model {
         return $rows;
     }
 
-    function retrievedByID($id) {
-        $rows = $this->db->select("* FROM faculties WHERE facultyid = :facultyid ", [':facultyid' => $id]);
+    function retrievedByID($check, $input) {
+        $rows = $this->db->select("* FROM faculties WHERE " . $check . " = :" . $check . " ", [":" . $check . "" => $input]);
         return $rows;
     }
 

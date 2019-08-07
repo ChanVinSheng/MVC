@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<facultiess>
+  <faculties>
+    <facultyid>1</facultyid>
+    <facultyname>FOCS</facultyname>
+    <facultydescription>Faculty of Computing and Information Technology</facultydescription>
+    <feeMin>23000</feeMin>
+    <feeMax>25000</feeMax>
+    <status/>
+  </faculties>
+  <faculties>
+    <facultyid>2</facultyid>
+    <facultyname>FAFB</facultyname>
+    <facultydescription>Faculty of Accountancy, Finance and Business</facultydescription>
+    <feeMin>20000</feeMin>
+    <feeMax>21500</feeMax>
+    <status/>
+  </faculties>
+  <faculties>
+    <facultyid>3</facultyid>
+    <facultyname>FOEN</facultyname>
+    <facultydescription>Faculty of Engineering and Technology</facultydescription>
+    <feeMin>21300</feeMin>
+    <feeMax>22200</feeMax>
+    <status/>
+  </faculties>
+</facultiess>

@@ -11,8 +11,8 @@ class Router {
         //print_r($url);
 
         if (empty($url[0])) {
-            require 'Controllers/login.php';
-            $controller = new login();
+            require 'Controllers/student.php';
+            $controller = new student();
             $controller->index();
             return false;
         }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<curriculumDetails>
+  <curriculumDetail>
+    <programmecode>DEM</programmecode>
+    <description>E-Marketing</description>
+    <curriculumname>The Association of Chartered Certified Accountants</curriculumname>
+    <curriculumdesc>Global body for professional accountants</curriculumdesc>
+  </curriculumDetail>
+  <curriculumDetail>
+    <programmecode>RSD</programmecode>
+    <description>Software System Development</description>
+    <curriculumname>The Association of Chartered Certified Accountants</curriculumname>
+    <curriculumdesc>Global body for professional accountants</curriculumdesc>
+  </curriculumDetail>
+  <curriculumDetail>
+    <programmecode>DIT</programmecode>
+    <description>DIT PROGRAM</description>
+    <curriculumname>Chartered Institute of Management Accountants</curriculumname>
+    <curriculumdesc>World's largest professional body of management accountants</curriculumdesc>
+  </curriculumDetail>
+  <curriculumDetail>
+    <programmecode>DIT</programmecode>
+    <description>DIT PROGRAM</description>
+    <curriculumname>The Association of Chartered Certified Accountants</curriculumname>
+    <curriculumdesc>Global body for professional accountants</curriculumdesc>
+  </curriculumDetail>
+  <curriculumDetail>
+    <programmecode>DIT</programmecode>
+    <description>DIT PROGRAM</description>
+    <curriculumname>Chartered Institute of Management Accountants</curriculumname>
+    <curriculumdesc>World's largest professional body of management accountants</curriculumdesc>
+  </curriculumDetail>
+</curriculumDetails>

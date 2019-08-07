@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<programmeDetails>
+  <programmeDetail>
+    <programmecode>RSD</programmecode>
+    <description>Software System Development</description>
+    <duration>2</duration>
+  </programmeDetail>
+  <programmeDetail>
+    <programmecode>DCO</programmecode>
+    <description>Computer Science and Computer Mathematics</description>
+    <duration>2</duration>
+  </programmeDetail>
+  <programmeDetail>
+    <programmecode>DCN</programmecode>
+    <description>Computer Science and Management Mathematics</description>
+    <duration>4</duration>
+  </programmeDetail>
+  <programmeDetail>
+    <programmecode>RFI</programmecode>
+    <description>Finance and Investment</description>
+    <duration>2</duration>
+  </programmeDetail>
+  <programmeDetail>
+    <programmecode>DEM</programmecode>
+    <description>E-Marketing</description>
+    <duration>2</duration>
+  </programmeDetail>
+  <programmeDetail>
+    <programmecode>FA1</programmecode>
+    <description>Foundation in Art</description>
+    <duration>1</duration>
+  </programmeDetail>
+  <programmeDetail>
+    <programmecode>MEB</programmecode>
+    <description>E-Business</description>
+    <duration>2</duration>
+  </programmeDetail>
+  <programmeDetail>
+    <programmecode>DIT</programmecode>
+    <description>DIT PROGRAM</description>
+    <duration>1</duration>
+  </programmeDetail>
+</programmeDetails>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<campusDetails>
+  <campusDetail>
+    <programmecode>DCN</programmecode>
+    <description>Computer Science and Management Mathematics</description>
+    <campusname>Kuala Lumpus Main Campus</campusname>
+  </campusDetail>
+  <campusDetail>
+    <programmecode>DEM</programmecode>
+    <description>E-Marketing</description>
+    <campusname>Kuala Lumpus Main Campus</campusname>
+  </campusDetail>
+  <campusDetail>
+    <programmecode>MEB</programmecode>
+    <description>E-Business</description>
+    <campusname>Kuala Lumpus Main Campus</campusname>
+  </campusDetail>
+  <campusDetail>
+    <programmecode>FA1</programmecode>
+    <description>Foundation in Art</description>
+    <campusname>Kuala Lumpus Main Campus</campusname>
+  </campusDetail>
+  <campusDetail>
+    <programmecode>RSD</programmecode>
+    <description>Software System Development</description>
+    <campusname>Kuala Lumpus Main Campus</campusname>
+  </campusDetail>
+  <campusDetail>
+    <programmecode>DIT</programmecode>
+    <description>DIT PROGRAM</description>
+    <campusname>Penang Branch Campus</campusname>
+  </campusDetail>
+  <campusDetail>
+    <programmecode>DIT</programmecode>
+    <description>DIT PROGRAM</description>
+    <campusname>Perak Branch Campus</campusname>
+  </campusDetail>
+  <campusDetail>
+    <programmecode>DIT</programmecode>
+    <description>DIT PROGRAM</description>
+    <campusname>Kuala Lumpus Main Campus</campusname>
+  </campusDetail>
+</campusDetails>
