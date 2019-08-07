@@ -20,4 +20,9 @@
     <campusname>Johor Branch Campus</campusname>
     <status>active</status>
   </campus>
+  <campus>
+    <campusid>5</campusid>
+    <campusname>cbhj// jnkkj/</campusname>
+    <status>active</status>
+  </campus>
 </campuss>
