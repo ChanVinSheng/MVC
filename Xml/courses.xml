@@ -56,4 +56,12 @@
     <credithour>2</credithour>
     <status>active</status>
   </courses>
+  <courses>
+    <courseid>8</courseid>
+    <coursecode>BAIT1234</coursecode>
+    <coursename>Programming</coursename>
+    <courseinfo>Programming</courseinfo>
+    <credithour>2</credithour>
+    <status>active</status>
+  </courses>
 </coursess>

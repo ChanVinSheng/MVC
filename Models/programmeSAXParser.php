@@ -36,7 +36,7 @@ class programmeSAXParser {
 // Called on the text between the start and end of the tags
     public function characterData($parser, $data) {
         if (!empty($data)) {
-            if ($this->elements == 'PROGRAMMEID' || $this->elements == 'PROGRAMMECODE' || $this->elements == 'DESCRIPTION' || $this->elements == 'DURATION' || $this->elements == 'LEVELOFSTUDYID' || $this->elements == 'FACULTYID' || $this->elements == 'STATUS' || $this->elements == "FEE" || $this->elements == "YEARLYFEE") {
+            if ($this->elements == 'PROGRAMMEID' || $this->elements == 'PROGRAMMECODE' || $this->elements == 'DESCRIPTION' || $this->elements == 'DURATION' || $this->elements == 'LEVELOFSTUDYID' || $this->elements == 'FACULTYID' || $this->elements == 'STATUS' || $this->elements == "FEE" || $this->elements == "YEARLYFEE" || $this->elements == "CATEGORY") {
                 $this->programmes[count($this->programmes) - 1][$this->elements] = trim($data);
             }
         }

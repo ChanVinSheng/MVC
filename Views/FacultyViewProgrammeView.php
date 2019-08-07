@@ -8,6 +8,7 @@
                 <tr bgcolor='#E6E6FA'>
                     <th>Programme Code</th>
                     <th>Description</th>
+                    <th>Category</th>
                     <th>Duration of Study</th>
                     <th>Level of Study</th>
                     <th>Faculty</th>
@@ -22,6 +23,7 @@
                     <tr>
                         <td><?php echo $key['PROGRAMMECODE']; ?></td>
                         <td><?php echo $key['DESCRIPTION']; ?></td>
+                        <td><?php echo $key['CATEGORY']; ?></td>
                         <td><?php echo $key['DURATION']; ?></td>
                         <?php
                         foreach ($this->LoS as $Los):
@@ -37,8 +39,8 @@
                                 <?php
                             } endforeach;
                         ?>
-                        <td><?php echo $key['FEE']; ?></td>
-                        <td><?php echo $key['YEARLYFEE']; ?></td>
+                        <td><?php echo number_format($key['FEE'], 2, '.', ','); ?></td>
+                        <td><?php echo number_format($key['YEARLYFEE'], 2, '.', ','); ?></td>
                         <td><?php echo $key['STATUS']; ?></td>
                     <td><button class='btn btn-info' type='submit' value='<?php echo $key['PROGRAMMECODE']; ?>' name='edit'>Edit</button></td>
                 </form>

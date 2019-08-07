@@ -63,6 +63,7 @@ class FacultyAddProgrammeController extends Controller {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $programmecode = strtoupper($_POST["programmecode"]);
             $description = $_POST["description"];
+            $category = $_POST["category"];
             $duration = $_POST["duration"];
             $facultyid = $_POST["faculty"];
 
@@ -116,12 +117,14 @@ class FacultyAddProgrammeController extends Controller {
                 $this->view->tempProgCode = $programmecode;
                 $this->view->tempProgDesc = $description;
                 $this->view->tempProgDur = $duration;
+                $this->view->tempProgCat = $category;
                 $this->view->tempProgLoS = $levelofstudyid;
                 $this->view->tempProgWords = $words;
                 $this->view->tempProgFac = $facultyid;
                 $_SESSION['progCode'] = $programmecode;
                 $_SESSION['progDesc'] = $description;
                 $_SESSION['progDur'] = $duration;
+                $_SESSION['progCat'] = $category;
                 $_SESSION['progLoS'] = $levelofstudyid;
                 $_SESSION['progWords'] = $words;
                 $_SESSION['progFac'] = $facultyid;
@@ -142,10 +145,11 @@ class FacultyAddProgrammeController extends Controller {
             } else {
                 echo "<script>alert(\"$errorMessage\"); window.location.href=\"http://localhost/MVC/FacultyAddProgrammeController\";</script>";
             }
-        } elseif (isset($_SESSION['progCode']) && isset($_SESSION['progDesc']) && isset($_SESSION['progDur']) && isset($_SESSION['progLoS']) && isset($_SESSION['progWords']) && isset($_SESSION['progFac'])) {
+        } elseif (isset($_SESSION['progCode']) && isset($_SESSION['progDesc']) && isset($_SESSION['progDur']) && isset($_SESSION['progLoS']) && isset($_SESSION['progWords']) && isset($_SESSION['progFac']) && isset($_SESSION['progCat'])) {
             $this->view->tempProgCode = $_SESSION['progCode'];
             $this->view->tempProgDesc = $_SESSION['progDesc'];
             $this->view->tempProgDur = $_SESSION['progDur'];
+            $this->view->tempProgCat = $_SESSION['progCat'];
             $this->view->tempProgLoS = $_SESSION['progLoS'];
             $this->view->tempProgWords = $_SESSION['progWords'];
             $this->view->tempProgFac = $_SESSION['progFac'];
@@ -170,6 +174,7 @@ class FacultyAddProgrammeController extends Controller {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $programmecode = strtoupper($_POST["programmecode"]);
             $description = $_POST["description"];
+            $category = $_POST["category"];
             $duration = $_POST["duration"];
             $courseIsset = isset($_POST['CourseChk']);
             $campusIsset = isset($_POST['CampusChk']);
@@ -244,13 +249,14 @@ class FacultyAddProgrammeController extends Controller {
                 
                 $programmecode = dataHandling::HtmlTrimStrips($programmecode);
                 $description = dataHandling::HtmlStrips($description);
+                $category = dataHandling::HtmlTrimStrips($category);
                 $duration = dataHandling::HtmlTrimStrips($duration);
                 $levelofstudyid = dataHandling::HtmlTrimStrips($levelofstudyid);
                 $facultyid = dataHandling::HtmlTrimStrips($facultyid);
                 $fee = dataHandling::HtmlTrimStrips($fee);
                 $yearly = dataHandling::HtmlTrimStrips($yearly);
 
-                $this->modelProg->insert($programmecode, $description, $duration, $levelofstudyid, $facultyid, $fee, $yearly);
+                $this->modelProg->insert($programmecode, $description, $duration, $levelofstudyid, $facultyid, $fee, $yearly, $category);
                 $rowProgramme = $this->modelProg->retrieveAllProgramme();
                 $programmeid = count($rowProgramme);
 
