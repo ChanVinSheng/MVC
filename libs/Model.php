@@ -1,4 +1,4 @@
-<!-- Author: Chan Vin Sheng, Low Wei Yin, Low Ee Hui, Leek Hon Lun -->
+<!-- Author: Chan Vin Sheng-->
 
 <?php
 
