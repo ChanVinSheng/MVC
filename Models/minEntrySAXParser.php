@@ -1,7 +1,5 @@
 <?php
-
-//Reading XML using the SAX(Simple API for XML) parser 
-
+/*Author: Low Wei Yin (18WMR08375) RSD3G2*/
 
 class minEntrySAXParser {
 

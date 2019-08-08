@@ -1,3 +1,5 @@
+<?php /*Author: Low Wei Yin (18WMR08375) RSD3G2*/ ?>
+
 <title>Search Course</title>
 <div class="container">
     <h2><strong>Search Course</strong></h2>

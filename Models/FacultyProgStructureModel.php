@@ -1,4 +1,6 @@
 <?php
+/*Author: Low Wei Yin (18WMR08375) RSD3G2*/
+
 class FacultyProgStructureModel extends Model {
 
     function __construct() {

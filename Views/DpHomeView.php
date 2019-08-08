@@ -1,3 +1,5 @@
+<?php /*Author: Low Ee Hui (18WMR08374) RSD3G2*/ ?>
+
 <title>Home</title>
 <div class="container">
     <h2><strong>Faculty Management</strong></h2>

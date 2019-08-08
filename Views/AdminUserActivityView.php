@@ -1,3 +1,5 @@
+<?php /*Author: Chan Vin Sheng (18WMR08274) RSD3G2*/ ?>
+
 <div class="container">
     <br>
     <form class="form-inline md-form mr-auto mb-4" action="http://localhost/MVC/AdminUserActivityController/search?<?php echo $_GET['find']; ?>"method="GET">

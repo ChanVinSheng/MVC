@@ -1,3 +1,5 @@
+<!-- Author: Leek Hon Lun (18WMR08344) RSD3G2 -->
+
 <div class="container">
 <form action="http://localhost/MVC/student/search?<?php echo $_GET['search']; ?>" method="GET">
     <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search Action" aria-label="Search">

@@ -1,4 +1,5 @@
 <?php
+/*Author: Low Wei Yin (18WMR08375) RSD3G2*/
 
 class ValidationCourseName extends Model implements Strategy {
 

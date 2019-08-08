@@ -1,5 +1,5 @@
 <?php
-
+/*Author: Low Ee Hui (18WMR08374) RSD3G2*/
 interface FacultiesInterface {
 
     public function add($facultyname, $facultydescription, $feeMin, $feeMax);

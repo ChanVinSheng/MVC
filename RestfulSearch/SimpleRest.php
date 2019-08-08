@@ -1,4 +1,5 @@
 <?php
+/*Author: Chan Vin Sheng (18WMR08274) RSD3G2*/
 class SimpleRest {
 
     private $httpVersion = "HTTP/1.1";
