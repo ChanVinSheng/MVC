@@ -1,7 +1,5 @@
-<!-- Author: Low Wei Yin (18WMR08375) RSD3G2 -->
-
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet   type="text/xsl" href="BAIT.xsl"   ?>
+<?xml-stylesheet   type="text/xsl" href="MPU.xsl"   ?>
 <coursess>
   <courses courseid="1">
     <coursecode>BAIT3173</coursecode>
