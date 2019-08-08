@@ -1,3 +1,5 @@
+<?php /*Author: Low Ee Hui (18WMR08374) RSD3G2*/ ?>
+
 <div class="container h-100" style="text-align:center">
     <br/>
     <h2><strong>Add Accommodation</strong></h2>

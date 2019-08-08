@@ -1,5 +1,5 @@
 <?php
-
+/*Author: Low Ee Hui (18WMR08374) RSD3G2*/
 interface AccmdInterface {
 
     public function add($branch, $type, $fee, $description, $picture, $location);

@@ -1,3 +1,5 @@
+<?php /*Author: Low Wei Yin (18WMR08375) RSD3G2*/ ?>
+
 <title>Home</title>
 <div class="container">
     <h2><strong>Faculty Management</strong></h2>

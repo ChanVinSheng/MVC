@@ -1,5 +1,5 @@
 <?php
-
+/*Author: Low Ee Hui (18WMR08374) RSD3G2*/
 class XmlParserLoS {
 
     private $xml;

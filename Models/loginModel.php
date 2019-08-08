@@ -1,4 +1,5 @@
 <?php
+/*Author: Chan Vin Sheng (18WMR08274) RSD3G2*/
 
 require_once 'StrategyValidation/Validator.php';
 require_once 'StrategyValidation/ValidationEmail.php';
